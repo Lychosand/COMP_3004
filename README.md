@@ -5,6 +5,6 @@ Animal Adoption Algorithm
 | Name                    | Student numbers          |
 |-------------------------|--------------------------|
 | Quinn Stevenson         | 100982306                |
-|                         |                          |
+| Jones			          | 100977538                |
 |                         |                          |
 |                         |                          |
