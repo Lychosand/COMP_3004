@@ -1,4 +1,11 @@
 # COMP_3004
 Animal Adoption Algorithm
 
-## Keegan Jones
+# Current Members
+========================================
+| Name                 | Student Numbers |
+|----------------------|-----------------|
+|Quinn Stevenson       |100982306        |
+|                      |                 |
+|                      |                 |
+|                      |                 |
