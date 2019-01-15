@@ -2,10 +2,9 @@
 Animal Adoption Algorithm
 
 # Current Members
-========================================
-| Name                 | Student Numbers |
-|----------------------|-----------------|
-|Quinn Stevenson       |100982306        |
-|                      |                 |
-|                      |                 |
-|                      |                 |
+| Name                    | Student numbers          |
+|-------------------------|--------------------------|
+| Quinn Stevenson         | 100982306                |
+|                         |                          |
+|                         |                          |
+|                         |                          |
