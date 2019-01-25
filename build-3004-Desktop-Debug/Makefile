@@ -51,12 +51,10 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../QT/main.cpp \
-		../QT/mainwindow.cpp \
-		../QT/animal.cpp qrc_resources.cpp \
+		../QT/mainwindow.cpp qrc_resources.cpp \
 		moc_mainwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
-		animal.o \
 		qrc_resources.o \
 		moc_mainwindow.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -149,10 +147,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		../QT/3004.pro ../QT/mainwindow.h \
-		../QT/animal.h ../QT/main.cpp \
-		../QT/mainwindow.cpp \
-		../QT/animal.cpp
+		../QT/3004.pro ../QT/mainwindow.h ../QT/main.cpp \
+		../QT/mainwindow.cpp
 QMAKE_TARGET  = 3004
 DESTDIR       = 
 TARGET        = 3004
@@ -373,8 +369,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../QT/resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../QT/mainwindow.h ../QT/animal.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../QT/main.cpp ../QT/mainwindow.cpp ../QT/animal.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../QT/mainwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../QT/main.cpp ../QT/mainwindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../QT/mainwindow.ui $(DISTDIR)/
 
 
@@ -445,12 +441,8 @@ main.o: ../QT/main.cpp ../QT/mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../QT/main.cpp
 
 mainwindow.o: ../QT/mainwindow.cpp ../QT/mainwindow.h \
-		ui_mainwindow.h \
-		../QT/animal.h
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../QT/mainwindow.cpp
-
-animal.o: ../QT/animal.cpp ../QT/animal.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o animal.o ../QT/animal.cpp
 
 qrc_resources.o: qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp
