@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1080</width>
+    <height>810</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1080</width>
+    <height>810</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1080</width>
+    <height>810</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#centralWidget {
+background-image: url(:/Images/Images/background.jpg);
+background-position: center-right;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <widget class="QFrame" name="centerFrame">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>190</y>
+      <width>921</width>
+      <height>521</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#centerFrame {
+background-color: rgba(241, 241, 241, 217);
+border-radius: 50px;
+}
+
+#centerTitle{
+font: 75 28pt &quot;FreeSerif&quot;;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="centerTitle">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>-50</y>
+       <width>441</width>
+       <height>171</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>cuACS Animal Viewer</string>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="animalTable">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>270</y>
+       <width>801</width>
+       <height>231</height>
+      </rect>
+     </property>
+     <column>
+      <property name="text">
+       <string>Name</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Gender</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Age</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Species</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Breed</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Hair Type</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Hair Colour</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QPushButton" name="animalViewer">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>224</y>
+       <width>251</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>View Current Animals</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
