@@ -1,5 +1,5 @@
 # COMP_3004
-Animal Adoption Algorithm
+Project cuACS
 
 # Current Members
 | Name                    | Student numbers          |
