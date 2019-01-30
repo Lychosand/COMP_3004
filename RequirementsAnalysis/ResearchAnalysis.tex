@@ -1,0 +1,119 @@
+\documentclass{article}
+
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{mwe}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+\usepackage{arydshln}
+
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Carleton University}
+\rhead{COMP 3004}
+\rfoot{Page \thepage}
+
+\begin{document}
+\begin{center}
+
+\par
+	\includegraphics{carleton.png}\par
+	\vspace{.04\textheight}
+	{\LARGE\scshape Team AOTC\par}
+	\vspace{.05\textheight}
+	{\Huge\scshape Project cuACS\par}
+	\rule{\textwidth}{0.4pt}
+	{\LARGE\scshape Research Analysis Document\par}
+	\vspace{.02\textheight}
+	{\large Keegan Jones \\ Curtis Unrau \\ Quinn Stevenson\par}
+	\vspace{.35\textheight}
+	{\large Submitted to: \\ Dr. Christine Laurendeau \\ COMP 3004 Object-Oriented Software Engineering \\ School of Computer Science \\ Carleton University}
+\end{center}
+
+
+\tableofcontents
+\listoffigures
+\listoftables
+\section{Introduction}
+
+\subsection{System's Purposes}
+\indent
+{\par The Carleton University Animal Care System (cuACS) is set to achieve methods of helping animals and individuals find the right match for each other.  Too many people miss the opportunity of adopting a pet that would otherwise fill their lives with love and compassion.  The cuACS system is set to mitigate this issue by implementing a state of the art human to animal matching algorithm, and ensure that pets end up in the right home.  Although the Animal-Client-Matching (ACM) algorithm is the center piece to the system, cuACS' other goals are to facilitate the processes of adoption for both clients and staff.  Clients with the cuACS system will get a chance to easily see all the wonderful animals waiting to be adopted.  Once a client has been processed by the staff they will have the opportunity to give a wide variety of personal preferences, and some personal characteristics, that will aid in the process of finding the right match.  From there they will be able to see a breakdown of their most compatible animals and take their first steps in finding a new friend.  On the company side of things, cuACS will offer staff more control over these stages of the adoption process.  Staff will be able to populate the system with animals specifying their physical and behavioral characteristics.  Staff will also have the ability to bring new clients on to the system.  It will also be the staffs' responsibility to launch and monitor the ACM themselves.  The cuACS system main goal is to ensure that compassion is found for both individuals and the animals waiting to find the right person.}
+\subsection{Overview of Analysis Document}
+
+\section{Proposed System}
+
+\subsection{Overview}
+
+\subsection{Functional Requirements}
+\addcontentsline{lot}{table}{Functional Requirements}
+
+\indent{\par Here are the contents of every functional requirement the cuACS system must implement.  The purpose and method of implementation for each of these will later be documented.} \\
+
+Table 1: Functional Requirements\\
+\begin{tabular}{ll}
+
+\hline
+F-01 & User can login as staff or client \\ \hline
+
+F-02 & Client can view their profile \\ \hline
+
+\indent F-02-01 & Client can edit personal information (name, address etc.) \\ \hline
+
+\indent F-02-02 & Client can edit animal preferences \\ \hline
+
+F-03 & Client can view list of adoptable animals \\ \hline
+
+\indent F-03-01 & Client can view detailed information on a specific animal \\ \hline
+
+F-04 & Client can view their top 5 animals if ACM has been run \\ \hline
+
+F-05 & Staff can view their profile \\ \hline
+
+\indent F-05-01 & Staff can edit personal information (name, address etc.) \\ \hline
+
+F-06 & Staff can view list of current clients \\ \hline
+
+\indent F-06-01 & Staff can view detailed information on a specific client \\ \hline
+
+\indent F-06-02 & Staff can edit specific client information \\ \hline
+
+\indent F-06-03 & Staff can add new clients to the system \\ \hline
+
+F-07 & Staff can view list of all animals \\ \hline
+
+\indent F-07-01 & Staff can view detailed information on a specific animal \\ \hline
+
+\indent F-07-02 & Staff can edit information of a specific animal \\ \hline
+
+\indent F-07-03 & Staff can add new animals to the system \\ \hline
+
+F-08 & Staff can launch the ACM algorithm \\ \hline
+
+\indent F-08-01 & Staff can use an individual client in the algorithm \\ \hline
+
+\indent F-08-02 & Staff can use all clients in the algorithm \\ \hline
+
+\indent F-08-03 & Staff can view summary output of algorithm \\ \hline
+
+\end{tabular}
+
+
+\subsection{Non-Functional Requirements}
+
+\subsection{System Models}
+
+\subsubsection{Use Case Model}
+
+\subsubsection{Object Model}
+
+\subsubsection{Dynamic Model}
+
+\subsubsection{User Interface}
+
+\section{Glossary}
+
+\end{document}
