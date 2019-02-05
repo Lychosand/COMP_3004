@@ -29,6 +29,7 @@ private:
     Ui::MainWindow *ui;
     void ConnectDatabase();
     void QueryDatabase();
+    void AddToTable();
 };
 
 #endif // MAINWINDOW_H

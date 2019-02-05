@@ -9,7 +9,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
+    MainWindow w; //When MainWindow is created, code is run through the mainwindow.cpp file
     w.show();
 
     return a.exec();
