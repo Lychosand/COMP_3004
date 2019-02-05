@@ -48,6 +48,7 @@ public:
         centralWidget->setStyleSheet(QStringLiteral(""));
         centerFrame = new QFrame(centralWidget);
         centerFrame->setObjectName(QStringLiteral("centerFrame"));
+        centerFrame->setEnabled(true);
         centerFrame->setGeometry(QRect(90, 190, 921, 521));
         centerFrame->setStyleSheet(QLatin1String("#centerFrame {\n"
 "background-color: rgba(241, 241, 241, 217);\n"
