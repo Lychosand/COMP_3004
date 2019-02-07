@@ -32,26 +32,40 @@ background-position: center-right;
 }</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <property name="styleSheet">
-    <string notr="true"/>
+   <property name="enabled">
+    <bool>true</bool>
    </property>
-   <widget class="QFrame" name="centerFrame">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
+   <property name="styleSheet">
+    <string notr="true">#staff_frame {
+background-color: rgba(241, 241, 241, 217);
+border-radius: 50px;
+}
+
+#login_frame {
+background-color: rgba(241, 241, 241, 217);
+border-radius: 50px;
+}
+
+#login_title{
+font: 75 28pt &quot;FreeSerif&quot;;
+}
+
+#staff_title{
+font: 75 28pt &quot;FreeSerif&quot;;
+}
+</string>
+   </property>
+   <widget class="QFrame" name="staff_frame">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>190</y>
+      <x>0</x>
+      <y>530</y>
       <width>921</width>
       <height>521</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">#centerFrame {
-background-color: rgba(241, 241, 241, 217);
-border-radius: 50px;
-}
+     <string notr="true">
 
 #centerTitle{
 font: 75 28pt &quot;FreeSerif&quot;;
@@ -63,17 +77,17 @@ font: 75 28pt &quot;FreeSerif&quot;;
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="centerTitle">
+    <widget class="QLabel" name="staff_title">
      <property name="geometry">
       <rect>
-       <x>300</x>
+       <x>330</x>
        <y>-50</y>
        <width>441</width>
        <height>171</height>
       </rect>
      </property>
      <property name="text">
-      <string>cuACS Animal Viewer</string>
+      <string>Staff Admin Form</string>
      </property>
     </widget>
     <widget class="QTableWidget" name="animalTable">
@@ -135,9 +149,113 @@ font: 75 28pt &quot;FreeSerif&quot;;
      </property>
     </widget>
    </widget>
+   <widget class="QFrame" name="login_frame">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>921</width>
+      <height>521</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="login_title">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>-50</y>
+       <width>441</width>
+       <height>171</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>The cuACS System</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="login_button">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>280</y>
+       <width>251</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Login</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="password_input">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>220</y>
+       <width>171</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="username_input">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>140</y>
+       <width>171</width>
+       <height>25</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="password_label">
+     <property name="geometry">
+      <rect>
+       <x>410</x>
+       <y>190</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Password</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="username_label">
+     <property name="geometry">
+      <rect>
+       <x>410</x>
+       <y>100</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Username</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>username_input</tabstop>
+  <tabstop>password_input</tabstop>
+  <tabstop>login_button</tabstop>
+  <tabstop>animalViewer</tabstop>
+  <tabstop>animalTable</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
