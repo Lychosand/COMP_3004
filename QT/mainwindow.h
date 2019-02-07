@@ -25,11 +25,14 @@ public:
 private slots:
     void on_animalViewer_clicked();
 
+    void on_login_button_clicked();
+
 private:
     Ui::MainWindow *ui;
     void ConnectDatabase();
     void QueryDatabase();
     void AddToTable();
+    void PrepareForms();
 };
 
 #endif // MAINWINDOW_H
