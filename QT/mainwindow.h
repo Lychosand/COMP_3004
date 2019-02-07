@@ -24,6 +24,7 @@ public:
 
 private slots:
     void on_animalViewer_clicked();
+    void on_addAnimal_clicked();
 
     void on_login_button_clicked();
 

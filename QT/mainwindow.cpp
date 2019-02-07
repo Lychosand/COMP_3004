@@ -26,7 +26,7 @@ void MainWindow::PrepareForms()
 void MainWindow::ConnectDatabase()
 {
     QSqlDatabase animal_db=QSqlDatabase::addDatabase("QSQLITE");
-    animal_db.setDatabaseName("/home/student/Desktop/COMP_3004/SQL_Database/3004.db");
+    animal_db.setDatabaseName("/home/student/Documents/COMP_3004/SQL_Database/3004.db");
 
     if(!animal_db.open())
         qWarning() << "MainWindow::ConnectDatabase - ERROR: Couldn't Open Database!";
@@ -115,3 +115,46 @@ void MainWindow::on_login_button_clicked()
     }
 }
 
+void MainWindow::on_addAnimal_clicked()
+{
+    AddAnimal();
+}
+
+void MainWindow::AddAnimal()
+{
+    QSqlQuery addQuery;
+    QString animalName = ui->nameInput->text();
+    QString animalGender = ui->genderInput->text();
+    QString animalAge = ui->ageInput->text();
+    QString animalSpecies = ui->speciesInput->text();
+    QString animalBreed = ui->breedInput->text();
+    QString animalHairType = ui->hairTypeInput->text();
+    QString animalHairColour = ui->hairColourInput->text();
+    int ageInt = animalAge.toInt();
+    int animalId = 42;
+
+    addQuery.prepare("INSERT INTO ANIMALS (animal_id, name)"
+                     "VALUES (:animal_id, :name)");
+    addQuery.bindValue(":animal_id", animalId);
+    addQuery.bindValue(":name", animalName);
+    addQuery.exec();
+
+    addQuery.prepare("INSERT INTO PHYSICAL_ATTRIBUTES (a_id, gender, age, species, breed, hair_type, hair_colour)"
+                     "VALUES (:a_id, :gender, :age, :species, :breed, :hair_type, :hair_colour)");
+    addQuery.bindValue(":a_id", animalId);
+    addQuery.bindValue(":gender", animalGender);
+    addQuery.bindValue(":age", ageInt);
+    addQuery.bindValue(":species", animalSpecies);
+    addQuery.bindValue(":breed", animalBreed);
+    addQuery.bindValue(":hair_type", animalHairType);
+    addQuery.bindValue(":hair_colour", animalHairColour);
+    addQuery.exec();
+
+
+
+
+
+
+
+
+}
