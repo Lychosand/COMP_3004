@@ -9,8 +9,17 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setWindowTitle("cuACS"); //sets the window title
     this->setWindowIcon(QIcon("/home/student/Desktop/COMP_3004/QT/Images/icon.gif")); //gives our program a little icon
 
+    PrepareForms();
     ConnectDatabase(); //connects to the 3004.db
-    QueryDatabase(); //this will call the first query to the database.  Creating animal objects will happen inside this function
+}
+
+//Hides and sets coordinates for the current QWidgets found on the main window
+void MainWindow::PrepareForms()
+{
+    ui->login_frame->move(80, 170); //x_pos = (mainwindow.width-login_frame.width)/2 height, y_pos = (mainwindow.height-login_frame.height)/2
+    ui->staff_frame->move(80, 170);
+    ui->staff_frame->hide();
+    ui->password_input->setEchoMode(QLineEdit::Password);
 }
 
 //Initial function connecting us to the database
@@ -30,8 +39,6 @@ void MainWindow::QueryDatabase()
     QSqlQuery query;
 
     query.prepare("SELECT name, gender, age, species, breed, hair_type, hair_colour FROM ANIMALS INNER JOIN PHYSICAL_ATTRIBUTES ON ANIMALS.animal_id = PHYSICAL_ATTRIBUTES.a_id;");
-
-
 
     if(!query.exec())
         qWarning() << "Query Failed!";
@@ -79,7 +86,33 @@ MainWindow::~MainWindow()
 //Function is called when the view animals button is clicked
 void MainWindow::on_animalViewer_clicked()
 {
-    AddToTable();
+    QueryDatabase(); //this will call the first query to the database.  Creating animal objects will happen inside this function
+    AddToTable(); //This function will have to add our animal objects to the viewable table
+}
+
+//Function is called when the login button on the login form is pressed
+void MainWindow::on_login_button_clicked()
+{
+    QSqlQuery query;
+
+    query.prepare("SELECT password FROM STAFF WHERE USERNAME = :staff_username");
+    query.bindValue(":staff_username", ui->username_input->text());
+
+    query.exec();
+
+    if(!query.next()) {
+        qWarning() << "User not Found!";
+    }else {
+        qDebug() << "Found the user! ";
+
+        if(query.value(0).toString() == ui->password_input->text()) {
+            qDebug() << "Welcome!";
+            ui->login_frame->hide();
+            ui->staff_frame->show();
+        }else {
+            qWarning() << "Incorrect Password!";
+        }
+    }
 }
 
 void MainWindow::on_addAnimal_clicked()
