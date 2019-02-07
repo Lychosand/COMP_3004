@@ -26,7 +26,7 @@ void MainWindow::PrepareForms()
 void MainWindow::ConnectDatabase()
 {
     QSqlDatabase animal_db=QSqlDatabase::addDatabase("QSQLITE");
-    animal_db.setDatabaseName("/home/student/Documents/COMP_3004/SQL_Database/3004.db");
+    animal_db.setDatabaseName("/home/student/Desktop/COMP_3004/SQL_Database/3004.db");
 
     if(!animal_db.open())
         qWarning() << "MainWindow::ConnectDatabase - ERROR: Couldn't Open Database!";
@@ -115,14 +115,10 @@ void MainWindow::on_login_button_clicked()
     }
 }
 
-void MainWindow::on_addAnimal_clicked()
-{
-    AddAnimal();
-}
-
 void MainWindow::AddAnimal()
 {
     QSqlQuery addQuery;
+    QSqlQuery idQuery;
     QString animalName = ui->nameInput->text();
     QString animalGender = ui->genderInput->text();
     QString animalAge = ui->ageInput->text();
@@ -131,7 +127,27 @@ void MainWindow::AddAnimal()
     QString animalHairType = ui->hairTypeInput->text();
     QString animalHairColour = ui->hairColourInput->text();
     int ageInt = animalAge.toInt();
-    int animalId = 42;
+    int animalId;
+    int id_data = 0;
+
+    idQuery.prepare("SELECT animal_id FROM ANIMALS");
+
+    idQuery.exec();
+    idQuery.first();
+
+    QSqlRecord record = idQuery.record();
+
+     while(idQuery.next()){
+        for(int i = 0; i < record.count(); i++) {
+            int temp = idQuery.value(i).toInt();
+            if(temp>id_data){
+                id_data = temp;
+            }
+        }
+    }
+    qDebug() << id_data;
+
+    animalId = id_data + 1;
 
     addQuery.prepare("INSERT INTO ANIMALS (animal_id, name)"
                      "VALUES (:animal_id, :name)");
@@ -150,11 +166,17 @@ void MainWindow::AddAnimal()
     addQuery.bindValue(":hair_colour", animalHairColour);
     addQuery.exec();
 
+    ui->nameInput->setText("");
+    ui->ageInput->setText("");
+    ui->genderInput->setText("");
+    ui->breedInput->setText("");
+    ui->hairTypeInput->setText("");
+    ui->hairColourInput->setText("");
+    ui->speciesInput->setText("");
 
+}
 
-
-
-
-
-
+void MainWindow::on_addButton_clicked()
+{
+    AddAnimal();
 }

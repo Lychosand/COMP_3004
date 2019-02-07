@@ -248,6 +248,9 @@ font: 75 28pt &quot;FreeSerif&quot;;
        <height>21</height>
       </rect>
      </property>
+     <property name="accessibleName">
+      <string>nameInput</string>
+     </property>
     </widget>
     <widget class="QLineEdit" name="genderInput">
      <property name="geometry">
