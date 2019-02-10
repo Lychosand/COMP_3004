@@ -51,10 +51,14 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../QT/main.cpp \
-		../QT/mainwindow.cpp qrc_resources.cpp \
+		../QT/mainwindow.cpp \
+		../QT/Animal.cpp \
+		../QT/Array.cpp qrc_resources.cpp \
 		moc_mainwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
+		Animal.o \
+		Array.o \
 		qrc_resources.o \
 		moc_mainwindow.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -127,7 +131,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
-		../QT/.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -147,8 +150,12 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		../QT/3004.pro ../QT/mainwindow.h ../QT/main.cpp \
-		../QT/mainwindow.cpp
+		../QT/3004.pro ../QT/mainwindow.h \
+		../QT/Animal.h \
+		../QT/Array.h ../QT/main.cpp \
+		../QT/mainwindow.cpp \
+		../QT/Animal.cpp \
+		../QT/Array.cpp
 QMAKE_TARGET  = 3004
 DESTDIR       = 
 TARGET        = 3004
@@ -230,7 +237,6 @@ Makefile: ../QT/3004.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.c
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -327,7 +333,6 @@ Makefile: ../QT/3004.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.c
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
-.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -369,8 +374,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../QT/resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../QT/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../QT/main.cpp ../QT/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../QT/mainwindow.h ../QT/Animal.h ../QT/Array.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../QT/main.cpp ../QT/mainwindow.cpp ../QT/Animal.cpp ../QT/Array.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../QT/mainwindow.ui $(DISTDIR)/
 
 
@@ -413,7 +418,9 @@ moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 compiler_moc_header_make_all: moc_mainwindow.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp
-moc_mainwindow.cpp: ../QT/mainwindow.h \
+moc_mainwindow.cpp: ../QT/Animal.h \
+		../QT/Array.h \
+		../QT/mainwindow.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/student/Desktop/COMP_3004/QT -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../QT/mainwindow.h -o moc_mainwindow.cpp
@@ -437,12 +444,23 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 
 ####### Compile
 
-main.o: ../QT/main.cpp ../QT/mainwindow.h
+main.o: ../QT/main.cpp ../QT/mainwindow.h \
+		../QT/Animal.h \
+		../QT/Array.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../QT/main.cpp
 
 mainwindow.o: ../QT/mainwindow.cpp ../QT/mainwindow.h \
+		../QT/Animal.h \
+		../QT/Array.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../QT/mainwindow.cpp
+
+Animal.o: ../QT/Animal.cpp ../QT/Animal.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Animal.o ../QT/Animal.cpp
+
+Array.o: ../QT/Array.cpp ../QT/Array.h \
+		../QT/Animal.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Array.o ../QT/Array.cpp
 
 qrc_resources.o: qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp

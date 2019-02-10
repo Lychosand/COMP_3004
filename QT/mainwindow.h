@@ -9,6 +9,8 @@
 #include <QSqlDatabase>
 #include <QtCore>
 #include <QtGui>
+#include "Animal.h"
+#include "Array.h"
 
 namespace Ui {
 class MainWindow;
@@ -36,6 +38,8 @@ private:
     void AddToTable();
     void PrepareForms();
     void AddAnimal();
+    Array list;
+
 };
 
 #endif // MAINWINDOW_H

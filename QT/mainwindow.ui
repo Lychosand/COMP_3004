@@ -145,7 +145,7 @@ font: 75 28pt &quot;FreeSerif&quot;;
       </rect>
      </property>
      <property name="text">
-      <string>View Current Animals</string>
+      <string>Refresh List</string>
      </property>
     </widget>
     <widget class="QLabel" name="nameLabel">

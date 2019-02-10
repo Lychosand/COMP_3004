@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+using std::string;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -26,10 +27,15 @@ void MainWindow::PrepareForms()
 void MainWindow::ConnectDatabase()
 {
     QSqlDatabase animal_db=QSqlDatabase::addDatabase("QSQLITE");
-    animal_db.setDatabaseName("/home/student/Desktop/COMP_3004/SQL_Database/3004.db");
+    animal_db.setDatabaseName("../SQL_Database/3004.db");
 
-    if(!animal_db.open())
+    if(!animal_db.open()){
         qWarning() << "MainWindow::ConnectDatabase - ERROR: Couldn't Open Database!";
+    }else{
+        QueryDatabase(); //this will call the first query to the database.  Creating animal objects will happen inside this function
+        AddToTable();
+    }
+
 
 }
 
@@ -37,7 +43,6 @@ void MainWindow::ConnectDatabase()
 void MainWindow::QueryDatabase()
 {
     QSqlQuery query;
-
     query.prepare("SELECT name, gender, age, species, breed, hair_type, hair_colour FROM ANIMALS INNER JOIN PHYSICAL_ATTRIBUTES ON ANIMALS.animal_id = PHYSICAL_ATTRIBUTES.a_id;");
 
     if(!query.exec())
@@ -45,14 +50,37 @@ void MainWindow::QueryDatabase()
 
     QSqlRecord record = query.record(); //gets the count of columns, used for iteration
 
+    //will delete list so there is no repeat animals
+    list.deleteList();
+
     while(query.next()) {
-        QString animal_data; //use the data that gets fed into this string to create the animal objects
+        //use the data that gets fed into this string to create the animal objects
+        QString name,gender,species,breed,hairType,hairColour;
+        string name1,gender1,species1,breed1,hairType1,hairColour1;
+        int age;
 
-        for(int i = 0; i < record.count(); i++) {
-            animal_data += query.value(i).toString() + " ";
-        }
+        name = query.value(0).toString();
+        name1 = name.toStdString();
 
-        qDebug() << animal_data;
+        gender = query.value(1).toString();
+        gender1 = gender.toStdString();
+
+        age = query.value(2).toInt();
+
+        species = query.value(3).toString();
+        species1 = species.toStdString();
+
+        breed = query.value(4).toString();
+        breed1 = breed.toStdString();
+
+        hairType = query.value(5).toString();
+        hairType1 = hairType.toStdString();
+
+        hairColour = query.value(6).toString();
+        hairColour1 = hairColour.toStdString();
+
+        Animal *animal = new Animal(name1,gender1,species1,breed1,hairType1,hairColour1,age);
+        list.addAnimal(animal);
     }
 }
 
@@ -60,27 +88,59 @@ void MainWindow::QueryDatabase()
 //Commented out code is a guideline on how to insert data into the table
 void MainWindow::AddToTable()
 {
-    /*
-    QString temp_table_string;
 
-    int iterator = 0;
+    QString name,gender,species,breed,hairType,hairColour,age;
+    string name1,gender1,species1,breed1,hairType1,hairColour1;
+    int age1;
+    QSqlQuery query;
+
+    //clears data in table if its a refresh
+    ui->animalTable->clear();
+
+    //returns number of animals in list
+    int numAnimal = list.getNumAnimal();
 
     //Before query would return with all the sql data, change query to appropriately use a list of animal objects
-    while(query.next()) {
-        ui->animalTable->insertRow(iterator);
+    for(int i = 0; i< numAnimal; i++) {
+        ui->animalTable->removeRow(i);
+        ui->animalTable->insertRow(i);
 
-        for(int j=0; j<7; j++) {
-            temp_table_string = query.value(j).toString();
-            ui->animalTable->setItem(iterator, j, new QTableWidgetItem(temp_table_string));
-        }
+        //gets info on animal object
+        name1 = list.getAnimalName(i);
+        name = QString::fromStdString(name1);
+        ui->animalTable->setItem(i, 0, new QTableWidgetItem(name));
+        ui->animalTable->setHorizontalHeaderItem(0, new QTableWidgetItem("Name"));
 
-        iterator++;
+        gender1 = list.getAnimalGender(i);
+        gender = QString::fromStdString(gender1);
+        ui->animalTable->setItem(i, 1, new QTableWidgetItem(gender));
+        ui->animalTable->setHorizontalHeaderItem(1, new QTableWidgetItem("Gender"));
+
+        age1 = list.getAnimalAge(i);
+        age = QString::number(age1);
+        ui->animalTable->setItem(i, 2, new QTableWidgetItem(age));
+        ui->animalTable->setHorizontalHeaderItem(2, new QTableWidgetItem("Age"));
+
+        species1 = list.getAnimalSpecies(i);
+        species = QString::fromStdString(species1);
+        ui->animalTable->setItem(i, 3, new QTableWidgetItem(species));
+        ui->animalTable->setHorizontalHeaderItem(3, new QTableWidgetItem("Species"));
+
+        breed1 = list.getAnimalBreed(i);
+        breed = QString::fromStdString(breed1);
+        ui->animalTable->setItem(i, 4, new QTableWidgetItem(breed));
+        ui->animalTable->setHorizontalHeaderItem(4, new QTableWidgetItem("Breed"));
+
+        hairType1 = list.getAnimalHairType(i);
+        hairType = QString::fromStdString(hairType1);
+        ui->animalTable->setItem(i, 5, new QTableWidgetItem(hairType));
+        ui->animalTable->setHorizontalHeaderItem(5, new QTableWidgetItem("Hair Type"));
+
+        hairColour1 = list.getAnimalHairColour(i);
+        hairColour = QString::fromStdString(hairColour1);
+        ui->animalTable->setItem(i, 6, new QTableWidgetItem(hairColour));
+        ui->animalTable->setHorizontalHeaderItem(6, new QTableWidgetItem("Hair Colour"));
     }
-    */
-}
-MainWindow::~MainWindow()
-{
-    delete ui;
 }
 
 //Function is called when the view animals button is clicked
@@ -117,66 +177,87 @@ void MainWindow::on_login_button_clicked()
 
 void MainWindow::AddAnimal()
 {
-    QSqlQuery addQuery;
-    QSqlQuery idQuery;
-    QString animalName = ui->nameInput->text();
-    QString animalGender = ui->genderInput->text();
-    QString animalAge = ui->ageInput->text();
-    QString animalSpecies = ui->speciesInput->text();
-    QString animalBreed = ui->breedInput->text();
-    QString animalHairType = ui->hairTypeInput->text();
-    QString animalHairColour = ui->hairColourInput->text();
-    int ageInt = animalAge.toInt();
-    int animalId;
-    int id_data = 0;
+    //Following code adds the new animal into the database
+    if((ui->nameInput->text().isEmpty()) ||
+       (ui->genderInput->text().isEmpty()) ||
+       (ui->ageInput->text().isEmpty()) ||
+       (ui->speciesInput->text().isEmpty()) ||
+       (ui->breedInput->text().isEmpty()) ||
+       (ui->hairTypeInput->text().isEmpty()) ||
+       (ui->hairColourInput->text().isEmpty()))
+    {
+        qWarning() << "Missing Animal Entry Data!  Please Provide Appropriate Information!";
+    } else
+    {
+        QSqlQuery addQuery;
+        QSqlQuery idQuery;
+        QString animalName = ui->nameInput->text();
+        QString animalGender = ui->genderInput->text();
+        QString animalAge = ui->ageInput->text();
+        QString animalSpecies = ui->speciesInput->text();
+        QString animalBreed = ui->breedInput->text();
+        QString animalHairType = ui->hairTypeInput->text();
+        QString animalHairColour = ui->hairColourInput->text();
 
-    idQuery.prepare("SELECT animal_id FROM ANIMALS");
+        int ageInt = animalAge.toInt();
+        int animalId;
+        int id_data = 0;
 
-    idQuery.exec();
-    idQuery.first();
+        idQuery.prepare("SELECT animal_id FROM ANIMALS");
 
-    QSqlRecord record = idQuery.record();
+        idQuery.exec();
+        idQuery.first();
 
-     while(idQuery.next()){
-        for(int i = 0; i < record.count(); i++) {
-            int temp = idQuery.value(i).toInt();
-            if(temp>id_data){
-                id_data = temp;
+        QSqlRecord record = idQuery.record();
+
+         while(idQuery.next()){
+            for(int i = 0; i < record.count(); i++) {
+                int temp = idQuery.value(i).toInt();
+                if(temp>id_data){
+                    id_data = temp;
+                }
             }
         }
+        qDebug() << id_data;
+
+        animalId = id_data + 1;
+
+        addQuery.prepare("INSERT INTO ANIMALS (animal_id, name)"
+                         "VALUES (:animal_id, :name)");
+        addQuery.bindValue(":animal_id", animalId);
+        addQuery.bindValue(":name", animalName);
+        addQuery.exec();
+
+        addQuery.prepare("INSERT INTO PHYSICAL_ATTRIBUTES (a_id, gender, age, species, breed, hair_type, hair_colour)"
+                         "VALUES (:a_id, :gender, :age, :species, :breed, :hair_type, :hair_colour)");
+        addQuery.bindValue(":a_id", animalId);
+        addQuery.bindValue(":gender", animalGender);
+        addQuery.bindValue(":age", ageInt);
+        addQuery.bindValue(":species", animalSpecies);
+        addQuery.bindValue(":breed", animalBreed);
+        addQuery.bindValue(":hair_type", animalHairType);
+        addQuery.bindValue(":hair_colour", animalHairColour);
+        addQuery.exec();
+
+        ui->nameInput->setText("");
+        ui->ageInput->setText("");
+        ui->genderInput->setText("");
+        ui->breedInput->setText("");
+        ui->hairTypeInput->setText("");
+        ui->hairColourInput->setText("");
+        ui->speciesInput->setText("");
+
+        QueryDatabase(); //this will call the first query to the database.  Creating animal objects will happen inside this function
+        AddToTable(); //This function will have to add our animal objects to the viewable table
     }
-    qDebug() << id_data;
-
-    animalId = id_data + 1;
-
-    addQuery.prepare("INSERT INTO ANIMALS (animal_id, name)"
-                     "VALUES (:animal_id, :name)");
-    addQuery.bindValue(":animal_id", animalId);
-    addQuery.bindValue(":name", animalName);
-    addQuery.exec();
-
-    addQuery.prepare("INSERT INTO PHYSICAL_ATTRIBUTES (a_id, gender, age, species, breed, hair_type, hair_colour)"
-                     "VALUES (:a_id, :gender, :age, :species, :breed, :hair_type, :hair_colour)");
-    addQuery.bindValue(":a_id", animalId);
-    addQuery.bindValue(":gender", animalGender);
-    addQuery.bindValue(":age", ageInt);
-    addQuery.bindValue(":species", animalSpecies);
-    addQuery.bindValue(":breed", animalBreed);
-    addQuery.bindValue(":hair_type", animalHairType);
-    addQuery.bindValue(":hair_colour", animalHairColour);
-    addQuery.exec();
-
-    ui->nameInput->setText("");
-    ui->ageInput->setText("");
-    ui->genderInput->setText("");
-    ui->breedInput->setText("");
-    ui->hairTypeInput->setText("");
-    ui->hairColourInput->setText("");
-    ui->speciesInput->setText("");
-
 }
 
 void MainWindow::on_addButton_clicked()
 {
     AddAnimal();
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
 }

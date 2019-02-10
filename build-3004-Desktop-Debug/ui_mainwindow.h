@@ -222,7 +222,7 @@ public:
         ___qtablewidgetitem5->setText(QApplication::translate("MainWindow", "Hair Type", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem6 = animalTable->horizontalHeaderItem(6);
         ___qtablewidgetitem6->setText(QApplication::translate("MainWindow", "Hair Colour", Q_NULLPTR));
-        animalViewer->setText(QApplication::translate("MainWindow", "View Current Animals", Q_NULLPTR));
+        animalViewer->setText(QApplication::translate("MainWindow", "Refresh List", Q_NULLPTR));
         nameLabel->setText(QApplication::translate("MainWindow", "Name:", Q_NULLPTR));
         genderLabel->setText(QApplication::translate("MainWindow", "Gender:", Q_NULLPTR));
         ageLabel->setText(QApplication::translate("MainWindow", "Age:", Q_NULLPTR));
