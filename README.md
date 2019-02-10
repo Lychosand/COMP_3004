@@ -15,6 +15,7 @@ quinn-stevenson = Lychosand.  There was descrepencies between my two accounts wh
 
 # Building
 In order to build this project you must: 
+* run `tar -xvf AOTC_Deliverable1.tar` wherever you have placed the tar file
 * navigate to where the Makefile is.  It will be inside the QT directory
 * ex: `cd /home/student/Desktop/COMP_3004/QT`
 * next run: `make` 
