@@ -32,16 +32,16 @@ struct qt_meta_stringdata_MainWindow_t {
 static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {
     {
 QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
-QT_MOC_LITERAL(1, 11, 23), // "on_animalViewer_clicked"
-QT_MOC_LITERAL(2, 35, 0), // ""
-QT_MOC_LITERAL(3, 36, 23), // "on_login_button_clicked"
-QT_MOC_LITERAL(4, 60, 20), // "on_addButton_clicked"
+QT_MOC_LITERAL(1, 11, 22), // "on_view_button_clicked"
+QT_MOC_LITERAL(2, 34, 0), // ""
+QT_MOC_LITERAL(3, 35, 23), // "on_login_button_clicked"
+QT_MOC_LITERAL(4, 59, 21), // "on_add_button_clicked"
 QT_MOC_LITERAL(5, 81, 24), // "on_staff_combo_activated"
 QT_MOC_LITERAL(6, 106, 4) // "arg1"
 
     },
-    "MainWindow\0on_animalViewer_clicked\0\0"
-    "on_login_button_clicked\0on_addButton_clicked\0"
+    "MainWindow\0on_view_button_clicked\0\0"
+    "on_login_button_clicked\0on_add_button_clicked\0"
     "on_staff_combo_activated\0arg1"
 };
 #undef QT_MOC_LITERAL
@@ -80,9 +80,9 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         MainWindow *_t = static_cast<MainWindow *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->on_animalViewer_clicked(); break;
+        case 0: _t->on_view_button_clicked(); break;
         case 1: _t->on_login_button_clicked(); break;
-        case 2: _t->on_addButton_clicked(); break;
+        case 2: _t->on_add_button_clicked(); break;
         case 3: _t->on_staff_combo_activated((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         default: ;
         }

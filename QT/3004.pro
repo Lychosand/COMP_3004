@@ -24,18 +24,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-        main.cpp \
-        mainwindow.cpp \
     Animal.cpp \
-    Array.cpp
+    Array.cpp \
+    Client.cpp \
+    Main.cpp \
+    MainWindow.cpp \
+    ClientArray.cpp
 
 HEADERS += \
-        mainwindow.h \
     Animal.h \
-    Array.h
+    Array.h \
+    Client.h \
+    MainWindow.h \
+    ClientArray.h
 
 FORMS += \
-        mainwindow.ui
+    MainWindow.ui
 
 RESOURCES += \
     resources.qrc
