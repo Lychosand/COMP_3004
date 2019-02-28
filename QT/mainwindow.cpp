@@ -252,6 +252,16 @@ void MainWindow::AddAnimal()
     }
 }
 
+void MainWindow::show_clients()
+{
+
+}
+
+void MainWindow::show_animals()
+{
+
+}
+
 void MainWindow::on_addButton_clicked()
 {
     AddAnimal();
@@ -260,4 +270,9 @@ void MainWindow::on_addButton_clicked()
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::on_staff_combo_activated(const QString &arg1)
+{
+    qDebug() << "Changed combo box items";
 }

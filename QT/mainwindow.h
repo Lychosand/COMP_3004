@@ -31,6 +31,8 @@ private slots:
 
     void on_addButton_clicked();
 
+    void on_staff_combo_activated(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
     void ConnectDatabase();
@@ -38,6 +40,8 @@ private:
     void AddToTable();
     void PrepareForms();
     void AddAnimal();
+    void show_animals();
+    void show_clients();
     Array list;
 
 };

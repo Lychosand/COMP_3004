@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -47,6 +48,7 @@ public:
     QLineEdit *hairTypeInput;
     QLineEdit *hairColourInput;
     QPushButton *addButton;
+    QComboBox *staff_combo;
     QFrame *login_frame;
     QLabel *login_title;
     QPushButton *login_button;
@@ -89,7 +91,7 @@ public:
 ""));
         staff_frame = new QFrame(centralWidget);
         staff_frame->setObjectName(QStringLiteral("staff_frame"));
-        staff_frame->setGeometry(QRect(0, 530, 921, 521));
+        staff_frame->setGeometry(QRect(90, 160, 921, 521));
         staff_frame->setStyleSheet(QLatin1String("\n"
 "\n"
 "#centerTitle{\n"
@@ -118,58 +120,61 @@ public:
         QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
         animalTable->setHorizontalHeaderItem(6, __qtablewidgetitem6);
         animalTable->setObjectName(QStringLiteral("animalTable"));
-        animalTable->setGeometry(QRect(70, 270, 801, 231));
+        animalTable->setGeometry(QRect(120, 280, 701, 231));
         animalViewer = new QPushButton(staff_frame);
         animalViewer->setObjectName(QStringLiteral("animalViewer"));
-        animalViewer->setGeometry(QRect(350, 224, 251, 31));
+        animalViewer->setGeometry(QRect(70, 150, 111, 21));
         nameLabel = new QLabel(staff_frame);
         nameLabel->setObjectName(QStringLiteral("nameLabel"));
-        nameLabel->setGeometry(QRect(90, 60, 64, 17));
+        nameLabel->setGeometry(QRect(250, 70, 64, 17));
         genderLabel = new QLabel(staff_frame);
         genderLabel->setObjectName(QStringLiteral("genderLabel"));
-        genderLabel->setGeometry(QRect(90, 80, 64, 17));
+        genderLabel->setGeometry(QRect(240, 110, 64, 17));
         ageLabel = new QLabel(staff_frame);
         ageLabel->setObjectName(QStringLiteral("ageLabel"));
-        ageLabel->setGeometry(QRect(340, 80, 64, 17));
+        ageLabel->setGeometry(QRect(550, 110, 64, 17));
         speciesLabel = new QLabel(staff_frame);
         speciesLabel->setObjectName(QStringLiteral("speciesLabel"));
-        speciesLabel->setGeometry(QRect(90, 100, 64, 17));
+        speciesLabel->setGeometry(QRect(240, 160, 64, 17));
         breedLabel = new QLabel(staff_frame);
         breedLabel->setObjectName(QStringLiteral("breedLabel"));
-        breedLabel->setGeometry(QRect(90, 120, 64, 17));
+        breedLabel->setGeometry(QRect(540, 160, 64, 17));
         hairTypeLabel = new QLabel(staff_frame);
         hairTypeLabel->setObjectName(QStringLiteral("hairTypeLabel"));
-        hairTypeLabel->setGeometry(QRect(90, 140, 71, 17));
+        hairTypeLabel->setGeometry(QRect(230, 210, 71, 17));
         hairColourLabel = new QLabel(staff_frame);
         hairColourLabel->setObjectName(QStringLiteral("hairColourLabel"));
-        hairColourLabel->setGeometry(QRect(90, 160, 81, 17));
+        hairColourLabel->setGeometry(QRect(510, 210, 81, 17));
         nameInput = new QLineEdit(staff_frame);
         nameInput->setObjectName(QStringLiteral("nameInput"));
-        nameInput->setGeometry(QRect(170, 60, 331, 21));
+        nameInput->setGeometry(QRect(310, 70, 331, 21));
         genderInput = new QLineEdit(staff_frame);
         genderInput->setObjectName(QStringLiteral("genderInput"));
-        genderInput->setGeometry(QRect(170, 80, 161, 21));
+        genderInput->setGeometry(QRect(310, 110, 161, 21));
         ageInput = new QLineEdit(staff_frame);
         ageInput->setObjectName(QStringLiteral("ageInput"));
-        ageInput->setGeometry(QRect(380, 80, 121, 21));
+        ageInput->setGeometry(QRect(600, 110, 121, 21));
         speciesInput = new QLineEdit(staff_frame);
         speciesInput->setObjectName(QStringLiteral("speciesInput"));
-        speciesInput->setGeometry(QRect(170, 100, 191, 21));
+        speciesInput->setGeometry(QRect(310, 160, 191, 21));
         breedInput = new QLineEdit(staff_frame);
         breedInput->setObjectName(QStringLiteral("breedInput"));
-        breedInput->setGeometry(QRect(170, 120, 191, 21));
+        breedInput->setGeometry(QRect(600, 160, 191, 21));
         hairTypeInput = new QLineEdit(staff_frame);
         hairTypeInput->setObjectName(QStringLiteral("hairTypeInput"));
-        hairTypeInput->setGeometry(QRect(170, 140, 191, 21));
+        hairTypeInput->setGeometry(QRect(310, 210, 191, 21));
         hairColourInput = new QLineEdit(staff_frame);
         hairColourInput->setObjectName(QStringLiteral("hairColourInput"));
-        hairColourInput->setGeometry(QRect(170, 160, 191, 21));
+        hairColourInput->setGeometry(QRect(600, 210, 191, 21));
         addButton = new QPushButton(staff_frame);
         addButton->setObjectName(QStringLiteral("addButton"));
-        addButton->setGeometry(QRect(420, 160, 83, 25));
+        addButton->setGeometry(QRect(70, 110, 111, 21));
+        staff_combo = new QComboBox(staff_frame);
+        staff_combo->setObjectName(QStringLiteral("staff_combo"));
+        staff_combo->setGeometry(QRect(70, 70, 111, 25));
         login_frame = new QFrame(centralWidget);
         login_frame->setObjectName(QStringLiteral("login_frame"));
-        login_frame->setGeometry(QRect(0, 0, 921, 521));
+        login_frame->setGeometry(QRect(820, -460, 921, 521));
         login_frame->setAutoFillBackground(false);
         login_frame->setStyleSheet(QStringLiteral(""));
         login_frame->setFrameShape(QFrame::StyledPanel);
@@ -222,7 +227,7 @@ public:
         ___qtablewidgetitem5->setText(QApplication::translate("MainWindow", "Hair Type", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem6 = animalTable->horizontalHeaderItem(6);
         ___qtablewidgetitem6->setText(QApplication::translate("MainWindow", "Hair Colour", Q_NULLPTR));
-        animalViewer->setText(QApplication::translate("MainWindow", "Refresh List", Q_NULLPTR));
+        animalViewer->setText(QApplication::translate("MainWindow", "View Animals", Q_NULLPTR));
         nameLabel->setText(QApplication::translate("MainWindow", "Name:", Q_NULLPTR));
         genderLabel->setText(QApplication::translate("MainWindow", "Gender:", Q_NULLPTR));
         ageLabel->setText(QApplication::translate("MainWindow", "Age:", Q_NULLPTR));
@@ -234,6 +239,14 @@ public:
         nameInput->setAccessibleName(QApplication::translate("MainWindow", "nameInput", Q_NULLPTR));
 #endif // QT_NO_ACCESSIBILITY
         addButton->setText(QApplication::translate("MainWindow", "Add Animal", Q_NULLPTR));
+        staff_combo->clear();
+        staff_combo->insertItems(0, QStringList()
+         << QApplication::translate("MainWindow", "Animals", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "Clients", Q_NULLPTR)
+        );
+#ifndef QT_NO_TOOLTIP
+        staff_combo->setToolTip(QApplication::translate("MainWindow", "<html><head/><body><p><br/></p></body></html>", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         login_title->setText(QApplication::translate("MainWindow", "The cuACS System", Q_NULLPTR));
         login_button->setText(QApplication::translate("MainWindow", "Login", Q_NULLPTR));
         password_label->setText(QApplication::translate("MainWindow", "Password", Q_NULLPTR));

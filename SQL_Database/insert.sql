@@ -48,9 +48,41 @@ INSERT OR REPLACE INTO PHYSICAL_ATTRIBUTES(a_id, gender, age, species, breed, ha
   VALUES(19, "Female", 2, "Dog", "Poodle", "Long Hair", "Ginger");
 
 /*Inserting placeholder staff account*/
-INSERT OR REPLACE INTO USERS(user_id, name)
-  VALUES(10, "Henry");
+INSERT OR REPLACE INTO USERS(user_id, name, phone_number, address, postal_code, province)
+  VALUES(10, "Henry", 6132201100, "125 Main St.", "K2P1M4", "Ontario");
 
-INSERT OR REPLACE INTO STAFF(staff_id, s_id, username, password)
-  VALUES(10, 100, "Staff_01", "Staff");
+INSERT OR REPLACE INTO STAFF(s_id, username, password)
+  VALUES(10, "Staff_01", "Staff");
+
+/*Inserting Client Accounts*/
+INSERT OR REPLACE INTO USERS(user_id, name, phone_number, address, postal_code, province)
+  VALUES(11, "John Doe", 6131000000, "514 Elgin St.", "K2P3T2", "Ontario");
+
+INSERT OR REPLACE INTO USERS(user_id, name, phone_number, address, postal_code, province)
+  VALUES(12, "Quinn Stevenson", 6131000001, "1180 Claymor Ave.", "K2P9B1", "Ontario");
+
+INSERT OR REPLACE INTO USERS(user_id, name, phone_number, address, postal_code, province)
+  VALUES(13, "Keegan Jones", 6131000002, "133 Bank St.", "K2P4M4", "Ontario");
+
+INSERT OR REPLACE INTO USERS(user_id, name, phone_number, address, postal_code, province)
+  VALUES(14, "Curtis Unrau", 6131000003, "222 Glebe Ave.", "K2P8R1", "Ontario");
+
+INSERT OR REPLACE INTO USERS(user_id, name, phone_number, address, postal_code, province)
+  VALUES(15, "Jared Cummings", 6131000004, "455 Waverley St.", "K2P7B7", "Ontario");
+
+INSERT OR REPLACE INTO CLIENTS(u_id, username, password)
+  VALUES(11, "Client_01", "Client");
+
+INSERT OR REPLACE INTO CLIENTS(u_id, username, password)
+  VALUES(12, "Client_02", "Client");
+
+INSERT OR REPLACE INTO CLIENTS(u_id, username, password)
+  VALUES(13, "Client_03", "Client");
+
+INSERT OR REPLACE INTO CLIENTS(u_id, username, password)
+  VALUES(14, "Client_04", "Client");
+
+INSERT OR REPLACE INTO CLIENTS(u_id, username, password)
+  VALUES(15, "Client_05", "Client");
+
 
