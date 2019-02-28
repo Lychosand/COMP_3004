@@ -50,17 +50,21 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = main.cpp \
-		mainwindow.cpp \
-		Animal.cpp \
-		Array.cpp qrc_resources.cpp \
-		moc_mainwindow.cpp
-OBJECTS       = main.o \
-		mainwindow.o \
-		Animal.o \
+SOURCES       = Animal.cpp \
+		Array.cpp \
+		Client.cpp \
+		Main.cpp \
+		MainWindow.cpp \
+		ClientArray.cpp qrc_resources.cpp \
+		moc_MainWindow.cpp
+OBJECTS       = Animal.o \
 		Array.o \
+		Client.o \
+		Main.o \
+		MainWindow.o \
+		ClientArray.o \
 		qrc_resources.o \
-		moc_mainwindow.o
+		moc_MainWindow.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -131,6 +135,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -149,12 +154,16 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		3004.pro mainwindow.h \
-		Animal.h \
-		Array.h main.cpp \
-		mainwindow.cpp \
-		Animal.cpp \
-		Array.cpp
+		3004.pro Animal.h \
+		Array.h \
+		Client.h \
+		MainWindow.h \
+		ClientArray.h Animal.cpp \
+		Array.cpp \
+		Client.cpp \
+		Main.cpp \
+		MainWindow.cpp \
+		ClientArray.cpp
 QMAKE_TARGET  = 3004
 DESTDIR       = 
 TARGET        = 3004
@@ -163,7 +172,7 @@ TARGET        = 3004
 first: all
 ####### Build rules
 
-$(TARGET): ui_mainwindow.h $(OBJECTS)  
+$(TARGET): ui_MainWindow.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: 3004.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -236,6 +245,7 @@ Makefile: 3004.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf /u
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -331,6 +341,7 @@ Makefile: 3004.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf /u
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -371,9 +382,9 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h Animal.h Array.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp mainwindow.cpp Animal.cpp Array.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents Animal.h Array.h Client.h MainWindow.h ClientArray.h $(DISTDIR)/
+	$(COPY_FILE) --parents Animal.cpp Array.cpp Client.cpp Main.cpp MainWindow.cpp ClientArray.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents MainWindow.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -412,24 +423,26 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -Wall -W -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_MainWindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp
-moc_mainwindow.cpp: Animal.h \
+	-$(DEL_FILE) moc_MainWindow.cpp
+moc_MainWindow.cpp: Animal.h \
 		Array.h \
-		mainwindow.h \
+		Client.h \
+		ClientArray.h \
+		MainWindow.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/student/Desktop/COMP_3004/QT -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include mainwindow.h -o moc_mainwindow.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/student/Desktop/COMP_3004/QT -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include MainWindow.h -o moc_MainWindow.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h
+compiler_uic_make_all: ui_MainWindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h
-ui_mainwindow.h: mainwindow.ui \
+	-$(DEL_FILE) ui_MainWindow.h
+ui_MainWindow.h: MainWindow.ui \
 		/usr/lib/qt5/bin/uic
-	/usr/lib/qt5/bin/uic mainwindow.ui -o ui_mainwindow.h
+	/usr/lib/qt5/bin/uic MainWindow.ui -o ui_MainWindow.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -441,17 +454,6 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 
 ####### Compile
 
-main.o: main.cpp mainwindow.h \
-		Animal.h \
-		Array.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
-
-mainwindow.o: mainwindow.cpp mainwindow.h \
-		Animal.h \
-		Array.h \
-		ui_mainwindow.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
-
 Animal.o: Animal.cpp Animal.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Animal.o Animal.cpp
 
@@ -459,11 +461,32 @@ Array.o: Array.cpp Array.h \
 		Animal.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Array.o Array.cpp
 
+Client.o: Client.cpp Client.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Client.o Client.cpp
+
+Main.o: Main.cpp MainWindow.h \
+		Animal.h \
+		Array.h \
+		Client.h \
+		ClientArray.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Main.o Main.cpp
+
+MainWindow.o: MainWindow.cpp MainWindow.h \
+		Animal.h \
+		Array.h \
+		Client.h \
+		ClientArray.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainWindow.o MainWindow.cpp
+
+ClientArray.o: ClientArray.cpp ClientArray.h \
+		Client.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ClientArray.o ClientArray.cpp
+
 qrc_resources.o: qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp
 
-moc_mainwindow.o: moc_mainwindow.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
+moc_MainWindow.o: moc_MainWindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_MainWindow.o moc_MainWindow.cpp
 
 ####### Install
 

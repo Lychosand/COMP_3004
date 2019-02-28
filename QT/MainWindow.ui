@@ -90,11 +90,11 @@ font: 75 28pt &quot;FreeSerif&quot;;
       <string>Staff Admin Form</string>
      </property>
     </widget>
-    <widget class="QTableWidget" name="animalTable">
+    <widget class="QTableWidget" name="view_table">
      <property name="geometry">
       <rect>
        <x>120</x>
-       <y>280</y>
+       <y>260</y>
        <width>701</width>
        <height>231</height>
       </rect>
@@ -135,7 +135,7 @@ font: 75 28pt &quot;FreeSerif&quot;;
       </property>
      </column>
     </widget>
-    <widget class="QPushButton" name="animalViewer">
+    <widget class="QPushButton" name="view_button">
      <property name="geometry">
       <rect>
        <x>70</x>
@@ -148,10 +148,10 @@ font: 75 28pt &quot;FreeSerif&quot;;
       <string>View Animals</string>
      </property>
     </widget>
-    <widget class="QLabel" name="nameLabel">
+    <widget class="QLabel" name="input_label_01">
      <property name="geometry">
       <rect>
-       <x>250</x>
+       <x>200</x>
        <y>70</y>
        <width>64</width>
        <height>17</height>
@@ -161,12 +161,12 @@ font: 75 28pt &quot;FreeSerif&quot;;
       <string>Name:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="genderLabel">
+    <widget class="QLabel" name="input_label_02">
      <property name="geometry">
       <rect>
-       <x>240</x>
+       <x>200</x>
        <y>110</y>
-       <width>64</width>
+       <width>101</width>
        <height>17</height>
       </rect>
      </property>
@@ -174,12 +174,12 @@ font: 75 28pt &quot;FreeSerif&quot;;
       <string>Gender:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="ageLabel">
+    <widget class="QLabel" name="input_label_03">
      <property name="geometry">
       <rect>
-       <x>550</x>
+       <x>510</x>
        <y>110</y>
-       <width>64</width>
+       <width>91</width>
        <height>17</height>
       </rect>
      </property>
@@ -187,12 +187,12 @@ font: 75 28pt &quot;FreeSerif&quot;;
       <string>Age:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="speciesLabel">
+    <widget class="QLabel" name="input_label_04">
      <property name="geometry">
       <rect>
-       <x>240</x>
+       <x>200</x>
        <y>160</y>
-       <width>64</width>
+       <width>101</width>
        <height>17</height>
       </rect>
      </property>
@@ -200,12 +200,12 @@ font: 75 28pt &quot;FreeSerif&quot;;
       <string>Species:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="breedLabel">
+    <widget class="QLabel" name="input_label_05">
      <property name="geometry">
       <rect>
-       <x>540</x>
+       <x>510</x>
        <y>160</y>
-       <width>64</width>
+       <width>91</width>
        <height>17</height>
       </rect>
      </property>
@@ -213,12 +213,12 @@ font: 75 28pt &quot;FreeSerif&quot;;
       <string>Breed:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="hairTypeLabel">
+    <widget class="QLabel" name="input_label_06">
      <property name="geometry">
       <rect>
-       <x>230</x>
+       <x>200</x>
        <y>210</y>
-       <width>71</width>
+       <width>101</width>
        <height>17</height>
       </rect>
      </property>
@@ -226,12 +226,12 @@ font: 75 28pt &quot;FreeSerif&quot;;
       <string>Hair Type:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="hairColourLabel">
+    <widget class="QLabel" name="input_label_07">
      <property name="geometry">
       <rect>
        <x>510</x>
        <y>210</y>
-       <width>81</width>
+       <width>91</width>
        <height>17</height>
       </rect>
      </property>
@@ -239,12 +239,12 @@ font: 75 28pt &quot;FreeSerif&quot;;
       <string>Hair Colour:</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="nameInput">
+    <widget class="QLineEdit" name="input_01">
      <property name="geometry">
       <rect>
        <x>310</x>
        <y>70</y>
-       <width>331</width>
+       <width>481</width>
        <height>21</height>
       </rect>
      </property>
@@ -252,27 +252,27 @@ font: 75 28pt &quot;FreeSerif&quot;;
       <string>nameInput</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="genderInput">
+    <widget class="QLineEdit" name="input_02">
      <property name="geometry">
       <rect>
        <x>310</x>
        <y>110</y>
-       <width>161</width>
+       <width>191</width>
        <height>21</height>
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="ageInput">
+    <widget class="QLineEdit" name="input_03">
      <property name="geometry">
       <rect>
        <x>600</x>
        <y>110</y>
-       <width>121</width>
+       <width>191</width>
        <height>21</height>
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="speciesInput">
+    <widget class="QLineEdit" name="input_04">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -282,7 +282,7 @@ font: 75 28pt &quot;FreeSerif&quot;;
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="breedInput">
+    <widget class="QLineEdit" name="input_05">
      <property name="geometry">
       <rect>
        <x>600</x>
@@ -292,7 +292,7 @@ font: 75 28pt &quot;FreeSerif&quot;;
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="hairTypeInput">
+    <widget class="QLineEdit" name="input_06">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -302,7 +302,7 @@ font: 75 28pt &quot;FreeSerif&quot;;
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="hairColourInput">
+    <widget class="QLineEdit" name="input_07">
      <property name="geometry">
       <rect>
        <x>600</x>
@@ -312,7 +312,7 @@ font: 75 28pt &quot;FreeSerif&quot;;
       </rect>
      </property>
     </widget>
-    <widget class="QPushButton" name="addButton">
+    <widget class="QPushButton" name="add_button">
      <property name="geometry">
       <rect>
        <x>70</x>
@@ -453,8 +453,8 @@ font: 75 28pt &quot;FreeSerif&quot;;
   <tabstop>username_input</tabstop>
   <tabstop>password_input</tabstop>
   <tabstop>login_button</tabstop>
-  <tabstop>animalViewer</tabstop>
-  <tabstop>animalTable</tabstop>
+  <tabstop>view_button</tabstop>
+  <tabstop>view_table</tabstop>
  </tabstops>
  <resources/>
  <connections/>

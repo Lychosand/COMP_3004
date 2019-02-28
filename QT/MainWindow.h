@@ -11,6 +11,8 @@
 #include <QtGui>
 #include "Animal.h"
 #include "Array.h"
+#include "Client.h"
+#include "ClientArray.h"
 
 namespace Ui {
 class MainWindow;
@@ -25,11 +27,11 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_animalViewer_clicked();
+    void on_view_button_clicked();
 
     void on_login_button_clicked();
 
-    void on_addButton_clicked();
+    void on_add_button_clicked();
 
     void on_staff_combo_activated(const QString &arg1);
 
@@ -40,9 +42,11 @@ private:
     void AddToTable();
     void PrepareForms();
     void AddAnimal();
+    void AddClient();
     void show_animals();
     void show_clients();
     Array list;
+    ClientArray clientList;
 
 };
 
