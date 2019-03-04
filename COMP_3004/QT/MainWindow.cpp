@@ -1,0 +1,780 @@
+#include "MainWindow.h"
+#include "ui_MainWindow.h"
+
+#include <QPixmap>
+using std::string;
+
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
+{
+    ui->setupUi(this); //UI is the object that houses all of the current window information.  Take a look at the mainwindow.ui in forms to understand what is encapsulated in ui
+    this->setWindowTitle("cuACS"); //sets the window title
+    this->setWindowIcon(QIcon("/home/student/Desktop/COMP_3004/QT/Images/icon.gif")); //gives our program a little icon
+
+    //Sets Up our project logo
+    QPixmap pix("/home/student/Desktop/COMP_3004/QT/Images/duck.jpg");
+    ui->Logo->setPixmap(pix);
+
+
+
+    PrepareForms();
+    ConnectDatabase(); //connects to the 3004.db
+}
+
+//Hides and sets coordinates for the current QWidgets found on the main window
+void MainWindow::PrepareForms()
+{
+    //Sets up the frames
+    //View animals is the default when staff logs in
+    ui->login_frame->move(240, 205); //x_pos = (mainwindow.width-login_frame.width)/2 height, y_pos = (mainwindow.height-login_frame.height)/2
+    ui->staff_frame->move(80, 145);
+    ui->client_frame->move(80,145);
+    ui->client_frame->hide();
+    ui->staff_frame->hide();
+    ui->staff_frame_2->hide();
+    ui->password_input->setEchoMode(QLineEdit::Password);
+}
+
+//Initial function connecting us to the database
+void MainWindow::ConnectDatabase()
+{
+    QSqlDatabase animal_db=QSqlDatabase::addDatabase("QSQLITE");
+    animal_db.setDatabaseName("/home/student/Desktop/COMP_3004/SQL_Database/3004.db");
+
+    if(!animal_db.open()){
+        qWarning() << "MainWindow::ConnectDatabase - ERROR: Couldn't Open Database!";
+    }else{
+        QueryDatabase(); //this will call the first query to the database.  Creating animal objects + clients will happen inside this function
+    }
+}
+
+//Initial function that populates both client and animal list into memory
+void MainWindow::QueryDatabase()
+{
+    QSqlQuery query;
+    query.prepare("SELECT NAME, gender, age, species, breed, hair_type, hair_colour, aggressiveness, hyperactivity, sleep, noise, appetite, maintainance, outside, space_required, child_friendly, animal_friendly, equipment, excitibility FROM ANIMALS INNER JOIN PHYSICAL_ATTRIBUTES ON ANIMALS.animal_id = PHYSICAL_ATTRIBUTES.a_id;");
+
+    if(!query.exec())
+        qWarning() << "Query Failed!";
+
+    //will delete list so there is no repeat animals
+    list.deleteList();
+
+    while(query.next()) {
+
+        //use the data that gets fed into this string to create the animal objects
+        QString name,gender,species,breed,hairType,hairColour,aggressiveness,hyperactivity,sleep,noise,appetite,maintainance,outside,space,child,animalFriendly,equipment,excitement;
+        string name1,gender1,species1,breed1,hairType1,hairColour1,aggressiveness1,hyperactivity1,sleep1,noise1,appetite1,maintainance1,outside1,space1,child1,animalFriendly1,equipment1,excitement1;
+        int age;
+
+        name = query.value(0).toString();
+        name1 = name.toStdString();
+
+        gender = query.value(1).toString();
+        gender1 = gender.toStdString();
+
+        age = query.value(2).toInt();
+
+        species = query.value(3).toString();
+        species1 = species.toStdString();
+
+        breed = query.value(4).toString();
+        breed1 = breed.toStdString();
+
+        hairType = query.value(5).toString();
+        hairType1 = hairType.toStdString();
+
+        hairColour = query.value(6).toString();
+        hairColour1 = hairColour.toStdString();
+
+        aggressiveness = query.value(7).toString();
+        aggressiveness1 = aggressiveness.toStdString();
+
+        hyperactivity = query.value(8).toString();
+        hyperactivity1 = hyperactivity.toStdString();
+
+        sleep = query.value(9).toString();
+        sleep1 = sleep.toStdString();
+
+        noise = query.value(10).toString();
+        noise1 = noise.toStdString();
+
+        appetite = query.value(11).toString();
+        appetite1 = appetite.toStdString();
+
+        maintainance = query.value(12).toString();
+        maintainance1 = maintainance.toStdString();
+
+        outside = query.value(13).toString();
+        outside1 = outside.toStdString();
+
+        space = query.value(14).toString();
+        space1 = space.toStdString();
+
+        child = query.value(15).toString();
+        child1 = child.toStdString();
+
+        animalFriendly = query.value(16).toString();
+        animalFriendly1 = animalFriendly.toStdString();
+
+        equipment = query.value(17).toString();
+        equipment1 = equipment.toStdString();
+
+        excitement = query.value(18).toString();
+        excitement1 = excitement.toStdString();
+
+        Animal *animal = new Animal(name1,gender1,species1,breed1,hairType1,hairColour1,aggressiveness1,hyperactivity1,sleep1,noise1,appetite1,maintainance1,outside1,space1,child1,animalFriendly1,equipment1,excitement1,age);
+        list.addAnimal(animal);
+    }
+
+    query.prepare("SELECT name, username, password, phone_number, address, postal_code, province FROM USERS INNER JOIN CLIENTS ON CLIENTS.u_id = USERS.user_id");
+
+    if(!query.exec())
+        qWarning() << "Client Query Failed!";
+
+    //will delete list so there is no repeat clients
+    clientList.deleteList();
+
+    while(query.next())
+    {
+        //use the data that gets fed into this string to create the animal objects
+        QString name,username,password,address,postal_code,province,phone_number;
+        string name1,username1,password1,address1,postal_code1,province1,phone_number1;
+
+
+        name = query.value(0).toString();
+        name1 = name.toStdString();
+
+        username = query.value(1).toString();
+        username1 = username.toStdString();
+
+        password = query.value(2).toString();
+        password1 = password.toStdString();
+
+        phone_number = query.value(3).toString();
+        phone_number1 = phone_number.toStdString();
+
+
+        address = query.value(4).toString();
+        address1 = address.toStdString();
+
+        postal_code = query.value(5).toString();
+        postal_code1 = postal_code.toStdString();
+
+        province = query.value(6).toString();
+        province1 = province.toStdString();
+
+        Client *client = new Client(name1,username1,password1,phone_number1,address1,postal_code1,province1);
+        clientList.addClient(client);
+    }
+}
+
+//Function will add the animal objects into the QTTable widget
+//Commented out code is a guideline on how to insert data into the table
+void MainWindow::AddToTable()
+{
+    for(int i=ui->view_table->rowCount()-1; i>=0; i--)
+    {
+        ui->view_table->removeRow(i);
+    }
+
+        QString name,gender,species,breed,hairType,hairColour,aggressiveness,hyperactivity,sleep,noise,appetite,maintainance,outside,space,child,animalFriendly,equipment,excitement,age;
+        string name1,gender1,species1,breed1,hairType1,hairColour1,aggressiveness1,hyperactivity1,sleep1,noise1,appetite1,maintainance1,outside1,space1,child1,animalFriendly1,equipment1,excitement1;
+        int age1;
+
+        //returns number of animals in list
+        int numAnimal = list.getNumAnimal();
+
+        //Before query would return with all the sql data, change query to appropriately use a list of animal objects
+        for(int i = 0; i< numAnimal; i++) {
+            ui->view_table->insertRow(i);
+            ui->view_table->setRowHeight(i,50);
+
+            //gets info on animal object
+            name1 = list.getAnimalName(i);
+            name = QString::fromStdString(name1);
+            ui->view_table->setItem(i, 0, new QTableWidgetItem(name));
+
+            gender1 = list.getAnimalGender(i);
+            gender = QString::fromStdString(gender1);
+            ui->view_table->setItem(i, 1, new QTableWidgetItem(gender));
+
+            age1 = list.getAnimalAge(i);
+            age = QString::number(age1);
+            ui->view_table->setItem(i, 2, new QTableWidgetItem(age));
+
+            species1 = list.getAnimalSpecies(i);
+            species = QString::fromStdString(species1);
+            ui->view_table->setItem(i, 3, new QTableWidgetItem(species));
+
+            breed1 = list.getAnimalBreed(i);
+            breed = QString::fromStdString(breed1);
+            ui->view_table->setItem(i, 4, new QTableWidgetItem(breed));
+
+            hairType1 = list.getAnimalHairType(i);
+            hairType = QString::fromStdString(hairType1);
+            ui->view_table->setItem(i, 5, new QTableWidgetItem(hairType));
+
+            hairColour1 = list.getAnimalHairColour(i);
+            hairColour = QString::fromStdString(hairColour1);
+            ui->view_table->setItem(i, 6, new QTableWidgetItem(hairColour));
+
+            aggressiveness1 = list.getAnimalAggressiveness(i);
+            aggressiveness = QString::fromStdString(aggressiveness1);
+            ui->view_table->setItem(i, 7, new QTableWidgetItem(aggressiveness));
+
+            hyperactivity1 = list.getAnimalHyperactivity(i);
+            hyperactivity = QString::fromStdString(hyperactivity1);
+            ui->view_table->setItem(i, 8, new QTableWidgetItem(hyperactivity));
+
+            sleep1 = list.getAnimalSleep(i);
+            sleep = QString::fromStdString(sleep1);
+            ui->view_table->setItem(i, 9, new QTableWidgetItem(sleep));
+
+            noise1 = list.getAnimalNoise(i);
+            noise = QString::fromStdString(noise1);
+            ui->view_table->setItem(i, 10, new QTableWidgetItem(noise));
+
+            appetite1 = list.getAnimalAppetite(i);
+            appetite = QString::fromStdString(appetite1);
+            ui->view_table->setItem(i, 11, new QTableWidgetItem(appetite));
+
+            maintainance1 = list.getAnimalMaintainance(i);
+            maintainance = QString::fromStdString(maintainance1);
+            ui->view_table->setItem(i, 12, new QTableWidgetItem(maintainance));
+
+            outside1 = list.getAnimalOutside(i);
+            outside = QString::fromStdString(outside1);
+            ui->view_table->setItem(i, 13, new QTableWidgetItem(outside));
+
+            space1 = list.getAnimalSpace(i);
+            space = QString::fromStdString(space1);
+            ui->view_table->setItem(i, 14, new QTableWidgetItem(space));
+
+            child1 = list.getAnimalChild(i);
+            child = QString::fromStdString(child1);
+            ui->view_table->setItem(i, 15, new QTableWidgetItem(child));
+
+            animalFriendly1 = list.getAnimalAnimalFriendly(i);
+            animalFriendly = QString::fromStdString(animalFriendly1);
+            ui->view_table->setItem(i, 16, new QTableWidgetItem(animalFriendly));
+
+            equipment1 = list.getAnimalEquipment(i);
+            equipment = QString::fromStdString(equipment1);
+            ui->view_table->setItem(i, 17, new QTableWidgetItem(equipment));
+
+            excitement1 = list.getAnimalExcitability(i);
+            excitement = QString::fromStdString(excitement1);
+            ui->view_table->setItem(i, 18, new QTableWidgetItem(excitement));
+        }
+
+
+}
+
+void MainWindow::AddClientToTable(){
+
+    for(int i=ui->view_table_3->rowCount(); i>=0; i--)
+    {
+        ui->view_table_3->removeRow(i);
+    }
+
+    for(int i=0; i < clientList.getNumClients(); i++)
+    {
+        ui->view_table_3->insertRow(i);
+
+        ui->view_table_3->setItem(i, 0, new QTableWidgetItem(QString::fromStdString(clientList.getClientName(i))));
+        ui->view_table_3->setItem(i, 1, new QTableWidgetItem(QString::fromStdString(clientList.getClientUsername(i))));
+        ui->view_table_3->setItem(i, 2, new QTableWidgetItem(QString::fromStdString(clientList.getClientPassword(i))));
+        ui->view_table_3->setItem(i, 3, new QTableWidgetItem(QString::fromStdString(clientList.getClientPhoneNumber(i))));
+        ui->view_table_3->setItem(i, 4, new QTableWidgetItem(QString::fromStdString(clientList.getClientAddress(i))));
+        ui->view_table_3->setItem(i, 5, new QTableWidgetItem(QString::fromStdString(clientList.getClientPostalCode(i))));
+        ui->view_table_3->setItem(i, 6, new QTableWidgetItem(QString::fromStdString(clientList.getClientProvince(i))));
+    }
+}
+
+//Function will add the animal objects into the QTTable widget
+//Commented out code is a guideline on how to insert data into the table
+void MainWindow::AddToTableClient()
+{
+    for(int i=ui->view_table_2->rowCount()-1; i>=0; i--)
+    {
+        ui->view_table_2->removeRow(i);
+    }
+
+        QString name,gender,species,breed,hairType,hairColour,aggressiveness,hyperactivity,sleep,noise,appetite,maintainance,outside,space,child,animalFriendly,equipment,excitement,age;
+        string name1,gender1,species1,breed1,hairType1,hairColour1,aggressiveness1,hyperactivity1,sleep1,noise1,appetite1,maintainance1,outside1,space1,child1,animalFriendly1,equipment1,excitement1;
+        int age1;
+
+        //returns number of animals in list
+        int numAnimal = list.getNumAnimal();
+
+        //Before query would return with all the sql data, change query to appropriately use a list of animal objects
+        for(int i = 0; i< numAnimal; i++) {
+            ui->view_table_2->insertRow(i);
+            ui->view_table_2->setRowHeight(i,50);
+
+            //gets info on animal object
+            name1 = list.getAnimalName(i);
+            name = QString::fromStdString(name1);
+            ui->view_table_2->setItem(i, 0, new QTableWidgetItem(name));
+
+            gender1 = list.getAnimalGender(i);
+            gender = QString::fromStdString(gender1);
+            ui->view_table_2->setItem(i, 1, new QTableWidgetItem(gender));
+
+            age1 = list.getAnimalAge(i);
+            age = QString::number(age1);
+            ui->view_table_2->setItem(i, 2, new QTableWidgetItem(age));
+
+            species1 = list.getAnimalSpecies(i);
+            species = QString::fromStdString(species1);
+            ui->view_table_2->setItem(i, 3, new QTableWidgetItem(species));
+
+            breed1 = list.getAnimalBreed(i);
+            breed = QString::fromStdString(breed1);
+            ui->view_table_2->setItem(i, 4, new QTableWidgetItem(breed));
+
+            hairType1 = list.getAnimalHairType(i);
+            hairType = QString::fromStdString(hairType1);
+            ui->view_table_2->setItem(i, 5, new QTableWidgetItem(hairType));
+
+            hairColour1 = list.getAnimalHairColour(i);
+            hairColour = QString::fromStdString(hairColour1);
+            ui->view_table_2->setItem(i, 6, new QTableWidgetItem(hairColour));
+
+            aggressiveness1 = list.getAnimalAggressiveness(i);
+            aggressiveness = QString::fromStdString(aggressiveness1);
+            ui->view_table_2->setItem(i, 7, new QTableWidgetItem(aggressiveness));
+
+            hyperactivity1 = list.getAnimalHyperactivity(i);
+            hyperactivity = QString::fromStdString(hyperactivity1);
+            ui->view_table_2->setItem(i, 8, new QTableWidgetItem(hyperactivity));
+
+            sleep1 = list.getAnimalSleep(i);
+            sleep = QString::fromStdString(sleep1);
+            ui->view_table_2->setItem(i, 9, new QTableWidgetItem(sleep));
+
+            noise1 = list.getAnimalNoise(i);
+            noise = QString::fromStdString(noise1);
+            ui->view_table_2->setItem(i, 10, new QTableWidgetItem(noise));
+
+            appetite1 = list.getAnimalAppetite(i);
+            appetite = QString::fromStdString(appetite1);
+            ui->view_table_2->setItem(i, 11, new QTableWidgetItem(appetite));
+
+            maintainance1 = list.getAnimalMaintainance(i);
+            maintainance = QString::fromStdString(maintainance1);
+            ui->view_table_2->setItem(i, 12, new QTableWidgetItem(maintainance));
+
+            outside1 = list.getAnimalOutside(i);
+            outside = QString::fromStdString(outside1);
+            ui->view_table_2->setItem(i, 13, new QTableWidgetItem(outside));
+
+            space1 = list.getAnimalSpace(i);
+            space = QString::fromStdString(space1);
+            ui->view_table_2->setItem(i, 14, new QTableWidgetItem(space));
+
+            child1 = list.getAnimalChild(i);
+            child = QString::fromStdString(child1);
+            ui->view_table_2->setItem(i, 15, new QTableWidgetItem(child));
+
+            animalFriendly1 = list.getAnimalAnimalFriendly(i);
+            animalFriendly = QString::fromStdString(animalFriendly1);
+            ui->view_table_2->setItem(i, 16, new QTableWidgetItem(animalFriendly));
+
+            equipment1 = list.getAnimalEquipment(i);
+            equipment = QString::fromStdString(equipment1);
+            ui->view_table_2->setItem(i, 17, new QTableWidgetItem(equipment));
+
+            excitement1 = list.getAnimalExcitability(i);
+            excitement = QString::fromStdString(excitement1);
+            ui->view_table_2->setItem(i, 18, new QTableWidgetItem(excitement));
+        }
+
+
+}
+
+
+
+//Function is called when the login button on the login form is pressed
+void MainWindow::on_login_button_clicked()
+{
+    QSqlQuery query;
+
+    query.prepare("SELECT password FROM STAFF WHERE USERNAME = :staff_username");
+    query.bindValue(":staff_username", ui->username_input->text());
+
+    query.exec();
+
+    if(!query.next()) {
+        //qWarning() << "User not Found!";
+        QSqlQuery query1;
+        query1.prepare("SELECT password FROM CLIENTS WHERE USERNAME = :clients_username");
+        query1.bindValue(":clients_username", ui->username_input->text());
+
+        query1.exec();
+
+        if(!query1.next()){
+            qWarning() << "User not Found!";
+        }else{
+
+            if(query1.value(0).toString() == ui->password_input->text()) {
+                qDebug() << "Welcome!";
+                ui->login_frame->hide();
+                ui->client_frame->show();
+                AddToTableClient();
+
+            }else {
+                qWarning() << "Incorrect Password!";
+            }
+        }
+
+
+
+    }else {
+        qDebug() << "Found the user! ";
+
+        if(query.value(0).toString() == ui->password_input->text()) {
+            qDebug() << "Welcome!";
+            ui->login_frame->hide();
+            ui->staff_frame->show();
+            ui->view_table_2->hide();
+            ui->table_frame->show();
+            on_view_button_clicked();
+            AddToTable();
+            //showStaffWindow();
+
+        }else {
+            qWarning() << "Incorrect Password!";
+        }
+    }
+}
+
+void MainWindow::AddAnimal()
+{
+
+
+
+    //Following code adds the new animal into the database
+    QSqlQuery addQuery;
+    QSqlQuery idQuery;
+    QString animalName = ui->input_01->text();
+    QString animalGender = ui->input_02->text();
+    QString animalAge = ui->input_03->text();
+    QString animalSpecies = ui->input_04->text();
+    QString animalBreed = ui->input_05->text();
+    QString animalHairType = ui->input_06->text();
+    QString animalHairColour = ui->input_07->text();
+    QString animalAggressiveness = ui->aggressivenessCombo->currentText();
+    QString animalHyperactivity = ui->hyperactivity_combo->currentText();
+    QString animalSleep = ui->sleep_combo->currentText();
+    QString animalNoise = ui->noise_combo->currentText();
+    QString animalAppetite = ui->appetite_combo->currentText();
+    QString animalMaintainance = ui->maintainance_combo->currentText();
+    QString animalOutside = ui->outside_combo->currentText();
+    QString animalSpace = ui->space_combo->currentText();
+    QString animalChild = ui->child_combo->currentText();
+    QString animalAnimal = ui->animal_combo->currentText();
+    QString animalEquipment = ui->equipment_combo->currentText();
+    QString animalExcitment = ui->excitibility_combo->currentText();
+
+
+
+    int ageInt = animalAge.toInt();
+    int animalId;
+    int id_data = 0;
+
+    idQuery.prepare("SELECT animal_id FROM ANIMALS");
+
+    idQuery.exec();
+    idQuery.first();
+
+    QSqlRecord record = idQuery.record();
+
+    while(idQuery.next()){
+        for(int i = 0; i < record.count(); i++) {
+            int temp = idQuery.value(i).toInt();
+            if(temp>id_data){
+                id_data = temp;
+            }
+        }
+    }
+
+    //adds animal to list
+    Animal *animal = new Animal(animalName.toStdString(), animalGender.toStdString(), animalSpecies.toStdString(),
+                                animalBreed.toStdString(), animalHairType.toStdString(), animalHairColour.toStdString(),animalAggressiveness.toStdString(),animalHyperactivity.toStdString(),animalSleep.toStdString(),
+                                animalNoise.toStdString(),animalAppetite.toStdString(),animalMaintainance.toStdString(),animalOutside.toStdString(),animalSpace.toStdString(),animalChild.toStdString()
+                                ,animalAnimal.toStdString(),animalEquipment.toStdString(),animalExcitment.toStdString(),ageInt);
+    list.addAnimal(animal);
+
+    animalId = id_data + 1;
+
+    //adds animal to database
+    addQuery.prepare("INSERT INTO ANIMALS (animal_id, name)"
+                         "VALUES (:animal_id, :name)");
+    addQuery.bindValue(":animal_id", animalId);
+    addQuery.bindValue(":name", animalName);
+    addQuery.exec();
+
+    addQuery.prepare("INSERT INTO PHYSICAL_ATTRIBUTES (a_id, gender, age, species, breed, hair_type, hair_colour,aggressiveness,hyperactivity,sleep,noise,appetite,maintainance,outside,space_required,child_friendly,animal_friendly,equipment,excitibility)"
+                         "VALUES (:a_id, :gender, :age, :species, :breed, :hair_type, :hair_colour,:aggressiveness,:hyperactivity,:sleep,:noise,:appetite,:maintainance,:outside,:space_required,:child_friendly,:animal_friendly,:equipment,:excitibility)");
+    addQuery.bindValue(":a_id", animalId);
+    addQuery.bindValue(":gender", animalGender);
+    addQuery.bindValue(":age", ageInt);
+    addQuery.bindValue(":species", animalSpecies);
+    addQuery.bindValue(":breed", animalBreed);
+    addQuery.bindValue(":hair_type", animalHairType);
+    addQuery.bindValue(":hair_colour", animalHairColour);
+    addQuery.bindValue(":aggressiveness", animalAggressiveness);
+    addQuery.bindValue(":hyperactivity", animalAggressiveness);
+    addQuery.bindValue(":sleep", animalAggressiveness);
+    addQuery.bindValue(":noise", animalAggressiveness);
+    addQuery.bindValue(":appetite", animalAggressiveness);
+    addQuery.bindValue(":maintainance", animalAggressiveness);
+    addQuery.bindValue(":outside", animalAggressiveness);
+    addQuery.bindValue(":space_required", animalAggressiveness);
+    addQuery.bindValue(":child_friendly", animalAggressiveness);
+    addQuery.bindValue(":animal_friendly", animalAggressiveness);
+    addQuery.bindValue(":equipment", animalAggressiveness);
+    addQuery.bindValue(":excitibility", animalAggressiveness);
+    addQuery.exec();
+
+    ui->input_01->setText("");
+    ui->input_03->setText("");
+    ui->input_02->setText("");
+    ui->input_05->setText("");
+    ui->input_06->setText("");
+    ui->input_07->setText("");
+    ui->input_04->setText("");
+    ui->aggressivenessCombo->setCurrentIndex(0);
+    ui->hyperactivity_combo->setCurrentIndex(0);
+    ui->sleep_combo->setCurrentIndex(0);
+    ui->noise_combo->setCurrentIndex(0);
+    ui->appetite_combo->setCurrentIndex(0);
+    ui->maintainance_combo->setCurrentIndex(0);
+    ui->outside_combo->setCurrentIndex(0);
+    ui->space_combo->setCurrentIndex(0);
+    ui->child_combo->setCurrentIndex(0);
+    ui->animal_combo->setCurrentIndex(0);
+    ui->equipment_combo->setCurrentIndex(0);
+    ui->excitibility_combo->setCurrentIndex(0);
+
+    //QueryDatabase(); //this will call the first query to the database.  Creating animal objects will happen inside this function
+    //AddToTable(); //This function will have to add our animal objects to the viewable table
+}
+
+void MainWindow::AddClient()
+{
+
+    //Following code adds the new client into the database
+    QSqlQuery addQuery;
+    QSqlQuery idQuery;
+    QString clientName = ui->input_01->text();
+    QString clientUsername = ui->input_02->text();
+    QString clientPassword = ui->input_03->text();
+    QString clientPhoneNumber = ui->input_04->text();
+    QString clientAddress = ui->input_05->text();
+    QString clientPostalCode = ui->input_06->text();
+    QString clientProvince = ui->input_07->text();
+
+    //int phoneNumber = clientPhoneNumber.toInt();
+    //qDebug() << phoneNumber;
+
+    int clientId;
+    int id_data = 0;
+
+    idQuery.prepare("SELECT user_id FROM USERS");
+
+    idQuery.exec();
+    idQuery.first();
+
+    QSqlRecord record = idQuery.record();
+
+    while(idQuery.next()){
+        for(int i = 0; i < record.count(); i++) {
+            int temp = idQuery.value(i).toInt();
+            if(temp>id_data){
+                id_data = temp;
+            }
+        }
+    }
+
+    //adding client to client list
+    Client *client = new Client(clientName.toStdString(), clientUsername.toStdString(), clientPassword.toStdString(), clientPhoneNumber.toStdString(),
+                                clientAddress.toStdString(), clientPostalCode.toStdString(), clientProvince.toStdString());
+    clientList.addClient(client);
+
+    clientId = id_data + 1;
+
+    addQuery.prepare("INSERT INTO USERS (user_id, name, phone_number, address, postal_code, province)"
+                         "VALUES (:user_id, :name, :phone_number, :address, :postal_code, :province)");
+    addQuery.bindValue(":user_id", clientId);
+    addQuery.bindValue(":name", clientName);
+    addQuery.bindValue(":phone_number", clientPhoneNumber);
+    addQuery.bindValue(":address", clientAddress);
+    addQuery.bindValue(":postal_code", clientPostalCode);
+    addQuery.bindValue(":province", clientProvince);
+    addQuery.exec();
+
+    addQuery.prepare("INSERT INTO CLIENTS (u_id, username, password)"
+                         "VALUES (:u_id, :username, :password)");
+    addQuery.bindValue(":u_id", clientId);
+    addQuery.bindValue(":username", clientUsername);
+    addQuery.bindValue(":password", clientPassword);
+    addQuery.exec();
+
+    ui->input_01->setText("");
+    ui->input_03->setText("");
+    ui->input_02->setText("");
+    ui->input_05->setText("");
+    ui->input_06->setText("");
+    ui->input_07->setText("");
+    ui->input_04->setText("");
+}
+
+void MainWindow::show_clients()
+{
+    ui->input_label_02->setText("Username:");
+    ui->input_label_03->setText("Password:");
+    ui->input_label_04->setText("Phone Number:");
+    ui->input_label_05->setText("Address:");
+    ui->input_label_06->setText("Postal Code:");
+    ui->input_label_07->setText("Province:");
+    ui->addAnimalFrame->hide();
+
+
+}
+
+void MainWindow::show_animals()
+{
+    ui->input_label_02->setText("Gender:");
+    ui->input_label_03->setText("Age:");
+    ui->input_label_04->setText("Species:");
+    ui->input_label_05->setText("Breed:");
+    ui->input_label_06->setText("Hair Type:");
+    ui->input_label_07->setText("Hair Colour:");
+    ui->addAnimalFrame->show();
+
+}
+
+
+
+void MainWindow::on_view_client_clicked()
+{
+
+    qDebug() << "Now looking at client menu";
+    ui->table_frame->hide();
+    ui->table_frame_2->show();
+    ui->table_frame_2->move(140,70);
+    show_clients();
+    AddClientToTable();
+
+
+}
+//When a staff member is in add form already and wants to view client
+//it hides the form and shows table
+void MainWindow::on_view_client_2_clicked(){
+    ui->staff_frame_2->hide();
+    ui->staff_frame->show();
+    ui->table_frame->hide();
+    ui->table_frame_2->show();
+    ui->table_frame_2->move(140,70);
+    show_clients();
+    AddClientToTable();
+}
+
+//When a staff member selects add client it'll hide the current frame
+//and show the add form
+void MainWindow::on_add_client_clicked(){
+    ui->staff_frame->hide();//hides table
+    ui->staff_frame_2->show();
+    ui->staff_frame_2->move(80,145);
+    show_clients();
+
+}
+
+void MainWindow::on_add_client_2_clicked(){
+    show_clients();
+
+}
+
+//Function is called when the view animals button is clicked
+void MainWindow::on_view_button_clicked()
+{
+    ui->table_frame->show();
+    ui->table_frame_2->hide();
+    ui->table_frame->move(140,70);
+    show_animals();
+    AddToTable(); //This function will have to add our animal objects to the viewable table
+}
+
+//adds animals to the table when a client is logged in
+void MainWindow::on_view_animals_clicked()
+{
+    AddToTableClient();
+}
+
+void MainWindow::on_view_button_2_clicked(){
+    ui->staff_frame_2->hide();
+    ui->staff_frame->show();
+    ui->table_frame->show();
+    ui->table_frame_2->hide();
+    ui->table_frame->move(140,70);
+    show_animals();
+    AddToTable();
+}
+
+void MainWindow::on_add_button_clicked()
+{
+    ui->staff_frame->hide();//hides table
+    ui->staff_frame_2->show();
+    ui->staff_frame_2->move(80,145);
+
+    show_animals();
+
+
+}
+
+void MainWindow::on_add_button_2_clicked()
+{
+    show_animals();
+}
+
+//This is the submit button when staff adds
+void MainWindow::on_submit_clicked(){
+
+    if((ui->input_01->text().isEmpty()) ||
+       (ui->input_02->text().isEmpty()) ||
+       (ui->input_03->text().isEmpty()) ||
+       (ui->input_04->text().isEmpty()) ||
+       (ui->input_05->text().isEmpty()) ||
+       (ui->input_06->text().isEmpty()) ||
+       (ui->input_07->text().isEmpty()))
+    {
+        qWarning() << "Missing Entry Data!  Please Provide Appropriate Information!";
+    } else
+    {
+        if(ui->input_label_05->text() == "Breed:"){
+            AddAnimal();
+        }else{
+            AddClient();
+        }
+
+    }
+
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+    clientList.deleteList();
+    list.deleteList();
+
+}
+
+
+
+
+
+
