@@ -55,1498 +55,3310 @@ font: 75 28pt &quot;FreeSerif&quot;;
 }
 </string>
    </property>
-   <widget class="QFrame" name="login_frame">
+   <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>920</x>
-      <y>-310</y>
-      <width>600</width>
-      <height>400</height>
-     </rect>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QLabel" name="login_title">
-     <property name="geometry">
-      <rect>
-       <x>225</x>
-       <y>20</y>
-       <width>150</width>
-       <height>70</height>
-      </rect>
-     </property>
-     <property name="layoutDirection">
-      <enum>Qt::LeftToRight</enum>
-     </property>
-     <property name="text">
-      <string>cuACS</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="login_button">
-     <property name="geometry">
-      <rect>
-       <x>215</x>
-       <y>270</y>
-       <width>165</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Login</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="password_input">
-     <property name="geometry">
-      <rect>
-       <x>225</x>
-       <y>210</y>
-       <width>150</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="username_input">
-     <property name="geometry">
-      <rect>
-       <x>225</x>
-       <y>125</y>
-       <width>150</width>
-       <height>25</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="password_label">
-     <property name="geometry">
-      <rect>
-       <x>145</x>
-       <y>210</y>
-       <width>80</width>
-       <height>30</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Password:</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="username_label">
-     <property name="geometry">
-      <rect>
-       <x>145</x>
-       <y>120</y>
-       <width>80</width>
-       <height>30</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Username:</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QFrame" name="client_frame">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>100</y>
-      <width>980</width>
-      <height>600</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(32,34,37);
-border-radius: 60px;
-</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QLabel" name="Logo">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>60</y>
-       <width>100</width>
-       <height>163</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>Images/duck.jpg</pixmap>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="view_animals">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>250</y>
-       <width>110</width>
-       <height>110</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rbg(54,57,65);
-border-radius: 20px;
-border: 1px solid white;
-color: rgb(255,255,255);</string>
-     </property>
-     <property name="text">
-      <string>View Animals</string>
-     </property>
-    </widget>
-    <widget class="QFrame" name="table_frame_3">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>50</y>
-       <width>770</width>
-       <height>490</height>
-      </rect>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <widget class="QTableWidget" name="view_table_2">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>770</width>
-        <height>490</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255,255,255);
-border-radius: 0px;
-color: rgb(0, 0, 0);</string>
-      </property>
-      <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>120</number>
-      </attribute>
-      <column>
-       <property name="text">
-        <string>Name</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Gender</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Age</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Species</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Breed</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Hair Type</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Hair Colour</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Aggressiveness</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Hyperactivity</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Sleep Schedule</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Noise Production</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Appetite</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Maintainence Req.</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Outdoor Needs</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Space Required</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Equipment Needed</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Child Friendly</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Animal Friendly</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Excitability</string>
-       </property>
-      </column>
-     </widget>
-    </widget>
-   </widget>
-   <widget class="QFrame" name="staff_frame_2">
-    <property name="geometry">
-     <rect>
-      <x>-30</x>
-      <y>-520</y>
+      <x>80</x>
+      <y>105</y>
       <width>920</width>
       <height>600</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(255,255,255);
+    <property name="currentIndex">
+     <number>2</number>
+    </property>
+    <widget class="QWidget" name="page">
+     <widget class="QFrame" name="login_frame">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>920</width>
+        <height>600</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="login_title">
+       <property name="geometry">
+        <rect>
+         <x>385</x>
+         <y>20</y>
+         <width>150</width>
+         <height>70</height>
+        </rect>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="text">
+        <string>cuACS</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="login_button">
+       <property name="geometry">
+        <rect>
+         <x>375</x>
+         <y>270</y>
+         <width>165</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Login</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="password_input">
+       <property name="geometry">
+        <rect>
+         <x>385</x>
+         <y>210</y>
+         <width>150</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="username_input">
+       <property name="geometry">
+        <rect>
+         <x>385</x>
+         <y>125</y>
+         <width>150</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="password_label">
+       <property name="geometry">
+        <rect>
+         <x>305</x>
+         <y>210</y>
+         <width>80</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Password:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="username_label">
+       <property name="geometry">
+        <rect>
+         <x>305</x>
+         <y>120</y>
+         <width>80</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Username:</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_2">
+     <widget class="QFrame" name="staff_frame">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>920</width>
+        <height>600</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255,255,255);
+background-color: rgb(32,34,37);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="staff_title">
+       <property name="geometry">
+        <rect>
+         <x>330</x>
+         <y>-50</y>
+         <width>441</width>
+         <height>171</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Staff Admin Form</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="view_button">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>60</y>
+         <width>110</width>
+         <height>110</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rbg(54,57,65);
+border-radius: 20px;
+border: 1px solid white;
+color: rgb(255,255,255);</string>
+       </property>
+       <property name="text">
+        <string>View Animals</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="add_button">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>300</y>
+         <width>110</width>
+         <height>110</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rbg(54,57,65);
+border-radius: 20px;
+border: 1px solid white;
+color: rgb(255,255,255);</string>
+       </property>
+       <property name="text">
+        <string>Add Animal</string>
+       </property>
+      </widget>
+      <widget class="QFrame" name="table_frame">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>330</y>
+         <width>770</width>
+         <height>490</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QTableWidget" name="view_table">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>770</width>
+          <height>490</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255,255,255);
+border-radius: 0px;
+color: rgb(0, 0, 0);</string>
+        </property>
+        <attribute name="horizontalHeaderDefaultSectionSize">
+         <number>120</number>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>Name</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Gender</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Age</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Species</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Breed</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Hair Type</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Hair Colour</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Aggressiveness</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Hyperactivity</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Sleep Schedule</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Noise Production</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Appetite</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Maintainence Req.</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Outdoor Needs</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Space Required</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Equipment Needed</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Child Friendly</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Animal Friendly</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Excitability</string>
+         </property>
+        </column>
+       </widget>
+      </widget>
+      <widget class="QPushButton" name="view_client">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>180</y>
+         <width>110</width>
+         <height>110</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rbg(54,57,65);
+border-radius: 20px;
+border: 1px solid white;
+color: rgb(255,255,255);</string>
+       </property>
+       <property name="text">
+        <string>View Clients</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="add_client">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>420</y>
+         <width>110</width>
+         <height>110</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rbg(54,57,65);
+border-radius: 20px;
+border: 1px solid white;
+color: rgb(255,255,255);</string>
+       </property>
+       <property name="text">
+        <string>Add Client</string>
+       </property>
+      </widget>
+      <widget class="QFrame" name="table_frame_2">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>130</y>
+         <width>770</width>
+         <height>490</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QTableWidget" name="view_table_3">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>770</width>
+          <height>490</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255,255,255);
+border-radius: 0px;
+color: rgb(0, 0, 0);</string>
+        </property>
+        <attribute name="horizontalHeaderDefaultSectionSize">
+         <number>110</number>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>Name</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Username</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Password</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Phone Number</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Address</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Postal Code</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Province</string>
+         </property>
+        </column>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_3">
+     <widget class="QFrame" name="staff_frame_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>920</width>
+        <height>600</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255,255,255);
 background-color: rgb(32,34,37);
 </string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QLabel" name="staff_title_2">
-     <property name="geometry">
-      <rect>
-       <x>330</x>
-       <y>-50</y>
-       <width>441</width>
-       <height>171</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Add Form</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="view_button_2">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>60</y>
-       <width>110</width>
-       <height>110</height>
-      </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rbg(54,57,65);
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="staff_title_2">
+       <property name="geometry">
+        <rect>
+         <x>330</x>
+         <y>-50</y>
+         <width>441</width>
+         <height>171</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Add Form</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="view_button_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>60</y>
+         <width>110</width>
+         <height>110</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rbg(54,57,65);
 border-radius: 20px;
 border: 1px solid white;
 color: rgb(255,255,255);</string>
-     </property>
-     <property name="text">
-      <string>View Animals</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="input_label_01">
-     <property name="geometry">
-      <rect>
-       <x>200</x>
-       <y>70</y>
-       <width>64</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Name:</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="input_label_02">
-     <property name="geometry">
-      <rect>
-       <x>200</x>
-       <y>110</y>
-       <width>101</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Gender:</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="input_label_03">
-     <property name="geometry">
-      <rect>
-       <x>510</x>
-       <y>110</y>
-       <width>91</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Age:</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="input_label_04">
-     <property name="geometry">
-      <rect>
-       <x>200</x>
-       <y>160</y>
-       <width>101</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Species:</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="input_label_05">
-     <property name="geometry">
-      <rect>
-       <x>510</x>
-       <y>160</y>
-       <width>91</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Breed:</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="input_label_06">
-     <property name="geometry">
-      <rect>
-       <x>200</x>
-       <y>210</y>
-       <width>101</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Hair Type:</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="input_label_07">
-     <property name="geometry">
-      <rect>
-       <x>510</x>
-       <y>210</y>
-       <width>91</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Hair Colour:</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="input_01">
-     <property name="geometry">
-      <rect>
-       <x>310</x>
-       <y>70</y>
-       <width>481</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="accessibleName">
-      <string>nameInput</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="input_02">
-     <property name="geometry">
-      <rect>
-       <x>310</x>
-       <y>110</y>
-       <width>191</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="input_03">
-     <property name="geometry">
-      <rect>
-       <x>600</x>
-       <y>110</y>
-       <width>191</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="input_04">
-     <property name="geometry">
-      <rect>
-       <x>310</x>
-       <y>160</y>
-       <width>191</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="input_05">
-     <property name="geometry">
-      <rect>
-       <x>600</x>
-       <y>160</y>
-       <width>191</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="input_06">
-     <property name="geometry">
-      <rect>
-       <x>310</x>
-       <y>210</y>
-       <width>191</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="input_07">
-     <property name="geometry">
-      <rect>
-       <x>600</x>
-       <y>210</y>
-       <width>191</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="add_button_2">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>300</y>
-       <width>110</width>
-       <height>110</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rbg(54,57,65);
+       </property>
+       <property name="text">
+        <string>View Animals</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="input_label_01">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>70</y>
+         <width>64</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Name:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="input_label_02">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>110</y>
+         <width>101</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Gender:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="input_label_03">
+       <property name="geometry">
+        <rect>
+         <x>510</x>
+         <y>110</y>
+         <width>91</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Age:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="input_label_04">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>160</y>
+         <width>101</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Species:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="input_label_05">
+       <property name="geometry">
+        <rect>
+         <x>510</x>
+         <y>160</y>
+         <width>91</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Breed:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="input_label_06">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>210</y>
+         <width>101</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Hair Type:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="input_label_07">
+       <property name="geometry">
+        <rect>
+         <x>510</x>
+         <y>210</y>
+         <width>91</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Hair Colour:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="input_01">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>70</y>
+         <width>481</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="accessibleName">
+        <string>nameInput</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="input_02">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>110</y>
+         <width>191</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="input_03">
+       <property name="geometry">
+        <rect>
+         <x>600</x>
+         <y>110</y>
+         <width>191</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="input_04">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>160</y>
+         <width>191</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="input_05">
+       <property name="geometry">
+        <rect>
+         <x>600</x>
+         <y>160</y>
+         <width>191</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="input_06">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>210</y>
+         <width>191</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="input_07">
+       <property name="geometry">
+        <rect>
+         <x>600</x>
+         <y>210</y>
+         <width>191</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="add_button_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>300</y>
+         <width>110</width>
+         <height>110</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rbg(54,57,65);
 border-radius: 20px;
 border: 1px solid white;
 color: rgb(255,255,255);</string>
-     </property>
-     <property name="text">
-      <string>Add Animal</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="view_client_2">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>180</y>
-       <width>110</width>
-       <height>110</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rbg(54,57,65);
+       </property>
+       <property name="text">
+        <string>Add Animal</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="view_client_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>180</y>
+         <width>110</width>
+         <height>110</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rbg(54,57,65);
 border-radius: 20px;
 border: 1px solid white;
 color: rgb(255,255,255);</string>
-     </property>
-     <property name="text">
-      <string>View Clients</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="add_client_2">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>420</y>
-       <width>110</width>
-       <height>110</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rbg(54,57,65);
+       </property>
+       <property name="text">
+        <string>View Clients</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="add_client_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>420</y>
+         <width>110</width>
+         <height>110</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rbg(54,57,65);
 border-radius: 20px;
 border: 1px solid white;
 color: rgb(255,255,255);</string>
-     </property>
-     <property name="text">
-      <string>Add Client</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="submit">
-     <property name="geometry">
-      <rect>
-       <x>800</x>
-       <y>100</y>
-       <width>110</width>
-       <height>110</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rbg(54,57,65);
+       </property>
+       <property name="text">
+        <string>Add Client</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="submit">
+       <property name="geometry">
+        <rect>
+         <x>800</x>
+         <y>100</y>
+         <width>110</width>
+         <height>110</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rbg(54,57,65);
 border-radius: 20px;
 border: 1px solid white;
 color: rgb(255,255,255);</string>
-     </property>
-     <property name="text">
-      <string>Submit</string>
-     </property>
-    </widget>
-    <widget class="QFrame" name="addAnimalFrame">
-     <property name="geometry">
-      <rect>
-       <x>190</x>
-       <y>252</y>
-       <width>641</width>
-       <height>300</height>
-      </rect>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <widget class="QComboBox" name="aggressivenessCombo">
-      <property name="geometry">
-       <rect>
-        <x>120</x>
-        <y>0</y>
-        <width>201</width>
-        <height>32</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string/>
        </property>
-      </item>
-      <item>
        <property name="text">
-        <string>Submissive</string>
+        <string>Submit</string>
        </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Slighty Submissive</string>
+      </widget>
+      <widget class="QStackedWidget" name="stack_add">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>250</y>
+         <width>781</width>
+         <height>341</height>
+        </rect>
        </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Slighty Aggressive</string>
+       <property name="currentIndex">
+        <number>1</number>
        </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Aggressive</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="sleep">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>75</y>
-        <width>101</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Sleep Schedule:</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="hyperactivity">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>40</y>
-        <width>101</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Hyperactivity:</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="noise">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>110</y>
-        <width>121</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Noise Production:</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="aggressiveness">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>5</y>
-        <width>101</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Aggressiveness:</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="hyperactivity_combo">
-      <property name="geometry">
-       <rect>
-        <x>120</x>
-        <y>35</y>
-        <width>201</width>
-        <height>32</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string/>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Calm</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Slighty Calm</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Slighty Hyper</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Hyper</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QComboBox" name="sleep_combo">
-      <property name="geometry">
-       <rect>
-        <x>120</x>
-        <y>70</y>
-        <width>201</width>
-        <height>32</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string/>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Nocturnal</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Flexible</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Normal</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QComboBox" name="noise_combo">
-      <property name="geometry">
-       <rect>
-        <x>120</x>
-        <y>105</y>
-        <width>201</width>
-        <height>32</height>
-       </rect>
-      </property>
-      <property name="insertPolicy">
-       <enum>QComboBox::InsertAtBottom</enum>
-      </property>
-      <item>
-       <property name="text">
-        <string/>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>1</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>2</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>3</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>4</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>5</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>6</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>7</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>8</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>9</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>10</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QComboBox" name="space_combo">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>240</y>
-        <width>201</width>
-        <height>32</height>
-       </rect>
-      </property>
-      <property name="insertPolicy">
-       <enum>QComboBox::InsertAtBottom</enum>
-      </property>
-      <item>
-       <property name="text">
-        <string/>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Minimal</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Moderate</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Above Average</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="hyperactivity_2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>175</y>
-        <width>151</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Maintainance Required:</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="aggressiveness_2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>140</y>
-        <width>101</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Appetite:</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="appetite_combo">
-      <property name="geometry">
-       <rect>
-        <x>120</x>
-        <y>135</y>
-        <width>201</width>
-        <height>32</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string/>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Minimal</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Average</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Above Average</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QComboBox" name="outside_combo">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>205</y>
-        <width>201</width>
-        <height>32</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string/>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Rarely</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Sometimes</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Daily</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Multiple Times Daily</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="noise_2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>245</y>
-        <width>201</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Space Required for happy living:</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="sleep_2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>210</y>
-        <width>171</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Does it need to go outside:</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="maintainance_combo">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>170</y>
-        <width>201</width>
-        <height>32</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string/>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Minimal</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Below Average</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Above Average</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Special Care Needed</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QComboBox" name="animal_combo">
-      <property name="geometry">
-       <rect>
-        <x>440</x>
-        <y>35</y>
-        <width>201</width>
-        <height>32</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string/>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Not Animal Friendly</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Neutral</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Animal Friendly</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="noise_3">
-      <property name="geometry">
-       <rect>
-        <x>330</x>
-        <y>110</y>
-        <width>121</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Excitibility:</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="child_combo">
-      <property name="geometry">
-       <rect>
-        <x>440</x>
-        <y>0</y>
-        <width>201</width>
-        <height>32</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string/>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>No Children</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Neutral</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Child Friendly</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="aggressiveness_3">
-      <property name="geometry">
-       <rect>
-        <x>330</x>
-        <y>5</y>
-        <width>101</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Child Friendly:</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="excitibility_combo">
-      <property name="geometry">
-       <rect>
-        <x>440</x>
-        <y>105</y>
-        <width>201</width>
-        <height>32</height>
-       </rect>
-      </property>
-      <property name="insertPolicy">
-       <enum>QComboBox::InsertAtBottom</enum>
-      </property>
-      <item>
-       <property name="text">
-        <string/>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Easily Excited</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Moderate</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Not Easily Excited</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="sleep_3">
-      <property name="geometry">
-       <rect>
-        <x>330</x>
-        <y>75</y>
-        <width>111</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Equipment Needs:</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="hyperactivity_3">
-      <property name="geometry">
-       <rect>
-        <x>330</x>
-        <y>40</y>
-        <width>101</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Animal Friendly:</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="equipment_combo">
-      <property name="geometry">
-       <rect>
-        <x>440</x>
-        <y>70</y>
-        <width>201</width>
-        <height>32</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string/>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Minimal</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Some Equipment</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>More Than Average Equipment</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Above Average</string>
-       </property>
-      </item>
-     </widget>
-    </widget>
-   </widget>
-   <widget class="QFrame" name="staff_frame">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>700</y>
-      <width>920</width>
-      <height>600</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(255,255,255);
+       <widget class="QWidget" name="page_7">
+        <widget class="QFrame" name="addAnimalFrame">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>781</width>
+           <height>341</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QComboBox" name="aggressivenessCombo">
+          <property name="geometry">
+           <rect>
+            <x>120</x>
+            <y>0</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Submissive</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Slighty Submissive</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Slighty Aggressive</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Aggressive</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="sleep">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>75</y>
+            <width>101</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Sleep Schedule:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="hyperactivity">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>40</y>
+            <width>101</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Hyperactivity:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="noise">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>110</y>
+            <width>121</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Noise Production:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="aggressiveness">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>5</y>
+            <width>101</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Aggressiveness:</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="hyperactivity_combo">
+          <property name="geometry">
+           <rect>
+            <x>120</x>
+            <y>35</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Calm</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Slighty Calm</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Slighty Hyper</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Hyper</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QComboBox" name="sleep_combo">
+          <property name="geometry">
+           <rect>
+            <x>120</x>
+            <y>70</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Nocturnal</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Flexible</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Normal</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QComboBox" name="noise_combo">
+          <property name="geometry">
+           <rect>
+            <x>120</x>
+            <y>105</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <property name="insertPolicy">
+           <enum>QComboBox::InsertAtBottom</enum>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>1</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>2</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>3</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>4</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>5</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>6</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>7</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>8</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>9</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>10</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QComboBox" name="space_combo">
+          <property name="geometry">
+           <rect>
+            <x>210</x>
+            <y>240</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <property name="insertPolicy">
+           <enum>QComboBox::InsertAtBottom</enum>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Minimal</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Moderate</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Above Average</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="hyperactivity_2">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>175</y>
+            <width>151</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Maintainance Required:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="aggressiveness_2">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>140</y>
+            <width>101</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Appetite:</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="appetite_combo">
+          <property name="geometry">
+           <rect>
+            <x>120</x>
+            <y>135</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Minimal</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Average</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Above Average</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QComboBox" name="outside_combo">
+          <property name="geometry">
+           <rect>
+            <x>210</x>
+            <y>205</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Rarely</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Sometimes</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Daily</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Multiple Times Daily</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="noise_2">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>245</y>
+            <width>201</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Space Required for happy living:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="sleep_2">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>210</y>
+            <width>171</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Does it need to go outside:</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="maintainance_combo">
+          <property name="geometry">
+           <rect>
+            <x>210</x>
+            <y>170</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Minimal</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Below Average</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Above Average</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Special Care Needed</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QComboBox" name="animal_combo">
+          <property name="geometry">
+           <rect>
+            <x>440</x>
+            <y>35</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Not Animal Friendly</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Neutral</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Animal Friendly</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="noise_3">
+          <property name="geometry">
+           <rect>
+            <x>330</x>
+            <y>110</y>
+            <width>121</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Excitibility:</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="child_combo">
+          <property name="geometry">
+           <rect>
+            <x>440</x>
+            <y>0</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>No Children</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Neutral</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Child Friendly</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="aggressiveness_3">
+          <property name="geometry">
+           <rect>
+            <x>330</x>
+            <y>5</y>
+            <width>101</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Child Friendly:</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="excitibility_combo">
+          <property name="geometry">
+           <rect>
+            <x>440</x>
+            <y>105</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <property name="insertPolicy">
+           <enum>QComboBox::InsertAtBottom</enum>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Easily Excited</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Moderate</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Not Easily Excited</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="sleep_3">
+          <property name="geometry">
+           <rect>
+            <x>330</x>
+            <y>75</y>
+            <width>111</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Equipment Needs:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="hyperactivity_3">
+          <property name="geometry">
+           <rect>
+            <x>330</x>
+            <y>40</y>
+            <width>101</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Animal Friendly:</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="equipment_combo">
+          <property name="geometry">
+           <rect>
+            <x>440</x>
+            <y>70</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Minimal</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Some Equipment</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>More Than Average Equipment</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Above Average</string>
+           </property>
+          </item>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="page_8">
+        <widget class="QFrame" name="editClientFrame_2">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>781</width>
+           <height>341</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QComboBox" name="ClientAnimalWanted_2">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>0</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255,255,255);
 background-color: rgb(32,34,37);</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QLabel" name="staff_title">
-     <property name="geometry">
-      <rect>
-       <x>330</x>
-       <y>0</y>
-       <width>441</width>
-       <height>171</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Staff Admin Form</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="view_button">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>60</y>
-       <width>110</width>
-       <height>110</height>
-      </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rbg(54,57,65);
-border-radius: 20px;
-border: 1px solid white;
-color: rgb(255,255,255);</string>
-     </property>
-     <property name="text">
-      <string>View Animals</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="add_button">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>300</y>
-       <width>110</width>
-       <height>110</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rbg(54,57,65);
-border-radius: 20px;
-border: 1px solid white;
-color: rgb(255,255,255);</string>
-     </property>
-     <property name="text">
-      <string>Add Animal</string>
-     </property>
-    </widget>
-    <widget class="QFrame" name="table_frame">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>330</y>
-       <width>770</width>
-       <height>490</height>
-      </rect>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <widget class="QTableWidget" name="view_table">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>770</width>
-        <height>490</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255,255,255);
-border-radius: 0px;
-color: rgb(0, 0, 0);</string>
-      </property>
-      <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>120</number>
-      </attribute>
-      <column>
-       <property name="text">
-        <string>Name</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Gender</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Age</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Species</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Breed</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Hair Type</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Hair Colour</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Aggressiveness</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Hyperactivity</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Sleep Schedule</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Noise Production</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Appetite</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Maintainence Req.</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Outdoor Needs</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Space Required</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Equipment Needed</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Child Friendly</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Animal Friendly</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Excitability</string>
-       </property>
-      </column>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Dog</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Cat</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Rabbit</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Bird</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Hamster</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Guinea Pig</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Chinchilla</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="sleep_7">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>75</y>
+            <width>191</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Preferred Animal Loudness:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="hyperactivity_7">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>40</y>
+            <width>191</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Can deal with hyperactivity:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="noise_9">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>110</y>
+            <width>191</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Time Available for Animal</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="aggressiveness_7">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>5</y>
+            <width>191</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Type of Animal Wanted:</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="ClientHyperactivity_2">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>35</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Not Well</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Adequately</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Well</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QComboBox" name="ClientAnimalLoudness_2">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>70</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Mute</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Quiet and Rarely Makes Noise</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Loud but Rarely Makes Noise</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Quiet and Often Makes Noise</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Loud and Often Makes Noise</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QComboBox" name="ClientTimeAvail_2">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>105</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <property name="insertPolicy">
+           <enum>QComboBox::InsertAtBottom</enum>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Minimal</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Average</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Above Average</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Plenty</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QComboBox" name="ClientExternalStimuli_2">
+          <property name="geometry">
+           <rect>
+            <x>310</x>
+            <y>240</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <property name="insertPolicy">
+           <enum>QComboBox::InsertAtBottom</enum>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Rarely</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Occasionally</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Frequently</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Often</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="hyperactivity_8">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>175</y>
+            <width>301</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Budget For Equipment Needed:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="aggressiveness_8">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>140</y>
+            <width>191</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Children:</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="ClientChildren_2">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>135</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Yes</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>No</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QComboBox" name="ClientOtherAnimal_2">
+          <property name="geometry">
+           <rect>
+            <x>310</x>
+            <y>205</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Dog</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Cat</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Rabbit</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Bird</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Hamster</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Guinea Pig</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Chinchilla</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="noise_10">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>245</y>
+            <width>301</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Frequency of External Stimuli:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="sleep_8">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>210</y>
+            <width>301</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Do you own other animals?</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="ClientEquipmentNeededBudget_2">
+          <property name="geometry">
+           <rect>
+            <x>310</x>
+            <y>170</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Minimal</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Some</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Above Average</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Plenty</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Equipment Already Owned</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QComboBox" name="ClientPreferredSleep_2">
+          <property name="geometry">
+           <rect>
+            <x>580</x>
+            <y>35</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Nocturnal</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Flexible</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Sporatic</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Normal</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="noise_11">
+          <property name="geometry">
+           <rect>
+            <x>400</x>
+            <y>110</y>
+            <width>181</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>House Type:</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="ClientDealwithAgression_2">
+          <property name="geometry">
+           <rect>
+            <x>580</x>
+            <y>0</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Not Well</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Adequately</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Well</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="aggressiveness_9">
+          <property name="geometry">
+           <rect>
+            <x>400</x>
+            <y>5</y>
+            <width>181</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Can deal with aggression:</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="ClientHouseType_2">
+          <property name="geometry">
+           <rect>
+            <x>580</x>
+            <y>105</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <property name="insertPolicy">
+           <enum>QComboBox::InsertAtBottom</enum>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Small Apartment</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Large Apartment</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>House with No Yard</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>House with Yard</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>House On Substantial Amount of Land</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="sleep_9">
+          <property name="geometry">
+           <rect>
+            <x>400</x>
+            <y>75</y>
+            <width>181</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Budget for Food:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="hyperactivity_9">
+          <property name="geometry">
+           <rect>
+            <x>400</x>
+            <y>40</y>
+            <width>181</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Prefered Sleep Schedule:</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="ClientFoodBudget_2">
+          <property name="geometry">
+           <rect>
+            <x>580</x>
+            <y>70</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Minimal</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Moderate</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Above Average</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="noise_12">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>280</y>
+            <width>301</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Preferred Age of Animal:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="noise_13">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>310</y>
+            <width>301</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Preferred Gender:</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="ClientAge_2">
+          <property name="geometry">
+           <rect>
+            <x>310</x>
+            <y>275</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <property name="insertPolicy">
+           <enum>QComboBox::InsertAtBottom</enum>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Young</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Middle Aged</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Old</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QComboBox" name="ClientPreferredGender_2">
+          <property name="geometry">
+           <rect>
+            <x>310</x>
+            <y>305</y>
+            <width>201</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <property name="insertPolicy">
+           <enum>QComboBox::InsertAtBottom</enum>
+          </property>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Male</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Female</string>
+           </property>
+          </item>
+         </widget>
+        </widget>
+       </widget>
+      </widget>
      </widget>
     </widget>
-    <widget class="QPushButton" name="view_client">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>180</y>
-       <width>110</width>
-       <height>110</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rbg(54,57,65);
-border-radius: 20px;
-border: 1px solid white;
-color: rgb(255,255,255);</string>
-     </property>
-     <property name="text">
-      <string>View Clients</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="add_client">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>420</y>
-       <width>110</width>
-       <height>110</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rbg(54,57,65);
-border-radius: 20px;
-border: 1px solid white;
-color: rgb(255,255,255);</string>
-     </property>
-     <property name="text">
-      <string>Add Client</string>
-     </property>
-    </widget>
-    <widget class="QFrame" name="table_frame_2">
-     <property name="geometry">
-      <rect>
-       <x>290</x>
-       <y>130</y>
-       <width>770</width>
-       <height>490</height>
-      </rect>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <widget class="QTableWidget" name="view_table_3">
+    <widget class="QWidget" name="page_4"/>
+    <widget class="QWidget" name="page_5">
+     <widget class="QFrame" name="client_frame">
       <property name="geometry">
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>770</width>
-        <height>490</height>
+        <width>920</width>
+        <height>600</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255,255,255);
+       <string notr="true">background-color: rgb(32,34,37);
+border-radius: 60px;
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="Logo">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>60</y>
+         <width>100</width>
+         <height>163</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>Images/duck.jpg</pixmap>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="view_animals">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>250</y>
+         <width>110</width>
+         <height>110</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rbg(54,57,65);
+border-radius: 20px;
+border: 1px solid white;
+color: rgb(255,255,255);</string>
+       </property>
+       <property name="text">
+        <string>View Animals</string>
+       </property>
+      </widget>
+      <widget class="QFrame" name="table_frame_3">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>50</y>
+         <width>770</width>
+         <height>490</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QTableWidget" name="view_table_2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>770</width>
+          <height>490</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255,255,255);
 border-radius: 0px;
 color: rgb(0, 0, 0);</string>
+        </property>
+        <attribute name="horizontalHeaderDefaultSectionSize">
+         <number>120</number>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>Name</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Gender</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Age</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Species</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Breed</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Hair Type</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Hair Colour</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Aggressiveness</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Hyperactivity</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Sleep Schedule</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Noise Production</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Appetite</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Maintainence Req.</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Outdoor Needs</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Space Required</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Equipment Needed</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Child Friendly</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Animal Friendly</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Excitability</string>
+         </property>
+        </column>
+       </widget>
+      </widget>
+      <widget class="QPushButton" name="editProfile">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>380</y>
+         <width>110</width>
+         <height>110</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rbg(54,57,65);
+border-radius: 20px;
+border: 1px solid white;
+color: rgb(255,255,255);</string>
+       </property>
+       <property name="text">
+        <string>Edit Profile</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_6">
+     <widget class="QFrame" name="client_frame_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>920</width>
+        <height>600</height>
+       </rect>
       </property>
-      <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>110</number>
-      </attribute>
-      <column>
-       <property name="text">
-        <string>Name</string>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(32,34,37);
+color: rgb(255,255,255);
+
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="Logo_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>60</y>
+         <width>100</width>
+         <height>163</height>
+        </rect>
        </property>
-      </column>
-      <column>
        <property name="text">
-        <string>Username</string>
+        <string/>
        </property>
-      </column>
-      <column>
+       <property name="pixmap">
+        <pixmap>Images/duck.jpg</pixmap>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="ClientViewAnimalProfile">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>250</y>
+         <width>110</width>
+         <height>110</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rbg(54,57,65);
+border-radius: 20px;
+border: 1px solid white;
+color: rgb(255,255,255);</string>
+       </property>
        <property name="text">
-        <string>Password</string>
+        <string>View Animals</string>
        </property>
-      </column>
-      <column>
+      </widget>
+      <widget class="QFrame" name="table_frame_4">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>50</y>
+         <width>781</width>
+         <height>541</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLineEdit" name="editClientAddress">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>110</y>
+          <width>191</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255,255,255);
+color: rgb(0,0,0);</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="input_label_6">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>110</y>
+          <width>91</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Address:</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="submit_2">
+        <property name="geometry">
+         <rect>
+          <x>640</x>
+          <y>50</y>
+          <width>110</width>
+          <height>110</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rbg(54,57,65);
+border-radius: 20px;
+border: 1px solid white;
+color: rgb(255,255,255);</string>
+        </property>
+        <property name="text">
+         <string>Submit</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="input_label_7">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>160</y>
+          <width>101</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Postal Code:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="input_label_3">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>60</y>
+          <width>101</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Username:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="input_label_8">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>160</y>
+          <width>91</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Province:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="editClientName">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>20</y>
+          <width>481</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="accessibleName">
+         <string>nameInput</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255,255,255);
+color: rgb(0,0,0);</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="editClientProvince">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>160</y>
+          <width>191</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255,255,255);
+color: rgb(0,0,0);</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="editClientUsername">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>60</y>
+          <width>191</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255,255,255);
+color: rgb(0,0,0);</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="editClientPN">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>110</y>
+          <width>191</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255,255,255);
+color: rgb(0,0,0);</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="input_label_4">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>60</y>
+          <width>91</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Password:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="input_label_5">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>110</y>
+          <width>101</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Phone Number:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="EditClientPostalCode">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>160</y>
+          <width>191</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255,255,255);
+color: rgb(0,0,0);</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="EditClientPassword">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>60</y>
+          <width>191</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255,255,255);
+color: rgb(0,0,0);</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="input_label_2">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>20</y>
+          <width>64</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Name:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="client_id_label">
+        <property name="geometry">
+         <rect>
+          <x>660</x>
+          <y>30</y>
+          <width>59</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(32,34,37);</string>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QFrame" name="editClientFrame">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>200</y>
+          <width>781</width>
+          <height>341</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QComboBox" name="ClientAnimalWanted">
+         <property name="geometry">
+          <rect>
+           <x>200</x>
+           <y>0</y>
+           <width>201</width>
+           <height>32</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255,255,255);
+background-color: rgb(32,34,37);</string>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Dog</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Cat</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Rabbit</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Bird</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Hamster</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Guinea Pig</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Chinchilla</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QLabel" name="sleep_4">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>75</y>
+           <width>191</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Preferred Animal Loudness:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="hyperactivity_4">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>40</y>
+           <width>191</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Can deal with hyperactivity:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="noise_4">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>110</y>
+           <width>191</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Time Available for Animal</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="aggressiveness_4">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>5</y>
+           <width>191</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Type of Animal Wanted:</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="ClientHyperactivity">
+         <property name="geometry">
+          <rect>
+           <x>200</x>
+           <y>35</y>
+           <width>201</width>
+           <height>32</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Not Well</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Adequately</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Well</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QComboBox" name="ClientAnimalLoudness">
+         <property name="geometry">
+          <rect>
+           <x>200</x>
+           <y>70</y>
+           <width>201</width>
+           <height>32</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Mute</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Quiet and Rarely Makes Noise</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Loud but Rarely Makes Noise</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Quiet and Often Makes Noise</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Loud and Often Makes Noise</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QComboBox" name="ClientTimeAvail">
+         <property name="geometry">
+          <rect>
+           <x>200</x>
+           <y>105</y>
+           <width>201</width>
+           <height>32</height>
+          </rect>
+         </property>
+         <property name="insertPolicy">
+          <enum>QComboBox::InsertAtBottom</enum>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Minimal</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Average</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Above Average</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Plenty</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QComboBox" name="ClientExternalStimuli">
+         <property name="geometry">
+          <rect>
+           <x>310</x>
+           <y>240</y>
+           <width>201</width>
+           <height>32</height>
+          </rect>
+         </property>
+         <property name="insertPolicy">
+          <enum>QComboBox::InsertAtBottom</enum>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Rarely</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Occasionally</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Frequently</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Often</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QLabel" name="hyperactivity_5">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>175</y>
+           <width>301</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Budget For Equipment Needed:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="aggressiveness_5">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>140</y>
+           <width>191</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Children:</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="ClientChildren">
+         <property name="geometry">
+          <rect>
+           <x>200</x>
+           <y>135</y>
+           <width>201</width>
+           <height>32</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Yes</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>No</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QComboBox" name="ClientOtherAnimal">
+         <property name="geometry">
+          <rect>
+           <x>310</x>
+           <y>205</y>
+           <width>201</width>
+           <height>32</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Dog</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Cat</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Rabbit</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Bird</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Hamster</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Guinea Pig</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Chinchilla</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QLabel" name="noise_5">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>245</y>
+           <width>301</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Frequency of External Stimuli:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="sleep_5">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>210</y>
+           <width>301</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Do you own other animals?</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="ClientEquipmentNeededBudget">
+         <property name="geometry">
+          <rect>
+           <x>310</x>
+           <y>170</y>
+           <width>201</width>
+           <height>32</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Minimal</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Some</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Above Average</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Plenty</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Equipment Already Owned</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QComboBox" name="ClientPreferredSleep">
+         <property name="geometry">
+          <rect>
+           <x>580</x>
+           <y>35</y>
+           <width>201</width>
+           <height>32</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nocturnal</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Flexible</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Sporatic</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Normal</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QLabel" name="noise_6">
+         <property name="geometry">
+          <rect>
+           <x>400</x>
+           <y>110</y>
+           <width>181</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>House Type:</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="ClientDealwithAgression">
+         <property name="geometry">
+          <rect>
+           <x>580</x>
+           <y>0</y>
+           <width>201</width>
+           <height>32</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Not Well</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Adequately</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Well</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QLabel" name="aggressiveness_6">
+         <property name="geometry">
+          <rect>
+           <x>400</x>
+           <y>5</y>
+           <width>181</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Can deal with aggression:</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="ClientHouseType">
+         <property name="geometry">
+          <rect>
+           <x>580</x>
+           <y>105</y>
+           <width>201</width>
+           <height>32</height>
+          </rect>
+         </property>
+         <property name="insertPolicy">
+          <enum>QComboBox::InsertAtBottom</enum>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Small Apartment</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Large Apartment</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>House with No Yard</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>House with Yard</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>House On Substantial Amount of Land</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QLabel" name="sleep_6">
+         <property name="geometry">
+          <rect>
+           <x>400</x>
+           <y>75</y>
+           <width>181</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Budget for Food:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="hyperactivity_6">
+         <property name="geometry">
+          <rect>
+           <x>400</x>
+           <y>40</y>
+           <width>181</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Prefered Sleep Schedule:</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="ClientFoodBudget">
+         <property name="geometry">
+          <rect>
+           <x>580</x>
+           <y>70</y>
+           <width>201</width>
+           <height>32</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Minimal</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Moderate</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Above Average</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QLabel" name="noise_7">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>280</y>
+           <width>301</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Preferred Age of Animal:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="noise_8">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>310</y>
+           <width>301</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Preferred Gender:</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="ClientAge">
+         <property name="geometry">
+          <rect>
+           <x>310</x>
+           <y>275</y>
+           <width>201</width>
+           <height>32</height>
+          </rect>
+         </property>
+         <property name="insertPolicy">
+          <enum>QComboBox::InsertAtBottom</enum>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Young</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Middle Aged</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Old</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QComboBox" name="ClientPreferredGender">
+         <property name="geometry">
+          <rect>
+           <x>310</x>
+           <y>305</y>
+           <width>201</width>
+           <height>32</height>
+          </rect>
+         </property>
+         <property name="insertPolicy">
+          <enum>QComboBox::InsertAtBottom</enum>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Male</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Female</string>
+          </property>
+         </item>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QPushButton" name="ClientEditProfile">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>375</y>
+         <width>110</width>
+         <height>110</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rbg(54,57,65);
+border-radius: 20px;
+border: 1px solid white;
+color: rgb(255,255,255);</string>
+       </property>
        <property name="text">
-        <string>Phone Number</string>
+        <string>Edit Profile</string>
        </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Address</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Postal Code</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Province</string>
-       </property>
-      </column>
+      </widget>
      </widget>
     </widget>
    </widget>

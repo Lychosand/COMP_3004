@@ -49,9 +49,23 @@ CREATE TABLE USERS (
 );
 
 CREATE TABLE CLIENTS (
-  u_id 		INTEGER UNIQUE,
-  username 	TEXT UNIQUE,
-  password 	TEXT,
+  u_id 		          INTEGER UNIQUE,
+  username 	        TEXT UNIQUE,
+  password 	        TEXT,
+  animal_wanted     INTEGER,
+  agression         INTEGER,
+  hyperactivity     INTEGER,
+  sleep             INTEGER,
+  animal_loudness   INTEGER,
+  food_budget       INTEGER,
+  time_avail        INTEGER,
+  house_type        INTEGER,
+  child_friendly          INTEGER,
+  equip_budget      INTEGER,
+  have_animals      INTEGER,
+  ex_stimuli        INTEGER,
+  pref_age          INTEGER,
+  pref_gender       INTEGER,
   PRIMARY KEY(username),
   FOREIGN KEY(u_id) REFERENCES USERS(user_id)
 );

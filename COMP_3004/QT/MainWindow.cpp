@@ -2,7 +2,9 @@
 #include "ui_MainWindow.h"
 
 #include <QPixmap>
+#include <QMessageBox>
 using std::string;
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -10,11 +12,12 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this); //UI is the object that houses all of the current window information.  Take a look at the mainwindow.ui in forms to understand what is encapsulated in ui
     this->setWindowTitle("cuACS"); //sets the window title
-    this->setWindowIcon(QIcon("/home/student/Desktop/COMP_3004/QT/Images/icon.gif")); //gives our program a little icon
+    this->setWindowIcon(QIcon("/Users/user/Desktop/COMP_3004/QT/Images/icon.gif")); //gives our program a little icon
 
     //Sets Up our project logo
-    QPixmap pix("/home/student/Desktop/COMP_3004/QT/Images/duck.jpg");
+    QPixmap pix("/Users/user/Desktop/COMP_3004/QT/Images/duck.jpg");
     ui->Logo->setPixmap(pix);
+    ui->Logo_2->setPixmap(pix);
 
 
 
@@ -27,12 +30,7 @@ void MainWindow::PrepareForms()
 {
     //Sets up the frames
     //View animals is the default when staff logs in
-    ui->login_frame->move(240, 205); //x_pos = (mainwindow.width-login_frame.width)/2 height, y_pos = (mainwindow.height-login_frame.height)/2
-    ui->staff_frame->move(80, 145);
-    ui->client_frame->move(80,145);
-    ui->client_frame->hide();
-    ui->staff_frame->hide();
-    ui->staff_frame_2->hide();
+    ui->stackedWidget->setCurrentIndex(0);
     ui->password_input->setEchoMode(QLineEdit::Password);
 }
 
@@ -40,7 +38,7 @@ void MainWindow::PrepareForms()
 void MainWindow::ConnectDatabase()
 {
     QSqlDatabase animal_db=QSqlDatabase::addDatabase("QSQLITE");
-    animal_db.setDatabaseName("/home/student/Desktop/COMP_3004/SQL_Database/3004.db");
+    animal_db.setDatabaseName("/Users/user/Desktop/COMP_3004/SQL_Database/3004.db");
 
     if(!animal_db.open()){
         qWarning() << "MainWindow::ConnectDatabase - ERROR: Couldn't Open Database!";
@@ -128,8 +126,8 @@ void MainWindow::QueryDatabase()
         list.addAnimal(animal);
     }
 
-    query.prepare("SELECT name, username, password, phone_number, address, postal_code, province FROM USERS INNER JOIN CLIENTS ON CLIENTS.u_id = USERS.user_id");
-
+    query.prepare("SELECT name, username, password, phone_number, address, postal_code, province, animal_wanted,agression,hyperactivity,sleep,animal_loudness,food_budget,time_avail,house_type,child_friendly, equip_budget, have_animals,ex_stimuli,pref_age,pref_gender FROM USERS INNER JOIN CLIENTS ON CLIENTS.u_id = USERS.user_id");
+    int database_id = 11;
     if(!query.exec())
         qWarning() << "Client Query Failed!";
 
@@ -138,10 +136,28 @@ void MainWindow::QueryDatabase()
 
     while(query.next())
     {
+
         //use the data that gets fed into this string to create the animal objects
         QString name,username,password,address,postal_code,province,phone_number;
         string name1,username1,password1,address1,postal_code1,province1,phone_number1;
+        int client_id;
+        int pref[14];
 
+        //add int query values to array
+        pref[0] = query.value(7).toInt();
+        pref[1] = query.value(8).toInt();
+        pref[2] = query.value(9).toInt();
+        pref[3] = query.value(10).toInt();
+        pref[4] = query.value(11).toInt();
+        pref[5] = query.value(12).toInt();
+        pref[6] = query.value(13).toInt();
+        pref[7] = query.value(14).toInt();
+        pref[8] = query.value(15).toInt();
+        pref[9] = query.value(16).toInt();
+        pref[10] = query.value(17).toInt();
+        pref[11] = query.value(18).toInt();
+        pref[12] = query.value(19).toInt();
+        pref[13] = query.value(20).toInt();
 
         name = query.value(0).toString();
         name1 = name.toStdString();
@@ -165,8 +181,11 @@ void MainWindow::QueryDatabase()
         province = query.value(6).toString();
         province1 = province.toStdString();
 
-        Client *client = new Client(name1,username1,password1,phone_number1,address1,postal_code1,province1);
+        client_id = database_id;
+
+        Client *client = new Client(name1,username1,password1,phone_number1,address1,postal_code1,province1,client_id,pref);
         clientList.addClient(client);
+        database_id++;
     }
 }
 
@@ -421,9 +440,9 @@ void MainWindow::on_login_button_clicked()
 
             if(query1.value(0).toString() == ui->password_input->text()) {
                 qDebug() << "Welcome!";
-                ui->login_frame->hide();
-                ui->client_frame->show();
+                ui->stackedWidget->setCurrentIndex(4);
                 AddToTableClient();
+
 
             }else {
                 qWarning() << "Incorrect Password!";
@@ -437,13 +456,11 @@ void MainWindow::on_login_button_clicked()
 
         if(query.value(0).toString() == ui->password_input->text()) {
             qDebug() << "Welcome!";
-            ui->login_frame->hide();
-            ui->staff_frame->show();
+            ui->stackedWidget->setCurrentIndex(1);
             ui->view_table_2->hide();
             ui->table_frame->show();
             on_view_button_clicked();
             AddToTable();
-            //showStaffWindow();
 
         }else {
             qWarning() << "Incorrect Password!";
@@ -578,8 +595,23 @@ void MainWindow::AddClient()
     QString clientPostalCode = ui->input_06->text();
     QString clientProvince = ui->input_07->text();
 
-    //int phoneNumber = clientPhoneNumber.toInt();
-    //qDebug() << phoneNumber;
+    int pref[14];
+
+    //add int query values to array
+    pref[0] = ui->ClientAnimalWanted_2->currentIndex();
+    pref[1] = ui->ClientDealwithAgression_2->currentIndex();
+    pref[2] = ui->ClientHyperactivity_2->currentIndex();
+    pref[3] = ui->ClientPreferredSleep_2->currentIndex();
+    pref[4] = ui->ClientAnimalLoudness_2->currentIndex();
+    pref[5] = ui->ClientFoodBudget_2->currentIndex();
+    pref[6] = ui->ClientTimeAvail_2->currentIndex();
+    pref[7] = ui->ClientHouseType_2->currentIndex();
+    pref[8] = ui->ClientChildren_2->currentIndex();
+    pref[9] = ui->ClientEquipmentNeededBudget_2->currentIndex();
+    pref[10] = ui->ClientOtherAnimal_2->currentIndex();
+    pref[11] = ui->ClientExternalStimuli_2->currentIndex();
+    pref[12] = ui->ClientAge_2->currentIndex();
+    pref[13] = ui->ClientPreferredGender_2->currentIndex();
 
     int clientId;
     int id_data = 0;
@@ -600,12 +632,16 @@ void MainWindow::AddClient()
         }
     }
 
-    //adding client to client list
-    Client *client = new Client(clientName.toStdString(), clientUsername.toStdString(), clientPassword.toStdString(), clientPhoneNumber.toStdString(),
-                                clientAddress.toStdString(), clientPostalCode.toStdString(), clientProvince.toStdString());
-    clientList.addClient(client);
 
     clientId = id_data + 1;
+
+
+    //adding client to client list
+    Client *client = new Client(clientName.toStdString(), clientUsername.toStdString(), clientPassword.toStdString(), clientPhoneNumber.toStdString(),
+                              clientAddress.toStdString(), clientPostalCode.toStdString(), clientProvince.toStdString(),clientId,pref);
+   clientList.addClient(client);
+
+
 
     addQuery.prepare("INSERT INTO USERS (user_id, name, phone_number, address, postal_code, province)"
                          "VALUES (:user_id, :name, :phone_number, :address, :postal_code, :province)");
@@ -617,11 +653,25 @@ void MainWindow::AddClient()
     addQuery.bindValue(":province", clientProvince);
     addQuery.exec();
 
-    addQuery.prepare("INSERT INTO CLIENTS (u_id, username, password)"
-                         "VALUES (:u_id, :username, :password)");
+    addQuery.prepare("INSERT INTO CLIENTS (u_id, username, password,animal_wanted,agression,hyperactivity,sleep,animal_loudness,food_budget,time_avail,house_type,child_friendly, equip_budget, have_animals,ex_stimuli,pref_age,pref_gender)"
+                         "VALUES (:u_id, :username, :password,:animal_wanted,:agression,:hyperactivity,:sleep,:animal_loudness,:food_budget,:time_avail,:house_type,:child_friendly,:equip_budget,:have_animals,:ex_stimuli,:pref_age,:pref_gender)");
     addQuery.bindValue(":u_id", clientId);
     addQuery.bindValue(":username", clientUsername);
     addQuery.bindValue(":password", clientPassword);
+    addQuery.bindValue(":animal_wanted", ui->ClientAnimalWanted_2->currentIndex());
+    addQuery.bindValue(":agression", ui->ClientDealwithAgression_2->currentIndex());
+    addQuery.bindValue(":hyperactivity", ui->ClientHyperactivity_2->currentIndex());
+    addQuery.bindValue(":sleep", ui->ClientPreferredSleep_2->currentIndex());
+    addQuery.bindValue(":animal_loudness", ui->ClientAnimalLoudness_2->currentIndex());
+    addQuery.bindValue(":food_budget", ui->ClientFoodBudget_2->currentIndex());
+    addQuery.bindValue(":time_avail", ui->ClientTimeAvail_2->currentIndex());
+    addQuery.bindValue(":house_type", ui->ClientHouseType_2->currentIndex());
+    addQuery.bindValue(":child_friendly", ui->ClientChildren_2->currentIndex());
+    addQuery.bindValue(":equip_budget", ui->ClientEquipmentNeededBudget_2->currentIndex());
+    addQuery.bindValue(":have_animals", ui->ClientOtherAnimal_2->currentIndex());
+    addQuery.bindValue(":ex_stimuli", ui->ClientExternalStimuli_2->currentIndex());
+    addQuery.bindValue(":pref_age", ui->ClientAge_2->currentIndex());
+    addQuery.bindValue(":pref_gender", ui->ClientPreferredGender_2->currentIndex());
     addQuery.exec();
 
     ui->input_01->setText("");
@@ -631,6 +681,21 @@ void MainWindow::AddClient()
     ui->input_06->setText("");
     ui->input_07->setText("");
     ui->input_04->setText("");
+
+    ui->ClientAnimalWanted_2->setCurrentIndex(0);
+    ui->ClientDealwithAgression_2->setCurrentIndex(0);
+    ui->ClientHyperactivity_2->setCurrentIndex(0);
+    ui->ClientPreferredSleep_2->setCurrentIndex(0);
+    ui->ClientAnimalLoudness_2->setCurrentIndex(0);
+    ui->ClientFoodBudget_2->setCurrentIndex(0);
+    ui->ClientTimeAvail_2->setCurrentIndex(0);
+    ui->ClientHouseType_2->setCurrentIndex(0);
+    ui->ClientChildren_2->setCurrentIndex(0);
+    ui->ClientEquipmentNeededBudget_2->setCurrentIndex(0);
+    ui->ClientOtherAnimal_2->setCurrentIndex(0);
+    ui->ClientExternalStimuli_2->setCurrentIndex(0);
+    ui->ClientAge_2->setCurrentIndex(0);
+    ui->ClientPreferredGender_2->setCurrentIndex(0);
 }
 
 void MainWindow::show_clients()
@@ -675,8 +740,7 @@ void MainWindow::on_view_client_clicked()
 //When a staff member is in add form already and wants to view client
 //it hides the form and shows table
 void MainWindow::on_view_client_2_clicked(){
-    ui->staff_frame_2->hide();
-    ui->staff_frame->show();
+    ui->stackedWidget->setCurrentIndex(1);
     ui->table_frame->hide();
     ui->table_frame_2->show();
     ui->table_frame_2->move(140,70);
@@ -687,15 +751,15 @@ void MainWindow::on_view_client_2_clicked(){
 //When a staff member selects add client it'll hide the current frame
 //and show the add form
 void MainWindow::on_add_client_clicked(){
-    ui->staff_frame->hide();//hides table
-    ui->staff_frame_2->show();
-    ui->staff_frame_2->move(80,145);
+    ui->stackedWidget->setCurrentIndex(2);
+    ui->stack_add->setCurrentIndex(1);
     show_clients();
 
 }
 
 void MainWindow::on_add_client_2_clicked(){
     show_clients();
+    ui->stack_add->setCurrentIndex(1);
 
 }
 
@@ -716,8 +780,7 @@ void MainWindow::on_view_animals_clicked()
 }
 
 void MainWindow::on_view_button_2_clicked(){
-    ui->staff_frame_2->hide();
-    ui->staff_frame->show();
+    ui->stackedWidget->setCurrentIndex(1);
     ui->table_frame->show();
     ui->table_frame_2->hide();
     ui->table_frame->move(140,70);
@@ -727,9 +790,8 @@ void MainWindow::on_view_button_2_clicked(){
 
 void MainWindow::on_add_button_clicked()
 {
-    ui->staff_frame->hide();//hides table
-    ui->staff_frame_2->show();
-    ui->staff_frame_2->move(80,145);
+    ui->stackedWidget->setCurrentIndex(2);
+    ui->stack_add->setCurrentIndex(0);
 
     show_animals();
 
@@ -739,6 +801,7 @@ void MainWindow::on_add_button_clicked()
 void MainWindow::on_add_button_2_clicked()
 {
     show_animals();
+    ui->stack_add->setCurrentIndex(0);
 }
 
 //This is the submit button when staff adds
@@ -763,6 +826,129 @@ void MainWindow::on_submit_clicked(){
 
     }
 
+}
+
+void MainWindow::on_editProfile_clicked(){
+    ui->stackedWidget->setCurrentIndex(5);
+    setupEditClient(ui->username_input->text());
+
+}
+
+
+void MainWindow::setupEditClient(QString name){
+
+    int numClients = clientList.getNumClients();
+    for(int i = 0; i < numClients; i++){
+        string clientName = clientList.getClientUsername(i);
+        QString gender = QString::fromStdString(clientName);
+        if(gender == name ){
+
+            int *p;
+            p = clientList.getClientPreferences(i);
+            //once we find a match of username we fill in the edit profile input fields
+            ui->editClientName->setText(QString::fromStdString(clientList.getClientName(i)));
+            ui->editClientUsername->setText(QString::fromStdString(clientList.getClientUsername(i)));
+            ui->editClientPN->setText(QString::fromStdString(clientList.getClientPhoneNumber(i)));
+            ui->editClientAddress->setText(QString::fromStdString(clientList.getClientAddress(i)));
+            ui->EditClientPassword->setText(QString::fromStdString(clientList.getClientPassword(i)));
+            ui->EditClientPostalCode->setText(QString::fromStdString(clientList.getClientPostalCode(i)));
+            ui->editClientProvince->setText(QString::fromStdString(clientList.getClientProvince(i)));
+            ui->client_id_label->setText(QString::number(clientList.getClientDatabase_id(i)));
+
+            ui->ClientAnimalWanted->setCurrentIndex(p[0]);
+            ui->ClientDealwithAgression->setCurrentIndex(p[1]);
+            ui->ClientHyperactivity->setCurrentIndex(p[2]);
+            ui->ClientPreferredSleep->setCurrentIndex(p[3]);
+            ui->ClientAnimalLoudness->setCurrentIndex(p[4]);
+            ui->ClientFoodBudget->setCurrentIndex(p[5]);
+            ui->ClientTimeAvail->setCurrentIndex(p[6]);
+            ui->ClientHouseType->setCurrentIndex(p[7]);
+            ui->ClientChildren->setCurrentIndex(p[8]);
+            ui->ClientEquipmentNeededBudget->setCurrentIndex(p[9]);
+            ui->ClientOtherAnimal->setCurrentIndex(p[10]);
+            ui->ClientExternalStimuli->setCurrentIndex(p[11]);
+            ui->ClientAge->setCurrentIndex(p[12]);
+            ui->ClientPreferredGender->setCurrentIndex(p[13]);
+
+
+
+        }
+    }
+
+
+}
+
+void MainWindow::on_submit_2_clicked(){
+
+    //Following code updates the client into the database
+    QSqlQuery addQuery;
+    QSqlQuery idQuery;
+    QString clientName = ui->editClientName->text();
+    QString clientUsername = ui->editClientUsername->text();
+    QString clientPassword = ui->EditClientPassword->text();
+    QString clientPhoneNumber = ui->editClientPN->text();
+    QString clientAddress = ui->editClientAddress->text();
+    QString clientPostalCode = ui->EditClientPostalCode->text();
+    QString clientProvince = ui->editClientProvince->text();
+
+
+    int clientId = ui->client_id_label->text().toInt();
+    idQuery.exec();
+
+    addQuery.prepare("UPDATE USERS SET name=:name, phone_number=:phone_number, address=:address, postal_code=:postal_code, province=:province WHERE user_id=:user_id");
+
+    addQuery.bindValue(":name", clientName);
+    addQuery.bindValue(":phone_number", clientPhoneNumber);
+    addQuery.bindValue(":address", clientAddress);
+    addQuery.bindValue(":postal_code", clientPostalCode);
+    addQuery.bindValue(":province", clientProvince);
+    addQuery.bindValue(":user_id", clientId);
+    addQuery.exec();
+
+    addQuery.prepare("UPDATE CLIENTS SET username=:username, password=:password,animal_wanted=:animal_wanted,agression=:agression,hyperactivity=:hyperactivity,sleep=:sleep,animal_loudness=:animal_loudness,food_budget=:food_budget,time_avail=:time_avail,house_type=:house_type,child_friendly=:child_friendly, equip_budget=:equip_budget, have_animals=:have_animals,ex_stimuli=:ex_stimuli,pref_age=:pref_age,pref_gender=:pref_gender WHERE u_id=:u_id");
+    addQuery.bindValue(":u_id", clientId);
+    addQuery.bindValue(":username", clientUsername);
+    addQuery.bindValue(":password", clientPassword);
+    addQuery.bindValue(":animal_wanted", ui->ClientAnimalWanted->currentIndex());
+    addQuery.bindValue(":agression", ui->ClientDealwithAgression->currentIndex());
+    addQuery.bindValue(":hyperactivity", ui->ClientHyperactivity->currentIndex());
+    addQuery.bindValue(":sleep", ui->ClientPreferredSleep->currentIndex());
+    addQuery.bindValue(":animal_loudness", ui->ClientAnimalLoudness->currentIndex());
+    addQuery.bindValue(":food_budget", ui->ClientFoodBudget->currentIndex());
+    addQuery.bindValue(":time_avail", ui->ClientTimeAvail->currentIndex());
+    addQuery.bindValue(":house_type", ui->ClientHouseType->currentIndex());
+    addQuery.bindValue(":child_friendly", ui->ClientChildren->currentIndex());
+    addQuery.bindValue(":equip_budget", ui->ClientEquipmentNeededBudget->currentIndex());
+    addQuery.bindValue(":have_animals", ui->ClientOtherAnimal->currentIndex());
+    addQuery.bindValue(":ex_stimuli", ui->ClientExternalStimuli->currentIndex());
+    addQuery.bindValue(":pref_age", ui->ClientAge->currentIndex());
+    addQuery.bindValue(":pref_gender", ui->ClientPreferredGender->currentIndex());
+    addQuery.exec();
+
+    //this->close();
+    if (addQuery.exec())
+    {
+        QueryDatabase();
+        qDebug() << "Client Updated";
+    }
+    else
+    {
+        QMessageBox::information(this,"", addQuery.lastError().text());
+    }
+
+    /*ui->editClientName->setText("");
+    ui->editClientUsername->setText("");
+    ui->EditClientPassword->setText("");
+    ui->editClientPN->setText("");
+    ui->editClientAddress->setText("");
+    ui->EditClientPostalCode->setText("");
+    ui->editClientProvince->setText("");*/
+
+}
+
+void MainWindow::on_ClientViewAnimalProfile_clicked(){
+
+    ui->stackedWidget->setCurrentIndex(4);
 }
 
 MainWindow::~MainWindow()

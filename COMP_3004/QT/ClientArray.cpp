@@ -64,3 +64,13 @@ string ClientArray::getClientProvince(int a)
     return array[a]->getProvince();
 }
 
+int ClientArray::getClientDatabase_id(int a)
+{
+    return array[a]->getDatabaseId();
+}
+
+int * ClientArray::getClientPreferences(int a)
+{
+    return array[a]->getPreferences();
+}
+

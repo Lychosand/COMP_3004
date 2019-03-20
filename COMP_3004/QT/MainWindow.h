@@ -43,7 +43,17 @@ private slots:
     void on_add_client_clicked();
     void on_add_client_2_clicked();
 
+    //in staff_frame_2
     void on_submit_clicked();
+
+    //in client frame
+    void on_editProfile_clicked();
+
+    //in edit profile frame
+    void on_submit_2_clicked();
+    void on_ClientViewAnimalProfile_clicked();
+
+
 
 private:
     Ui::MainWindow *ui;
@@ -57,6 +67,7 @@ private:
     void AddClient();
     void show_animals();
     void show_clients();
+    void setupEditClient(QString);
 
     Array list;
     ClientArray clientList;

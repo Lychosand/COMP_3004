@@ -22,6 +22,8 @@ public:
     string getClientAddress(int);
     string getClientPostalCode(int);
     string getClientProvince(int);
+    int * getClientPreferences(int);
+    int getClientDatabase_id(int);
 
 private:
     Client * array[MAX_ARR_SIZE];
