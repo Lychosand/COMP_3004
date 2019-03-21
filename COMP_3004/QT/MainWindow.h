@@ -55,6 +55,18 @@ private slots:
 
 
 
+    void on_view_table_cellDoubleClicked(int row, int column);
+
+    void on_view_button_3_clicked();
+
+    void on_view_client_3_clicked();
+
+    void on_add_button_3_clicked();
+
+    void on_add_client_3_clicked();
+
+    void on_submit_3_clicked();
+
 private:
     Ui::MainWindow *ui;
     void ConnectDatabase();
@@ -68,6 +80,7 @@ private:
     void show_animals();
     void show_clients();
     void setupEditClient(QString);
+    void EditAnimal(int);
 
     Array list;
     ClientArray clientList;
