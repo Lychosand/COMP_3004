@@ -12,10 +12,10 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this); //UI is the object that houses all of the current window information.  Take a look at the mainwindow.ui in forms to understand what is encapsulated in ui
     this->setWindowTitle("cuACS"); //sets the window title
-    this->setWindowIcon(QIcon("/Users/user/Desktop/COMP_3004/QT/Images/icon.gif")); //gives our program a little icon
+    this->setWindowIcon(QIcon("/Images/icon.gif")); //gives our program a little icon
 
     //Sets Up our project logo
-    QPixmap pix("/Users/user/Desktop/COMP_3004/QT/Images/duck.jpg");
+    QPixmap pix("/Images/duck.jpg");
     ui->Logo->setPixmap(pix);
     ui->Logo_2->setPixmap(pix);
 
@@ -38,7 +38,7 @@ void MainWindow::PrepareForms()
 void MainWindow::ConnectDatabase()
 {
     QSqlDatabase animal_db=QSqlDatabase::addDatabase("QSQLITE");
-    animal_db.setDatabaseName("/Users/user/Desktop/COMP_3004/SQL_Database/3004.db");
+    animal_db.setDatabaseName("../SQL_Database/3004.db");
 
     if(!animal_db.open()){
         qWarning() << "MainWindow::ConnectDatabase - ERROR: Couldn't Open Database!";
@@ -273,15 +273,15 @@ void MainWindow::AddToTable()
 
             child1 = list.getAnimalChild(i);
             child = QString::fromStdString(child1);
-            ui->view_table->setItem(i, 15, new QTableWidgetItem(child));
+            ui->view_table->setItem(i, 16, new QTableWidgetItem(child));
 
             animalFriendly1 = list.getAnimalAnimalFriendly(i);
             animalFriendly = QString::fromStdString(animalFriendly1);
-            ui->view_table->setItem(i, 16, new QTableWidgetItem(animalFriendly));
+            ui->view_table->setItem(i, 17, new QTableWidgetItem(animalFriendly));
 
             equipment1 = list.getAnimalEquipment(i);
             equipment = QString::fromStdString(equipment1);
-            ui->view_table->setItem(i, 17, new QTableWidgetItem(equipment));
+            ui->view_table->setItem(i, 15, new QTableWidgetItem(equipment));
 
             excitement1 = list.getAnimalExcitability(i);
             excitement = QString::fromStdString(excitement1);
@@ -394,17 +394,17 @@ void MainWindow::AddToTableClient()
             space = QString::fromStdString(space1);
             ui->view_table_2->setItem(i, 14, new QTableWidgetItem(space));
 
+            equipment1 = list.getAnimalEquipment(i);
+            equipment = QString::fromStdString(equipment1);
+            ui->view_table_2->setItem(i, 15, new QTableWidgetItem(equipment));
+
             child1 = list.getAnimalChild(i);
             child = QString::fromStdString(child1);
-            ui->view_table_2->setItem(i, 15, new QTableWidgetItem(child));
+            ui->view_table_2->setItem(i, 16, new QTableWidgetItem(child));
 
             animalFriendly1 = list.getAnimalAnimalFriendly(i);
             animalFriendly = QString::fromStdString(animalFriendly1);
-            ui->view_table_2->setItem(i, 16, new QTableWidgetItem(animalFriendly));
-
-            equipment1 = list.getAnimalEquipment(i);
-            equipment = QString::fromStdString(equipment1);
-            ui->view_table_2->setItem(i, 17, new QTableWidgetItem(equipment));
+            ui->view_table_2->setItem(i, 17, new QTableWidgetItem(animalFriendly));
 
             excitement1 = list.getAnimalExcitability(i);
             excitement = QString::fromStdString(excitement1);
@@ -748,6 +748,17 @@ void MainWindow::on_view_client_2_clicked(){
     AddClientToTable();
 }
 
+
+void MainWindow::on_view_client_3_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+    ui->table_frame->hide();
+    ui->table_frame_2->show();
+    ui->table_frame_2->move(140,70);
+    show_clients();
+    AddClientToTable();
+}
+
 //When a staff member selects add client it'll hide the current frame
 //and show the add form
 void MainWindow::on_add_client_clicked(){
@@ -755,6 +766,13 @@ void MainWindow::on_add_client_clicked(){
     ui->stack_add->setCurrentIndex(1);
     show_clients();
 
+}
+
+void MainWindow::on_add_client_3_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+    ui->stack_add->setCurrentIndex(1);
+    show_clients();
 }
 
 void MainWindow::on_add_client_2_clicked(){
@@ -771,6 +789,16 @@ void MainWindow::on_view_button_clicked()
     ui->table_frame->move(140,70);
     show_animals();
     AddToTable(); //This function will have to add our animal objects to the viewable table
+}
+
+void MainWindow::on_view_button_3_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+    ui->table_frame->show();
+    ui->table_frame_2->hide();
+    ui->table_frame->move(140,70);
+    show_animals();
+    AddToTable();
 }
 
 //adds animals to the table when a client is logged in
@@ -796,6 +824,14 @@ void MainWindow::on_add_button_clicked()
     show_animals();
 
 
+}
+
+void MainWindow::on_add_button_3_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+    ui->stack_add->setCurrentIndex(0);
+
+    show_animals();
 }
 
 void MainWindow::on_add_button_2_clicked()
@@ -930,6 +966,13 @@ void MainWindow::on_submit_2_clicked(){
     {
         QueryDatabase();
         qDebug() << "Client Updated";
+
+        ui->stackedWidget->setCurrentIndex(1);
+        ui->table_frame->hide();
+        ui->table_frame_2->show();
+        ui->table_frame_2->move(140,70);
+        show_clients();
+        AddClientToTable();
     }
     else
     {
@@ -946,6 +989,173 @@ void MainWindow::on_submit_2_clicked(){
 
 }
 
+void MainWindow::on_submit_3_clicked()
+{
+    //Following code updates the animal into the database
+    QSqlQuery addQuery;
+
+    int animalAge = ui->input_4->text().toInt();
+
+    int a_id = ui->aIdLbl->text().toInt();
+
+    addQuery.prepare("UPDATE PHYSICAL_ATTRIBUTES SET gender=:gender, age=:age, species=:species, breed=:breed, hair_type=:hair_type, hair_colour=:hair_colour, aggressiveness=:agg, hyperactivity=:hyp, sleep=:sleep, noise=:noise, appetite=:app, maintainance=:man, outside=:outside, space_required=:spa, child_friendly=:chi, animal_friendly=:ani, equipment=:equ, excitibility=:exc WHERE a_id=:a_id");
+    addQuery.bindValue(":a_id", a_id);
+    addQuery.bindValue(":gender", ui->input_3->text());
+    addQuery.bindValue(":age", animalAge);
+    addQuery.bindValue(":species", ui->input_5->text());
+    addQuery.bindValue(":breed", ui->input_6->text());
+    addQuery.bindValue(":hair_type", ui->input_7->text());
+    addQuery.bindValue(":hair_colour", ui->input_8->text());
+    addQuery.bindValue(":agg", ui->aggressivenessCombo_2->currentText());
+    addQuery.bindValue(":hyp", ui->hyperactivity_combo_2->currentText());
+    addQuery.bindValue(":sleep", ui->sleep_combo_2->currentText());
+    addQuery.bindValue(":noise", ui->noise_combo_2->currentText());
+    addQuery.bindValue(":app", ui->appetite_combo_2->currentText());
+    addQuery.bindValue(":man", ui->maintainance_combo_2->currentText());
+    addQuery.bindValue(":outside", ui->outside_combo_2->currentText());
+    addQuery.bindValue(":spa", ui->space_combo_2->currentText());
+    addQuery.bindValue(":chi", ui->child_combo_2->currentText());
+    addQuery.bindValue(":ani", ui->animal_combo_2->currentText());
+    addQuery.bindValue(":equ", ui->equipment_combo_2->currentText());
+    addQuery.bindValue(":exc", ui->excitibility_combo_2->currentText());
+    addQuery.exec();
+
+    //this->close();
+    if (addQuery.exec())
+    {
+        QueryDatabase();
+        qDebug() << "Client Updated";
+        ui->stackedWidget->setCurrentIndex(1);
+        ui->table_frame->show();
+        ui->table_frame_2->hide();
+        ui->table_frame->move(140,70);
+        show_animals();
+        AddToTable();
+    }
+    else
+    {
+        QMessageBox::information(this,"", addQuery.lastError().text());
+    }
+}
+
+
+void MainWindow::on_view_table_cellDoubleClicked(int row, int column)
+{
+    ui->stackedWidget->setCurrentIndex(3);
+    EditAnimal(row);
+}
+
+void MainWindow::EditAnimal(int row){
+    QString aId, age1, name,gender,species,breed,hairType,hairColour,aggressiveness,hyperactivity,sleep,noise,appetite,maintainance,outside,space,child,animalFriendly,equipment,excitement;
+    int age, a_id_int;
+
+    QString animalName = ui->view_table->item(row, 0)->text();
+    QSqlQuery query;
+    query.prepare("SELECT NAME, gender, age, species, breed, hair_type, hair_colour, aggressiveness, hyperactivity, sleep, noise, appetite, maintainance, outside, space_required, child_friendly, animal_friendly, equipment, excitibility, ANIMALS.animal_id FROM ANIMALS INNER JOIN PHYSICAL_ATTRIBUTES ON ANIMALS.animal_id = PHYSICAL_ATTRIBUTES.a_id WHERE NAME=:aName;");
+    query.bindValue(":aName", animalName);
+
+    if(!query.exec())
+        qWarning() << "Query Failed!";
+
+
+    while(query.next()) {
+
+        //use the data that gets fed into this string to create the animal objects
+
+        name = query.value(0).toString();
+
+        gender = query.value(1).toString();
+
+        age = query.value(2).toInt();
+
+        age1 = QString::number(age);
+
+        species = query.value(3).toString();
+
+        breed = query.value(4).toString();
+
+        hairType = query.value(5).toString();
+
+        hairColour = query.value(6).toString();
+
+        aggressiveness = query.value(7).toString();
+
+        hyperactivity = query.value(8).toString();
+
+        sleep = query.value(9).toString();
+
+        noise = query.value(10).toString();
+
+        appetite = query.value(11).toString();
+
+        maintainance = query.value(12).toString();
+
+        outside = query.value(13).toString();
+
+        space = query.value(14).toString();
+
+        child = query.value(15).toString();
+
+        animalFriendly = query.value(16).toString();
+
+        equipment = query.value(17).toString();
+
+        excitement = query.value(18).toString();
+
+        a_id_int = query.value(19).toInt();
+
+        aId = QString::number(a_id_int);
+
+    }
+
+    ui->input_2->setText(name);
+    ui->input_3->setText(gender);
+    ui->input_4->setText(age1);
+    ui->input_5->setText(species);
+    ui->input_6->setText(breed);
+    ui->input_7->setText(hairType);
+    ui->input_8->setText(hairColour);
+
+    ui->aIdLbl->setText(aId);
+
+    int currIndex = ui->aggressivenessCombo_2->findText(aggressiveness);
+    ui->aggressivenessCombo_2->setCurrentIndex(currIndex);
+
+    currIndex = ui->hyperactivity_combo_2->findText(hyperactivity);
+    ui->hyperactivity_combo_2->setCurrentIndex(currIndex);
+
+    currIndex = ui->sleep_combo_2->findText(sleep);
+    ui->sleep_combo_2->setCurrentIndex(currIndex);
+
+    currIndex = ui->noise_combo_2->findText(noise);
+    ui->noise_combo_2->setCurrentIndex(currIndex);
+
+    currIndex = ui->appetite_combo_2->findText(appetite);
+    ui->appetite_combo_2->setCurrentIndex(currIndex);
+
+    currIndex = ui->maintainance_combo_2->findText(maintainance);
+    ui->maintainance_combo_2->setCurrentIndex(currIndex);
+
+    currIndex = ui->outside_combo_2->findText(outside);
+    ui->outside_combo_2->setCurrentIndex(currIndex);
+
+    currIndex = ui->space_combo_2->findText(space);
+    ui->space_combo_2->setCurrentIndex(currIndex);
+
+    currIndex = ui->child_combo_2->findText(child);
+    ui->child_combo_2->setCurrentIndex(currIndex);
+
+    currIndex = ui->animal_combo_2->findText(animalFriendly);
+    ui->animal_combo_2->setCurrentIndex(currIndex);
+
+    currIndex = ui->equipment_combo_2->findText(equipment);
+    ui->equipment_combo_2->setCurrentIndex(currIndex);
+
+    currIndex = ui->excitibility_combo_2->findText(excitement);
+    ui->excitibility_combo_2->setCurrentIndex(currIndex);
+}
+
+
 void MainWindow::on_ClientViewAnimalProfile_clicked(){
 
     ui->stackedWidget->setCurrentIndex(4);
@@ -958,6 +1168,13 @@ MainWindow::~MainWindow()
     list.deleteList();
 
 }
+
+
+
+
+
+
+
 
 
 
