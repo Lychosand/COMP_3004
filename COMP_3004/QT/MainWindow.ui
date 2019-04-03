@@ -209,7 +209,7 @@ background-color: rgb(32,34,37);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>60</y>
+         <y>10</y>
          <width>110</width>
          <height>110</height>
         </rect>
@@ -231,7 +231,7 @@ color: rgb(255,255,255);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>300</y>
+         <y>370</y>
          <width>110</width>
          <height>110</height>
         </rect>
@@ -379,7 +379,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>180</y>
+         <y>120</y>
          <width>110</width>
          <height>110</height>
         </rect>
@@ -398,7 +398,7 @@ color: rgb(255,255,255);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>420</y>
+         <y>480</y>
          <width>110</width>
          <height>110</height>
         </rect>
@@ -493,6 +493,25 @@ color: rgb(0, 0, 0);</string>
        </property>
        <property name="text">
         <string>To edit an animal simply double click on the animal you wish to change.</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="runACM">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>229</y>
+         <width>110</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rbg(54,57,65);
+border-radius: 20px;
+border: 1px solid white;
+color: rgb(255,255,255);</string>
+       </property>
+       <property name="text">
+        <string>Run ACM</string>
        </property>
       </widget>
      </widget>
@@ -803,7 +822,7 @@ color: rgb(255,255,255);</string>
         </rect>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
        <widget class="QWidget" name="page_7">
         <widget class="QFrame" name="addAnimalFrame">

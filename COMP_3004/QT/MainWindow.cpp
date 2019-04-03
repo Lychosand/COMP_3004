@@ -51,7 +51,7 @@ void MainWindow::ConnectDatabase()
 void MainWindow::QueryDatabase()
 {
     QSqlQuery query;
-    query.prepare("SELECT NAME, gender, age, species, breed, hair_type, hair_colour, aggressiveness, hyperactivity, sleep, noise, appetite, maintainance, outside, space_required, child_friendly, animal_friendly, equipment, excitibility FROM ANIMALS INNER JOIN PHYSICAL_ATTRIBUTES ON ANIMALS.animal_id = PHYSICAL_ATTRIBUTES.a_id;");
+    query.prepare("SELECT NAME, gender, age, species, breed, hair_type, hair_colour, aggressiveness, hyperactivity, sleep, noise, appetite, maintainance, outside, space_required, child_friendly, animal_friendly, equipment, excitibility, animal_id FROM ANIMALS INNER JOIN PHYSICAL_ATTRIBUTES ON ANIMALS.animal_id = PHYSICAL_ATTRIBUTES.a_id;");
 
     if(!query.exec())
         qWarning() << "Query Failed!";
@@ -64,7 +64,7 @@ void MainWindow::QueryDatabase()
         //use the data that gets fed into this string to create the animal objects
         QString name,gender,species,breed,hairType,hairColour,aggressiveness,hyperactivity,sleep,noise,appetite,maintainance,outside,space,child,animalFriendly,equipment,excitement;
         string name1,gender1,species1,breed1,hairType1,hairColour1,aggressiveness1,hyperactivity1,sleep1,noise1,appetite1,maintainance1,outside1,space1,child1,animalFriendly1,equipment1,excitement1;
-        int age;
+        int age, id;
 
         name = query.value(0).toString();
         name1 = name.toStdString();
@@ -122,7 +122,9 @@ void MainWindow::QueryDatabase()
         excitement = query.value(18).toString();
         excitement1 = excitement.toStdString();
 
-        Animal *animal = new Animal(name1,gender1,species1,breed1,hairType1,hairColour1,aggressiveness1,hyperactivity1,sleep1,noise1,appetite1,maintainance1,outside1,space1,child1,animalFriendly1,equipment1,excitement1,age);
+        id = query.value(19).toInt();
+
+        Animal *animal = new Animal(name1,gender1,species1,breed1,hairType1,hairColour1,aggressiveness1,hyperactivity1,sleep1,noise1,appetite1,maintainance1,outside1,space1,child1,animalFriendly1,equipment1,excitement1,age, id);
         list.addAnimal(animal);
     }
 
@@ -517,15 +519,16 @@ void MainWindow::AddAnimal()
             }
         }
     }
+    animalId = id_data + 1;
 
     //adds animal to list
     Animal *animal = new Animal(animalName.toStdString(), animalGender.toStdString(), animalSpecies.toStdString(),
                                 animalBreed.toStdString(), animalHairType.toStdString(), animalHairColour.toStdString(),animalAggressiveness.toStdString(),animalHyperactivity.toStdString(),animalSleep.toStdString(),
                                 animalNoise.toStdString(),animalAppetite.toStdString(),animalMaintainance.toStdString(),animalOutside.toStdString(),animalSpace.toStdString(),animalChild.toStdString()
-                                ,animalAnimal.toStdString(),animalEquipment.toStdString(),animalExcitment.toStdString(),ageInt);
+                                ,animalAnimal.toStdString(),animalEquipment.toStdString(),animalExcitment.toStdString(),ageInt, animalId);
     list.addAnimal(animal);
 
-    animalId = id_data + 1;
+
 
     //adds animal to database
     addQuery.prepare("INSERT INTO ANIMALS (animal_id, name)"
@@ -1166,13 +1169,18 @@ MainWindow::~MainWindow()
     delete ui;
     clientList.deleteList();
     list.deleteList();
-
 }
 
+void MainWindow::on_runACM_clicked()
+{
 
+    algorithm.compute(list, clientList, optimalSet);//run the algorithm
 
-
-
+    for(int i = 0; i<(int)(optimalSet.size()); i++){
+        qDebug() << optimalSet.at(i).getOverallScore();
+    }
+    //display results
+}
 
 
 

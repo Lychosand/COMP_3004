@@ -7,7 +7,7 @@ class Animal
 {
 
   public:
-    Animal(string,string,string,string,string,string,string,string,string,string,string,string,string,string,string,string,string,string,int);
+    Animal(string,string,string,string,string,string,string,string,string,string,string,string,string,string,string,string,string,string,int,int);
     string getName();
     string getGender();
     string getSpecies();
@@ -26,14 +26,14 @@ class Animal
     string getAnimal();
     string getEquipment();
     string getExcitement();
-
+    int getId();
     int getAge();
 
 
 
   private:
     string name,gender,species,breed,hairType,HairColour,aggressiveness,hyperactivity,sleep,noise,appetite,maintainance,outside,space,child,animal,equipment,excitability;
-    int age;
+    int age, id;
 
 
 

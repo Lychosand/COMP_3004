@@ -9,10 +9,13 @@
 #include <QSqlDatabase>
 #include <QtCore>
 #include <QtGui>
+#include <vector>
 #include "Animal.h"
 #include "Array.h"
 #include "Client.h"
 #include "ClientArray.h"
+#include "Match.h"
+#include "ACM.h"
 
 namespace Ui {
 class MainWindow;
@@ -67,6 +70,8 @@ private slots:
 
     void on_submit_3_clicked();
 
+    void on_runACM_clicked();
+
 private:
     Ui::MainWindow *ui;
     void ConnectDatabase();
@@ -84,6 +89,8 @@ private:
 
     Array list;
     ClientArray clientList;
+    vector<Match> optimalSet;
+    ACM algorithm;
 
 };
 

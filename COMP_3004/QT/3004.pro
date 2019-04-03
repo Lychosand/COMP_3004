@@ -29,14 +29,18 @@ SOURCES += \
     Client.cpp \
     Main.cpp \
     MainWindow.cpp \
-    ClientArray.cpp
+    ClientArray.cpp \
+    Match.cpp \
+    ACM.cpp
 
 HEADERS += \
     Animal.h \
     Array.h \
     Client.h \
     MainWindow.h \
-    ClientArray.h
+    ClientArray.h \
+    ACM.h \
+    Match.h
 
 FORMS += \
     MainWindow.ui

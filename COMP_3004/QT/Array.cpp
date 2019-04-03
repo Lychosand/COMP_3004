@@ -3,6 +3,11 @@
 using namespace std;
 #include "Array.h"
 
+Animal* Array::getAnimalAt(int index){
+    return array[index];
+}
+
+
 void Array::addAnimal(Animal *b)
 {
   array[numAnimal] = b;
@@ -19,10 +24,6 @@ void Array::deleteList(){
 }
 
 Array::~Array(){
-  for (int i = 0; i < numAnimal; i++)
-     {
-         delete array[i];
-     }
 }
 
 int Array::getNumAnimal(){
