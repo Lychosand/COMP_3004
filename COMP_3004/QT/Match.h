@@ -31,6 +31,7 @@ private:
     int m_id;
     Animal* animal;
     Client* client;
+    string reasoning;
     float overallScore;
     float aggressionScore;
     float hyperScore;

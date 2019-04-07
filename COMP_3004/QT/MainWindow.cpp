@@ -1173,11 +1173,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_runACM_clicked()
 {
-
+    optimalSet.clear();
     algorithm.compute(list, clientList, optimalSet);//run the algorithm
 
     for(int i = 0; i<(int)(optimalSet.size()); i++){
-        qDebug() << optimalSet.at(i).getOverallScore();
+        qDebug() << i << ") " << optimalSet.at(i).getOverallScore() << " Animal: " << optimalSet.at(i).getAnimal()->getId() << " Client: " << optimalSet.at(i).getClient()->getDatabaseId();
     }
     //display results
 }

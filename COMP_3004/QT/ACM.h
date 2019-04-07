@@ -28,6 +28,7 @@ private:
     void findById(int, vector<Match>, int&);
     void checkDiscarded(Match, vector<Match>, vector<Match>, vector<Match>&);
 
+
     float scoringThreshold;
     vector<Match> finalSet;
     vector<Match> discarded;
