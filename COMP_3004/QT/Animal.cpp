@@ -5,7 +5,7 @@ using namespace std;
 
 #include "Animal.h"
 
-Animal::Animal(string n, string g, string s,string b, string hT, string hC,string aG,string hA,string sL,string nO ,string aP,string mA,string oU,string sP,string cH,string aH,string eQ,string eX, int a){
+Animal::Animal(string n, string g, string s,string b, string hT, string hC,string aG,string hA,string sL,string nO ,string aP,string mA,string oU,string sP,string cH,string aH,string eQ,string eX, int a, int aId){
     name = n;
     gender = g;
     species = s;
@@ -25,7 +25,13 @@ Animal::Animal(string n, string g, string s,string b, string hT, string hC,strin
     equipment = eQ;
     excitability = eX;
     age = a;
+    id = aId;
 }
+
+int Animal::getId(){
+    return id;
+}
+
 string Animal::getName(){
     return name;
 }

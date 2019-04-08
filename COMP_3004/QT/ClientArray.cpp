@@ -1,6 +1,10 @@
 #include "ClientArray.h"
 using namespace std;
 
+Client* ClientArray::getClientAt(int index){
+    return array[index];
+}
+
 void ClientArray::addClient(Client *c)
 {
     array[num_clients] = c;
@@ -19,10 +23,6 @@ void ClientArray::deleteList()
 
 ClientArray::~ClientArray()
 {
-    for(int i=0; i<num_clients; i++)
-    {
-        delete array[i];
-    }
 }
 
 int ClientArray::getNumClients()

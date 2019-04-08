@@ -14,6 +14,7 @@ public:
     ~ClientArray();
     void addClient(Client *c);
     void deleteList();
+    Client* getClientAt(int);
     int getNumClients();
     string getClientName(int);
     string getClientUsername(int);

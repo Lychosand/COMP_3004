@@ -16,6 +16,7 @@ class Array{
     ~Array();
     void addAnimal(Animal *b);
     void deleteList();
+    Animal* getAnimalAt(int);
     int getNumAnimal();
     string getAnimalName(int);
     string getAnimalGender(int);
