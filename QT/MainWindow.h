@@ -9,10 +9,13 @@
 #include <QSqlDatabase>
 #include <QtCore>
 #include <QtGui>
+#include <vector>
 #include "Animal.h"
 #include "Array.h"
 #include "Client.h"
 #include "ClientArray.h"
+#include "Match.h"
+#include "ACM.h"
 
 namespace Ui {
 class MainWindow;
@@ -31,22 +34,63 @@ private slots:
 
     void on_login_button_clicked();
 
-    void on_add_button_clicked();
+    void on_view_animals_clicked();
+    void on_view_button_2_clicked();
 
-    void on_staff_combo_activated(const QString &arg1);
+    void on_view_client_clicked();
+    void on_view_client_2_clicked();
+
+    void on_add_button_clicked();
+    void on_add_button_2_clicked();
+
+    void on_add_client_clicked();
+    void on_add_client_2_clicked();
+
+    //in staff_frame_2
+    void on_submit_clicked();
+
+    //in client frame
+    void on_editProfile_clicked();
+
+    //in edit profile frame
+    void on_submit_2_clicked();
+    void on_ClientViewAnimalProfile_clicked();
+
+
+
+    void on_view_table_cellDoubleClicked(int row, int column);
+
+    void on_view_button_3_clicked();
+
+    void on_view_client_3_clicked();
+
+    void on_add_button_3_clicked();
+
+    void on_add_client_3_clicked();
+
+    void on_submit_3_clicked();
+
+    void on_runACM_clicked();
 
 private:
     Ui::MainWindow *ui;
     void ConnectDatabase();
     void QueryDatabase();
     void AddToTable();
+    void AddToTableClient();
+    void AddClientToTable();
     void PrepareForms();
     void AddAnimal();
     void AddClient();
     void show_animals();
     void show_clients();
+    void setupEditClient(QString);
+    void EditAnimal(int);
+
     Array list;
     ClientArray clientList;
+    vector<Match> optimalSet;
+    ACM algorithm;
 
 };
 

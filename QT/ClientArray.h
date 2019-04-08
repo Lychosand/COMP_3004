@@ -14,14 +14,17 @@ public:
     ~ClientArray();
     void addClient(Client *c);
     void deleteList();
+    Client* getClientAt(int);
     int getNumClients();
     string getClientName(int);
     string getClientUsername(int);
     string getClientPassword(int);
-    int getClientPhoneNumber(int);
+    string getClientPhoneNumber(int);
     string getClientAddress(int);
     string getClientPostalCode(int);
     string getClientProvince(int);
+    int * getClientPreferences(int);
+    int getClientDatabase_id(int);
 
 private:
     Client * array[MAX_ARR_SIZE];

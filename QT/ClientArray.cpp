@@ -1,6 +1,10 @@
 #include "ClientArray.h"
 using namespace std;
 
+Client* ClientArray::getClientAt(int index){
+    return array[index];
+}
+
 void ClientArray::addClient(Client *c)
 {
     array[num_clients] = c;
@@ -19,10 +23,6 @@ void ClientArray::deleteList()
 
 ClientArray::~ClientArray()
 {
-    for(int i=0; i<num_clients; i++)
-    {
-        delete array[i];
-    }
 }
 
 int ClientArray::getNumClients()
@@ -45,7 +45,7 @@ string ClientArray::getClientPassword(int a)
     return array[a]->getPassword();
 }
 
-int ClientArray::getClientPhoneNumber(int a)
+string ClientArray::getClientPhoneNumber(int a)
 {
     return array[a]->getPhoneNumber();
 }
@@ -62,5 +62,15 @@ string ClientArray::getClientPostalCode(int a)
 string ClientArray::getClientProvince(int a)
 {
     return array[a]->getProvince();
+}
+
+int ClientArray::getClientDatabase_id(int a)
+{
+    return array[a]->getDatabaseId();
+}
+
+int * ClientArray::getClientPreferences(int a)
+{
+    return array[a]->getPreferences();
 }
 
