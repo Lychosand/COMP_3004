@@ -6,13 +6,25 @@
 */
 
 SELECT animal_id,
-       NAME,
+       name,
        gender,
        age,
        species,
        breed,
        hair_type,
-       hair_colour
+       hair_colour,
+       aggressiveness,
+       hyperactivity,
+       sleep,
+       noise,
+       appetite,
+       maintainance,
+       outside,
+       space_required,
+       child_friendly,
+       animal_friendly,
+       equipment,
+       excitibility
 FROM   ANIMALS
        INNER JOIN PHYSICAL_ATTRIBUTES
                ON ANIMALS.animal_id = PHYSICAL_ATTRIBUTES.a_id;
