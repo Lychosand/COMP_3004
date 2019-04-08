@@ -65,7 +65,7 @@ font: 75 28pt &quot;FreeSerif&quot;;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QFrame" name="login_frame">
@@ -3377,7 +3377,7 @@ color: rgb(255,255,255);</string>
         <rect>
          <x>150</x>
          <y>130</y>
-         <width>150</width>
+         <width>181</width>
          <height>30</height>
         </rect>
        </property>
@@ -3395,7 +3395,7 @@ color: rgb(255,255,255);</string>
         <rect>
          <x>150</x>
          <y>170</y>
-         <width>150</width>
+         <width>171</width>
          <height>30</height>
         </rect>
        </property>
@@ -3413,7 +3413,7 @@ color: rgb(255,255,255);</string>
         <rect>
          <x>150</x>
          <y>210</y>
-         <width>161</width>
+         <width>231</width>
          <height>30</height>
         </rect>
        </property>
@@ -3474,7 +3474,7 @@ color: rgb(255,255,255);</string>
       <widget class="QLabel" name="match_percentage">
        <property name="geometry">
         <rect>
-         <x>320</x>
+         <x>390</x>
          <y>210</y>
          <width>141</width>
          <height>30</height>
@@ -3492,7 +3492,7 @@ color: rgb(255,255,255);</string>
       <widget class="QLabel" name="client_name">
        <property name="geometry">
         <rect>
-         <x>320</x>
+         <x>390</x>
          <y>170</y>
          <width>491</width>
          <height>30</height>
@@ -3510,7 +3510,7 @@ color: rgb(255,255,255);</string>
       <widget class="QLabel" name="animal_name">
        <property name="geometry">
         <rect>
-         <x>320</x>
+         <x>390</x>
          <y>130</y>
          <width>251</width>
          <height>30</height>
