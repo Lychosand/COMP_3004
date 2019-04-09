@@ -431,6 +431,8 @@ compiler_moc_header_clean:
 	-$(DEL_FILE) moc_MainWindow.cpp
 moc_MainWindow.cpp: ../QT/Animal.h \
 		../QT/Array.h \
+		../QT/Client.h \
+		../QT/ClientArray.h \
 		../QT/MainWindow.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
@@ -467,13 +469,17 @@ Client.o: ../QT/Client.cpp ../QT/Client.h
 
 Main.o: ../QT/Main.cpp ../QT/MainWindow.h \
 		../QT/Animal.h \
-		../QT/Array.h
+		../QT/Array.h \
+		../QT/Client.h \
+		../QT/ClientArray.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Main.o ../QT/Main.cpp
 
 MainWindow.o: ../QT/MainWindow.cpp ../QT/MainWindow.h \
 		../QT/Animal.h \
 		../QT/Array.h \
-		ui_mainwindow.h
+		../QT/Client.h \
+		../QT/ClientArray.h \
+		ui_MainWindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainWindow.o ../QT/MainWindow.cpp
 
 ClientArray.o: ../QT/ClientArray.cpp ../QT/ClientArray.h \

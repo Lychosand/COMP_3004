@@ -12,9 +12,11 @@ class Array{
     Array(){
       numAnimal = 0;
     }
+
     ~Array();
     void addAnimal(Animal *b);
     void deleteList();
+    Animal* getAnimalAt(int);
     int getNumAnimal();
     string getAnimalName(int);
     string getAnimalGender(int);
@@ -22,6 +24,18 @@ class Array{
     string getAnimalBreed(int);
     string getAnimalHairType(int);
     string getAnimalHairColour(int);
+    string getAnimalAggressiveness(int);
+    string getAnimalHyperactivity(int);
+    string getAnimalSleep(int);
+    string getAnimalNoise(int);
+    string getAnimalAppetite(int);
+    string getAnimalMaintainance(int);
+    string getAnimalOutside(int);
+    string getAnimalSpace(int);
+    string getAnimalChild(int);
+    string getAnimalAnimalFriendly(int);
+    string getAnimalEquipment(int);
+    string getAnimalExcitability(int);
     int getAnimalAge(int);
 
 
