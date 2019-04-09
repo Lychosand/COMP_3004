@@ -133,16 +133,28 @@ INSERT OR REPLACE INTO USERS(user_id, name, phone_number, address, postal_code, 
   VALUES(15, "Jared Cummings", "613-100-0004", "455 Waverley St.", "K2P7B7", "Ontario");
 
 INSERT OR REPLACE INTO CLIENTS(u_id, username, password,animal_wanted,agression,hyperactivity,sleep,animal_loudness,food_budget,time_avail,house_type,child_friendly,equip_budget,have_animals,ex_stimuli,pref_age,pref_gender)
+<<<<<<< HEAD
+  VALUES(11, "Client_01", "Client",1,2,1,2,1,2,1,1,2,1,2,1,2,1);
+=======
   VALUES(11, "Client_01", "Client",0,2,1,2,1,2,1,1,2,1,2,1,2,1);
+>>>>>>> master
 
 INSERT OR REPLACE INTO CLIENTS(u_id, username, password,animal_wanted,agression,hyperactivity,sleep,animal_loudness,food_budget,time_avail,house_type,child_friendly,equip_budget,have_animals,ex_stimuli,pref_age,pref_gender)
   VALUES(12, "Client_02", "Client",1,2,1,2,1,2,1,1,2,1,2,1,2,1);
 
 INSERT OR REPLACE INTO CLIENTS(u_id, username, password,animal_wanted,agression,hyperactivity,sleep,animal_loudness,food_budget,time_avail,house_type,child_friendly,equip_budget,have_animals,ex_stimuli,pref_age,pref_gender)
+<<<<<<< HEAD
+  VALUES(13, "Client_03", "Client",1,2,1,2,1,2,1,1,2,1,2,1,2,1);
+=======
   VALUES(13, "Client_03", "Client",0,2,1,2,1,2,1,1,2,1,2,1,2,1);
+>>>>>>> master
 
 INSERT OR REPLACE INTO CLIENTS(u_id, username, password,animal_wanted,agression,hyperactivity,sleep,animal_loudness,food_budget,time_avail,house_type,child_friendly,equip_budget,have_animals,ex_stimuli,pref_age,pref_gender)
   VALUES(14, "Client_04", "Client",1,2,1,2,1,2,1,1,2,1,2,1,2,1);
 
 INSERT OR REPLACE INTO CLIENTS(u_id, username, password,animal_wanted,agression,hyperactivity,sleep,animal_loudness,food_budget,time_avail,house_type,child_friendly,equip_budget,have_animals,ex_stimuli,pref_age,pref_gender)
+<<<<<<< HEAD
+  VALUES(15, "Client_05", "Client",1,2,1,2,1,2,1,1,2,1,2,1,2,1);
+=======
   VALUES(15, "Client_05", "Client",0,2,1,2,1,2,1,1,2,1,2,1,2,1);
+>>>>>>> master

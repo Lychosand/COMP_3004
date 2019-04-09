@@ -5,10 +5,13 @@
 #include "ClientArray.h"
 #include <vector>
 #include <QtDebug>
+<<<<<<< HEAD
+=======
 #include <chrono>
 
 typedef std::vector<int> V1D;
 typedef std::vector<V1D> V2D;
+>>>>>>> master
 
 class ACM{
 
@@ -19,8 +22,13 @@ public:
 
 private:
     void initSet(vector<Match>&, Array, ClientArray);
+<<<<<<< HEAD
+    void dealBreakers(vector<Match>&);
+    void scoring(vector<Match>&);
+=======
     bool dealBreakers(vector<Match>&, int, int*);
     void scoring(vector<Match>&, V2D&);
+>>>>>>> master
     void testVals(vector<Match>&);
     void sortSet(vector<Match>, vector<Match>&);
     void cutOff(vector<Match>&);
@@ -31,6 +39,8 @@ private:
     bool compareAssociations(Match, Match, vector<Match>);
     void findById(int, vector<Match>, int&);
     void checkDiscarded(Match, vector<Match>, vector<Match>, vector<Match>&);
+<<<<<<< HEAD
+=======
     float aggressionRule(vector<Match>&, int, int*);
     float hyperactivityRule(vector<Match>&, int, int*);
     float sleepRule(vector<Match>&, int, int*);
@@ -51,14 +61,18 @@ private:
     void CheckOptimal(V2D&, V2D&, int);
     bool NonAttacking(V2D&, V2D&, int, int);
     void ShrinkMatrix(V2D&, V2D&, V2D&, V2D&, V1D&, V1D&);
+>>>>>>> master
 
 
     float scoringThreshold;
     vector<Match> finalSet;
     vector<Match> discarded;
     vector<Match> sortedSet;
+<<<<<<< HEAD
+=======
 
     V2D matches;
+>>>>>>> master
 };
 
 #endif // ACM_H
