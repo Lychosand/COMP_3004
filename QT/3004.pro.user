@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
+<<<<<<< HEAD
 <!-- Written by QtCreator 4.5.2, 2019-04-08T16:00:20. -->
+=======
+<!-- Written by QtCreator 4.5.2, 2019-04-08T19:28:10. -->
+>>>>>>> master
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -276,18 +280,20 @@
     <value type="bool" key="Analyzer.Valgrind.Callgrind.EnableEventToolTips">true</value>
     <value type="double" key="Analyzer.Valgrind.Callgrind.MinimumCostRatio">0.01</value>
     <value type="double" key="Analyzer.Valgrind.Callgrind.VisualisationMinimumCostRatio">10</value>
-    <value type="bool" key="Analyzer.Valgrind.FilterExternalIssues">true</value>
+    <value type="bool" key="Analyzer.Valgrind.FilterExternalIssues">false</value>
     <value type="int" key="Analyzer.Valgrind.LeakCheckOnFinish">1</value>
     <value type="int" key="Analyzer.Valgrind.NumCallers">25</value>
     <valuelist type="QVariantList" key="Analyzer.Valgrind.RemovedSuppressionFiles"/>
-    <value type="int" key="Analyzer.Valgrind.SelfModifyingCodeDetection">1</value>
+    <value type="int" key="Analyzer.Valgrind.SelfModifyingCodeDetection">2</value>
     <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="bool" key="Analyzer.Valgrind.ShowReachable">false</value>
+    <value type="bool" key="Analyzer.Valgrind.ShowReachable">true</value>
     <value type="bool" key="Analyzer.Valgrind.TrackOrigins">true</value>
     <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">valgrind</value>
     <valuelist type="QVariantList" key="Analyzer.Valgrind.VisibleErrorKinds">
-     <value type="int">0</value>
-     <value type="int">1</value>
+     <value type="int">11</value>
+     <value type="int">14</value>
+     <value type="int">12</value>
+     <value type="int">13</value>
      <value type="int">2</value>
      <value type="int">3</value>
      <value type="int">4</value>
@@ -297,16 +303,19 @@
      <value type="int">8</value>
      <value type="int">9</value>
      <value type="int">10</value>
-     <value type="int">11</value>
-     <value type="int">12</value>
-     <value type="int">13</value>
-     <value type="int">14</value>
+     <value type="int">0</value>
+     <value type="int">1</value>
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">3004</value>
+<<<<<<< HEAD
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">30042</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/student/Desktop/COMP_3004/COMP_3004/QT/3004.pro</value>
+=======
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/student/Desktop/COMP_3004/QT/3004.pro</value>
+>>>>>>> master
     <value type="bool" key="QmakeProjectManager.QmakeRunConfiguration.UseLibrarySearchPath">true</value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.CommandLineArguments"></value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.ProFile">3004.pro</value>

@@ -55,7 +55,9 @@ SOURCES       = ../QT/Animal.cpp \
 		../QT/Client.cpp \
 		../QT/Main.cpp \
 		../QT/MainWindow.cpp \
-		../QT/ClientArray.cpp qrc_resources.cpp \
+		../QT/ClientArray.cpp \
+		../QT/Match.cpp \
+		../QT/ACM.cpp qrc_resources.cpp \
 		moc_MainWindow.cpp
 OBJECTS       = Animal.o \
 		Array.o \
@@ -63,6 +65,8 @@ OBJECTS       = Animal.o \
 		Main.o \
 		MainWindow.o \
 		ClientArray.o \
+		Match.o \
+		ACM.o \
 		qrc_resources.o \
 		moc_MainWindow.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -159,12 +163,16 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../QT/Array.h \
 		../QT/Client.h \
 		../QT/MainWindow.h \
-		../QT/ClientArray.h ../QT/Animal.cpp \
+		../QT/ClientArray.h \
+		../QT/ACM.h \
+		../QT/Match.h ../QT/Animal.cpp \
 		../QT/Array.cpp \
 		../QT/Client.cpp \
 		../QT/Main.cpp \
 		../QT/MainWindow.cpp \
-		../QT/ClientArray.cpp
+		../QT/ClientArray.cpp \
+		../QT/Match.cpp \
+		../QT/ACM.cpp
 QMAKE_TARGET  = 3004
 DESTDIR       = 
 TARGET        = 3004
@@ -385,8 +393,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../QT/resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../QT/Animal.h ../QT/Array.h ../QT/Client.h ../QT/MainWindow.h ../QT/ClientArray.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../QT/Animal.cpp ../QT/Array.cpp ../QT/Client.cpp ../QT/Main.cpp ../QT/MainWindow.cpp ../QT/ClientArray.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../QT/Animal.h ../QT/Array.h ../QT/Client.h ../QT/MainWindow.h ../QT/ClientArray.h ../QT/ACM.h ../QT/Match.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../QT/Animal.cpp ../QT/Array.cpp ../QT/Client.cpp ../QT/Main.cpp ../QT/MainWindow.cpp ../QT/ClientArray.cpp ../QT/Match.cpp ../QT/ACM.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../QT/MainWindow.ui $(DISTDIR)/
 
 
@@ -433,6 +441,11 @@ moc_MainWindow.cpp: ../QT/Animal.h \
 		../QT/Array.h \
 		../QT/Client.h \
 		../QT/ClientArray.h \
+<<<<<<< HEAD
+=======
+		../QT/Match.h \
+		../QT/ACM.h \
+>>>>>>> master
 		../QT/MainWindow.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
@@ -471,7 +484,13 @@ Main.o: ../QT/Main.cpp ../QT/MainWindow.h \
 		../QT/Animal.h \
 		../QT/Array.h \
 		../QT/Client.h \
+<<<<<<< HEAD
 		../QT/ClientArray.h
+=======
+		../QT/ClientArray.h \
+		../QT/Match.h \
+		../QT/ACM.h
+>>>>>>> master
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Main.o ../QT/Main.cpp
 
 MainWindow.o: ../QT/MainWindow.cpp ../QT/MainWindow.h \
@@ -479,12 +498,31 @@ MainWindow.o: ../QT/MainWindow.cpp ../QT/MainWindow.h \
 		../QT/Array.h \
 		../QT/Client.h \
 		../QT/ClientArray.h \
+<<<<<<< HEAD
 		ui_MainWindow.h
+=======
+		../QT/Match.h \
+		../QT/ACM.h \
+		../QT/ui_MainWindow.h
+>>>>>>> master
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainWindow.o ../QT/MainWindow.cpp
 
 ClientArray.o: ../QT/ClientArray.cpp ../QT/ClientArray.h \
 		../QT/Client.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ClientArray.o ../QT/ClientArray.cpp
+
+Match.o: ../QT/Match.cpp ../QT/Match.h \
+		../QT/Animal.h \
+		../QT/Client.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Match.o ../QT/Match.cpp
+
+ACM.o: ../QT/ACM.cpp ../QT/ACM.h \
+		../QT/Match.h \
+		../QT/Animal.h \
+		../QT/Client.h \
+		../QT/Array.h \
+		../QT/ClientArray.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ACM.o ../QT/ACM.cpp
 
 qrc_resources.o: qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp

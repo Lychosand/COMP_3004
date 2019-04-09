@@ -27,6 +27,20 @@ public:
     float getHairTypeScore();
     float getHairColourScore();
     void setOverallScore(float);
+<<<<<<< HEAD
+=======
+    void setAggressionScore(float);
+    void setHyperScore(float);
+    void setSleepScore(float);
+    void setNoiseScore(float);
+    void setFoodScore(float);
+    void setMaintenanceScore(float);
+    void setLivingScore(float);
+    void setEquipmentScore(float);
+    void setStimuliScore(float);
+    void setAgeScore(float);
+    void setGenderScore(float);
+>>>>>>> master
 private:
     int m_id;
     Animal* animal;
@@ -38,7 +52,11 @@ private:
     float sleepScore;
     float noiseScore;
     float foodScore;
+<<<<<<< HEAD
     float maintainanceScore;
+=======
+    float maintenanceScore;
+>>>>>>> master
     float livingCondScore;
     float equipmentScore;
     float stimuliScore;
