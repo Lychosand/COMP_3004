@@ -108,13 +108,3 @@ int Animal::getAge(){
     return age;
 }
 
-
-/*void Animal::createAnimal(string n, string g, string s,string b, string hT, string hC, int a){
-  name = n;
-  gender = g;
-  species = s;
-  breed = b;
-  hairType = hT;
-  HairColour = hC;
-  age = a;
-}*/

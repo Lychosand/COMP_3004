@@ -65,11 +65,7 @@ font: 75 28pt &quot;FreeSerif&quot;;
      </rect>
     </property>
     <property name="currentIndex">
-<<<<<<< HEAD
      <number>5</number>
-=======
-     <number>1</number>
->>>>>>> master
     </property>
     <widget class="QWidget" name="page">
      <widget class="QFrame" name="login_frame">
@@ -175,7 +171,6 @@ font: 75 28pt &quot;FreeSerif&quot;;
        </property>
       </widget>
      </widget>
-<<<<<<< HEAD
     </widget>
     <widget class="QWidget" name="page_2">
      <widget class="QFrame" name="staff_frame">
@@ -521,353 +516,6 @@ color: rgb(255,255,255);</string>
       </widget>
      </widget>
     </widget>
-=======
-    </widget>
-    <widget class="QWidget" name="page_2">
-     <widget class="QFrame" name="staff_frame">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>920</width>
-        <height>600</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(255,255,255);
-background-color: rgb(32,34,37);</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QLabel" name="staff_title">
-       <property name="geometry">
-        <rect>
-         <x>330</x>
-         <y>-50</y>
-         <width>441</width>
-         <height>171</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Staff Admin Form</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="view_button">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>10</y>
-         <width>110</width>
-         <height>110</height>
-        </rect>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rbg(54,57,65);
-border-radius: 20px;
-border: 1px solid white;
-color: rgb(255,255,255);</string>
-       </property>
-       <property name="text">
-        <string>View Animals</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="add_button">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>370</y>
-         <width>110</width>
-         <height>110</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rbg(54,57,65);
-border-radius: 20px;
-border: 1px solid white;
-color: rgb(255,255,255);</string>
-       </property>
-       <property name="text">
-        <string>Add Animal</string>
-       </property>
-      </widget>
-      <widget class="QFrame" name="table_frame">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>329</y>
-         <width>770</width>
-         <height>491</height>
-        </rect>
-       </property>
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <widget class="QTableWidget" name="view_table">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>0</y>
-          <width>741</width>
-          <height>490</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(255,255,255);
-border-radius: 0px;
-color: rgb(0, 0, 0);</string>
-        </property>
-        <attribute name="horizontalHeaderDefaultSectionSize">
-         <number>120</number>
-        </attribute>
-        <column>
-         <property name="text">
-          <string>Name</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Gender</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Age</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Species</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Breed</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Hair Type</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Hair Colour</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Aggressiveness</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Hyperactivity</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Sleep Schedule</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Noise Production</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Appetite</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Maintainence Req.</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Outdoor Needs</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Space Required</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Equipment Needed</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Child Friendly</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Animal Friendly</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Excitability</string>
-         </property>
-        </column>
-       </widget>
-      </widget>
-      <widget class="QPushButton" name="view_client">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>120</y>
-         <width>110</width>
-         <height>110</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rbg(54,57,65);
-border-radius: 20px;
-border: 1px solid white;
-color: rgb(255,255,255);</string>
-       </property>
-       <property name="text">
-        <string>View Clients</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="add_client">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>480</y>
-         <width>110</width>
-         <height>110</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rbg(54,57,65);
-border-radius: 20px;
-border: 1px solid white;
-color: rgb(255,255,255);</string>
-       </property>
-       <property name="text">
-        <string>Add Client</string>
-       </property>
-      </widget>
-      <widget class="QFrame" name="table_frame_2">
-       <property name="geometry">
-        <rect>
-         <x>290</x>
-         <y>130</y>
-         <width>770</width>
-         <height>490</height>
-        </rect>
-       </property>
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <widget class="QTableWidget" name="view_table_3">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>770</width>
-          <height>490</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(255,255,255);
-border-radius: 0px;
-color: rgb(0, 0, 0);</string>
-        </property>
-        <attribute name="horizontalHeaderDefaultSectionSize">
-         <number>110</number>
-        </attribute>
-        <column>
-         <property name="text">
-          <string>Name</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Username</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Password</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Phone Number</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Address</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Postal Code</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Province</string>
-         </property>
-        </column>
-       </widget>
-      </widget>
-      <widget class="QLabel" name="dblCLickLabel">
-       <property name="geometry">
-        <rect>
-         <x>220</x>
-         <y>50</y>
-         <width>481</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>To edit an animal simply double click on the animal you wish to change.</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="runACM">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>229</y>
-         <width>110</width>
-         <height>141</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rbg(54,57,65);
-border-radius: 20px;
-border: 1px solid white;
-color: rgb(255,255,255);</string>
-       </property>
-       <property name="text">
-        <string>Run ACM</string>
-       </property>
-      </widget>
-     </widget>
-    </widget>
->>>>>>> master
     <widget class="QWidget" name="page_3">
      <widget class="QFrame" name="staff_frame_2">
       <property name="geometry">
@@ -906,11 +554,7 @@ background-color: rgb(32,34,37);
        <property name="geometry">
         <rect>
          <x>10</x>
-<<<<<<< HEAD
          <y>10</y>
-=======
-         <y>60</y>
->>>>>>> master
          <width>110</width>
          <height>110</height>
         </rect>
@@ -1096,11 +740,7 @@ color: rgb(255,255,255);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-<<<<<<< HEAD
          <y>370</y>
-=======
-         <y>300</y>
->>>>>>> master
          <width>110</width>
          <height>110</height>
         </rect>
@@ -1119,11 +759,7 @@ color: rgb(255,255,255);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-<<<<<<< HEAD
          <y>130</y>
-=======
-         <y>180</y>
->>>>>>> master
          <width>110</width>
          <height>110</height>
         </rect>
@@ -1142,11 +778,7 @@ color: rgb(255,255,255);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-<<<<<<< HEAD
          <y>490</y>
-=======
-         <y>420</y>
->>>>>>> master
          <width>110</width>
          <height>110</height>
         </rect>
@@ -2513,7 +2145,6 @@ background-color: rgb(32,34,37);</string>
         </widget>
        </widget>
       </widget>
-<<<<<<< HEAD
       <widget class="QPushButton" name="run_acm2">
        <property name="geometry">
         <rect>
@@ -2533,8 +2164,6 @@ color: rgb(255,255,255);</string>
         <string>Run ACM</string>
        </property>
       </widget>
-=======
->>>>>>> master
      </widget>
     </widget>
     <widget class="QWidget" name="page_4">
@@ -3166,11 +2795,7 @@ color: rgb(255,255,255);</string>
       <property name="geometry">
        <rect>
         <x>0</x>
-<<<<<<< HEAD
         <y>130</y>
-=======
-        <y>180</y>
->>>>>>> master
         <width>110</width>
         <height>110</height>
        </rect>
@@ -3362,11 +2987,7 @@ color: rgb(255,255,255);</string>
       <property name="geometry">
        <rect>
         <x>0</x>
-<<<<<<< HEAD
         <y>490</y>
-=======
-        <y>420</y>
->>>>>>> master
         <width>110</width>
         <height>110</height>
        </rect>
@@ -3385,11 +3006,7 @@ color: rgb(255,255,255);</string>
       <property name="geometry">
        <rect>
         <x>0</x>
-<<<<<<< HEAD
         <y>10</y>
-=======
-        <y>60</y>
->>>>>>> master
         <width>110</width>
         <height>110</height>
        </rect>
@@ -3411,11 +3028,7 @@ color: rgb(255,255,255);</string>
       <property name="geometry">
        <rect>
         <x>0</x>
-<<<<<<< HEAD
         <y>370</y>
-=======
-        <y>300</y>
->>>>>>> master
         <width>110</width>
         <height>110</height>
        </rect>
@@ -3456,7 +3069,6 @@ color: rgb(255,255,255);</string>
        <string/>
       </property>
      </widget>
-<<<<<<< HEAD
      <widget class="QPushButton" name="run_acm">
       <property name="geometry">
        <rect>
@@ -3914,8 +3526,6 @@ color: rgb(255,255,255);</string>
        </property>
       </widget>
      </widget>
-=======
->>>>>>> master
     </widget>
     <widget class="QWidget" name="page_5">
      <widget class="QFrame" name="client_frame">

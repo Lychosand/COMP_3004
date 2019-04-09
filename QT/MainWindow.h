@@ -56,9 +56,6 @@ private slots:
     void on_submit_2_clicked();
     void on_ClientViewAnimalProfile_clicked();
 
-
-<<<<<<< HEAD
-
     void on_view_table_cellDoubleClicked(int row, int column);
 
     void on_view_button_3_clicked();
@@ -86,24 +83,6 @@ private slots:
     //acm view match
     void on_acm_table_cellDoubleClicked(int row, int column);
 
-
-=======
-
-    void on_view_table_cellDoubleClicked(int row, int column);
-
-    void on_view_button_3_clicked();
-
-    void on_view_client_3_clicked();
-
-    void on_add_button_3_clicked();
-
-    void on_add_client_3_clicked();
-
-    void on_submit_3_clicked();
-
-    void on_runACM_clicked();
->>>>>>> master
-
 private:
     Ui::MainWindow *ui;
     void ConnectDatabase();
@@ -118,10 +97,7 @@ private:
     void show_clients();
     void setupEditClient(QString);
     void EditAnimal(int);
-<<<<<<< HEAD
     void runACM();
-=======
->>>>>>> master
 
     Array list;
     ClientArray clientList;

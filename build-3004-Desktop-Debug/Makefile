@@ -441,11 +441,8 @@ moc_MainWindow.cpp: ../QT/Animal.h \
 		../QT/Array.h \
 		../QT/Client.h \
 		../QT/ClientArray.h \
-<<<<<<< HEAD
-=======
 		../QT/Match.h \
 		../QT/ACM.h \
->>>>>>> master
 		../QT/MainWindow.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
@@ -484,13 +481,9 @@ Main.o: ../QT/Main.cpp ../QT/MainWindow.h \
 		../QT/Animal.h \
 		../QT/Array.h \
 		../QT/Client.h \
-<<<<<<< HEAD
-		../QT/ClientArray.h
-=======
 		../QT/ClientArray.h \
 		../QT/Match.h \
 		../QT/ACM.h
->>>>>>> master
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Main.o ../QT/Main.cpp
 
 MainWindow.o: ../QT/MainWindow.cpp ../QT/MainWindow.h \
@@ -498,13 +491,9 @@ MainWindow.o: ../QT/MainWindow.cpp ../QT/MainWindow.h \
 		../QT/Array.h \
 		../QT/Client.h \
 		../QT/ClientArray.h \
-<<<<<<< HEAD
-		ui_MainWindow.h
-=======
 		../QT/Match.h \
 		../QT/ACM.h \
-		../QT/ui_MainWindow.h
->>>>>>> master
+		ui_MainWindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainWindow.o ../QT/MainWindow.cpp
 
 ClientArray.o: ../QT/ClientArray.cpp ../QT/ClientArray.h \

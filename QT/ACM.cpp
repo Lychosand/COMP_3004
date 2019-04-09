@@ -5,12 +5,6 @@
 #include <time.h>
 #include <algorithm>
 #include <QMessageBox>
-<<<<<<< HEAD
-
-using namespace std;
-
-#include "ACM.h"
-=======
 #include <QString>
 #include <QDebug>
 #include <QSqlQuery>
@@ -23,7 +17,6 @@ using namespace std;
 
 #include "ACM.h"
 int highestSum = 0;
->>>>>>> master
 
 ACM::ACM(){
 }
@@ -36,31 +29,15 @@ bool sortFn(Match &m1, Match &m2){
 }
 
 void ACM::compute(Array animalList, ClientArray clientList, vector<Match> &set){
-<<<<<<< HEAD
-    sortedSet.clear();
-    set.clear();
-    finalSet.clear();
-    time_t start = time(0);
-
-    initSet(set, animalList, clientList);
-
-    //dealBreakers(set); //the two functions you need to implement
-    //scoring(set);
-=======
-    //animal_db.setDatabaseName("../SQL_Database/3004.db");
-
     V2D temp(clientList.getNumClients(), V1D(animalList.getNumAnimal()));
     V2D matrix(0, V1D(0));
 
     V1D clients(0);
     V1D animals(0);
 
-    //matches = temp;
-
     sortedSet.clear();
     set.clear();
     finalSet.clear();
-    //time_t start = time(0);
 
     initSet(set, animalList, clientList);
 
@@ -76,8 +53,6 @@ void ACM::compute(Array animalList, ClientArray clientList, vector<Match> &set){
     }
 
     /*
->>>>>>> master
-
     testVals(set);//insert testing values, not necessary once you implement the scoring
 
     sort(set.begin(), set.end(), sortFn);
@@ -96,21 +71,14 @@ void ACM::compute(Array animalList, ClientArray clientList, vector<Match> &set){
     time_t end = time(0);
     double timeSpent = difftime(end, start);
     qDebug() << "Time Spent: " << timeSpent;
-<<<<<<< HEAD
-=======
     */
->>>>>>> master
 }
 
 void ACM::initSet(vector<Match> &matchVec, Array aList, ClientArray cList){
     QString s, s2;
     int k = 0;
     for(int i = 0; i < aList.getNumAnimal(); i++){
-<<<<<<< HEAD
-        for(int j = 0; j < cList.getNumClients(); j++){        
-=======
         for(int j = 0; j < cList.getNumClients(); j++){
->>>>>>> master
             Match m(aList.getAnimalAt(i), cList.getClientAt(j), k);
             matchVec.push_back(m);
             k++;
@@ -118,20 +86,11 @@ void ACM::initSet(vector<Match> &matchVec, Array aList, ClientArray cList){
     }
 }
 
-<<<<<<< HEAD
-void ACM::dealBreakers(vector<Match> &set){
-=======
 bool ACM::dealBreakers(vector<Match> &set, int i, int* pref){
->>>>>>> master
     /*Input:set of all matches
      *if a mtach breaks a dealbreaker rule do something like set.erase(set.begin()+i);
      *Output: reduced set of matches
      */
-<<<<<<< HEAD
-}
-void ACM::scoring(vector<Match> &set){
-=======
-
     //Switch statement handles checking if the client is looking for a specific animal
     switch(pref[0]){
         case 0: //cout << "Any" <<  " vs " << set.at(i).getAnimal()->getSpecies() << endl;
@@ -480,7 +439,6 @@ float ACM::equipmentRule(vector<Match> &set, int i, int* pref) {
     return equipment_diff;
 }
 
-
 //Routine handling external stimuli
 float ACM::stimuliRule(vector<Match> &set, int i, int* pref) {
     float stimuli_diff = 0;
@@ -502,7 +460,6 @@ float ACM::stimuliRule(vector<Match> &set, int i, int* pref) {
 
     return stimuli_diff;
 }
-
 
 //Routine handling age rule
 float ACM::ageRule(vector<Match> &set, int i, int* pref) {
@@ -535,15 +492,11 @@ float ACM::genderRule(vector<Match> &set, int i, int* pref) {
 }
 
 void ACM::scoring(vector<Match> &set, V2D &matrix){
->>>>>>> master
     /*Input: reduced set of matches
      *set score for each rule of each match and total the scores par match(there is attributes for a match object to hold
      * all this info
      *Output: set of matches with score attributes set
      */
-<<<<<<< HEAD
-=======
-
     int *pref;
 
     int client_inc = 0;
@@ -621,7 +574,6 @@ void ACM::scoring(vector<Match> &set, V2D &matrix){
             matrix[animal_inc++][client_inc] = total;
         }
     }
->>>>>>> master
 }
 
 void ACM::testVals(vector<Match> &set){
@@ -778,10 +730,6 @@ void ACM::checkDiscarded(Match m, vector<Match> vec, vector<Match> lockedInVec, 
     }
 }
 
-<<<<<<< HEAD
-
-
-=======
 //Function to print out solutions
 void ACM::PrintVector(const V2D &v, int sum) {
 
@@ -1102,7 +1050,6 @@ void ACM::NRooks(V2D& matches, V1D& clients, V1D& animals, V2D& binary)
 
     return;
 }
->>>>>>> master
 
 
 

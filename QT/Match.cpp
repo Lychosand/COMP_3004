@@ -15,11 +15,7 @@ Match::Match(Animal *a, Client *c, int i){
     sleepScore = 0.0;
     noiseScore = 0.0;
     foodScore = 0.0;
-<<<<<<< HEAD
-    maintainanceScore = 0.0;
-=======
     maintenanceScore = 0.0;
->>>>>>> master
     livingCondScore = 0.0;
     equipmentScore = 0.0;
     stimuliScore = 0.0;
@@ -40,8 +36,7 @@ int Match::getId(){
 void Match::setOverallScore(float s){
     overallScore = s;
 }
-<<<<<<< HEAD
-=======
+
 void Match::setAggressionScore(float s) {
     aggressionScore = s;
 }
@@ -75,7 +70,6 @@ void Match::setAgeScore(float s) {
 void Match::setGenderScore(float s) {
     genderScore = s;
 }
->>>>>>> master
 
 Animal* Match::getAnimal(){
     return animal;
@@ -110,11 +104,7 @@ float Match::getFoodScore(){
 }
 
 float Match::getMaintainanceScore(){
-<<<<<<< HEAD
-    return maintainanceScore;
-=======
     return maintenanceScore;
->>>>>>> master
 }
 
 float Match::getLivingCondScore(){

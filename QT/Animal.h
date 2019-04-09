@@ -29,16 +29,9 @@ class Animal
     int getId();
     int getAge();
 
-
-
   private:
     string name,gender,species,breed,hairType,HairColour,aggressiveness,hyperactivity,sleep,noise,appetite,maintainance,outside,space,child,animal,equipment,excitability;
     int age, id;
-
-
-
-
-
 };
 
 #endif
