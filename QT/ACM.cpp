@@ -256,15 +256,15 @@ float ACM::sleepRule(vector<Match> &set, int i, int* pref) {
     }
 
     if(sleep_diff < 0) {
-        sleep_diff = (0.033 + (sleep_diff * 0.033));
+        sleep_diff = (0.045 + (sleep_diff * 0.045));
     }else {
-        sleep_diff = 0.033;
+        sleep_diff = 0.045;
     }
 
     if(maintenance_diff < 0) {
-        maintenance_diff = (0.033 + (sleep_diff * 0.033));
+        maintenance_diff = (0.045 + (sleep_diff * 0.045));
     }else {
-        maintenance_diff = 0.033;
+        maintenance_diff = 0.045;
     }
 
     return sleep_diff + maintenance_diff;
@@ -311,15 +311,15 @@ float ACM::noiseRule(vector<Match> &set, int i, int* pref) {
     }
 
     if(hyper_diff < 0) {
-        hyper_diff = 0.05 + (0.05 * noise_diff);
+        hyper_diff = 0.045 + (0.045 * noise_diff);
     }else {
-        hyper_diff = 0.05;
+        hyper_diff = 0.045;
     }
 
     if(noise_diff < 0) {
-        noise_diff = 0.05 + (0.05 * noise_diff);
+        noise_diff = 0.045 + (0.045 * noise_diff);
     }else {
-        noise_diff = 0.05;
+        noise_diff = 0.045;
     }
 
     return hyper_diff + noise_diff;
@@ -339,9 +339,9 @@ float ACM::foodRule(vector<Match> &set, int i, int* pref) {
     }
 
     if(food_diff < 0) {
-        food_diff = (0.06 + (0.06 * food_diff));
+        food_diff = (0.09 + (0.09 * food_diff));
     }else {
-        food_diff = 0.06;
+        food_diff = 0.09;
     }
 
     return food_diff;
@@ -364,9 +364,9 @@ float ACM::attentionRule(vector<Match> &set, int i, int* pref) {
     }
 
     if(maintenance_diff < 0) {
-        maintenance_diff = 0.06 + (maintenance_diff * 0.12);
+        maintenance_diff = 0.09 + (maintenance_diff * 0.09);
     }else {
-        maintenance_diff = 0.06;
+        maintenance_diff = 0.09;
     }
 
     return maintenance_diff;
@@ -400,15 +400,15 @@ float ACM::houseRule(vector<Match> &set, int i, int* pref) {
     }
 
     if(space_diff < 0) {
-        space_diff = 0.05 + (0.05 * space_diff);
+        space_diff = 0.045 + (0.045 * space_diff);
     }else {
-        space_diff = 0.05;
+        space_diff = 0.045;
     }
 
     if(outside_diff < 0) {
-        outside_diff = 0.05 + (0.05 * outside_diff);
+        outside_diff = 0.045 + (0.045 * outside_diff);
     }else {
-        outside_diff = 0.05;
+        outside_diff = 0.045;
     }
 
     return space_diff + outside_diff;
@@ -431,9 +431,9 @@ float ACM::equipmentRule(vector<Match> &set, int i, int* pref) {
     }
 
     if(equipment_diff < 0) {
-        equipment_diff = (0.066 + (0.066 * equipment_diff));
+        equipment_diff = (0.09 + (0.09 * equipment_diff));
     }else {
-        equipment_diff = 0.066;
+        equipment_diff = 0.09;
     }
 
     return equipment_diff;
@@ -453,9 +453,9 @@ float ACM::stimuliRule(vector<Match> &set, int i, int* pref) {
     }
 
     if(stimuli_diff < 0) {
-        stimuli_diff = (0.066 + (0.066 * stimuli_diff));
+        stimuli_diff = (0.0825 + (0.0825 * stimuli_diff));
     }else {
-        stimuli_diff = 0.066;
+        stimuli_diff = 0.0825;
     }
 
     return stimuli_diff;
@@ -465,11 +465,11 @@ float ACM::stimuliRule(vector<Match> &set, int i, int* pref) {
 float ACM::ageRule(vector<Match> &set, int i, int* pref) {
 
     if(set.at(i).getAnimal()->getAge() <= 3 && pref[12] == 1) {
-        return 0.066;
+        return 0.0825;
     }else if((set.at(i).getAnimal()->getAge() > 3) && (set.at(i).getAnimal()->getAge() < 7) && (pref[12] == 2)) {
-        return 0.066;
+        return 0.0825;
     }else if(set.at(i).getAnimal()->getAge() > 7 && pref[12] == 3) {
-        return 0.066;
+        return 0.0825;
     }
 
     return 0;
@@ -480,12 +480,12 @@ float ACM::genderRule(vector<Match> &set, int i, int* pref) {
     float client_gender = pref[13];
 
     if(client_gender == 0)
-        return 0.066;
+        return 0.0825;
 
     if(client_gender == 1 && set.at(i).getAnimal()->getGender() == "Male") {
         return 0.066;
     }else if(client_gender == 2 && set.at(i).getAnimal()->getGender() == "Female") {
-        return 0.066;
+        return 0.0825;
     }
 
     return 0;
@@ -785,9 +785,9 @@ bool ACM::RecursiveNRooks(V2D &binary, V2D &solution, V2D &weights, V2D &optimal
 
     auto duration = chrono::duration_cast<ms>(clock::now() - before);
 
-    //if(duration.count()/1000.0 > 60) {
-    //    return false;
-    //}
+    if(duration.count()/1000.0 > 45) {
+        return false;
+    }
     if(col == (int)binary.size()) {
         CheckOptimal(optimal, solution, sum);
         PrintVector(solution, sum);
@@ -968,7 +968,7 @@ restricted placements */
 void ACM::CreateMatrix(V2D &v, V2D &target, V1D &clients, V1D &animals) {
     for(unsigned i=0; i < v.size(); i++) {
         for(unsigned j=0; j < v[i].size(); j++) {
-            if(v[i][j] < 78) {
+            if(v[i][j] < 87) {
                 target[i][j] = 0;
             }else {
                 target[i][j] = 1;
@@ -1026,7 +1026,7 @@ void ACM::NRooks(V2D& matches, V1D& clients, V1D& animals, V2D& binary)
             cout << "------HERE------" << endl;
             auto duration = chrono::duration_cast<ms>(clock::now() - before);
 
-            if(duration.count() / 1000.0 > 60) {
+            if(duration.count() / 1000.0 > 25) {
                 cout << "Shrinking Matrix" << endl;
                 ShrinkMatrix(matrix, solutions, weights, optimalSet, clients, animals);
                 N = (int)matrix[0].size();
